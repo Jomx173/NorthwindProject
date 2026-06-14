@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/1.Presentation/">
+    <Project Path="NorthwinAdmin/NorthwinAdmin.csproj" Id="f5fef982-bcc1-4362-a0df-f660cbe96c5b" />
+    <Project Path="NorthwindAdmin/NorthwindAdmin.csproj" Id="7fa9a956-5d1e-40b2-9aeb-3cfa2c3da34c" />
+  </Folder>
+  <Folder Name="/2.Domain/">
+    <Project Path="Domain/Domain.csproj" />
+  </Folder>
+  <Folder Name="/3.Data access/">
+    <Project Path="Data access/DataAccess.csproj" />
+  </Folder>
+</Solution>
