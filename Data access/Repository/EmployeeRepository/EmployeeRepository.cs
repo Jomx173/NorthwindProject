@@ -1,64 +1,61 @@
 ﻿using Data_access.Context;
 using Data_access.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Domain.Models.DTO;
+using Domain.Models.Intefaces;
+using Microsoft.EntityFrameworkCore;
 
-namespace Data_access.Repository.EmployeeRepository
+namespace DataAccess.Repository.EmployeeRepository
 {
-    public class EmployeeRepository
+    public class EmployeeRepository : IEmployees
     {
-
         private readonly NorthWindContext _context;
 
-        // El constructor recibe el contexto de la base de datos
         public EmployeeRepository(NorthWindContext context)
         {
             _context = context;
         }
 
-        // 1. Método para obtener todos los empleados (Consultar)
-        public List<Employee> GetAllEmployees()
+        
+        public async Task<List<EmployeesDto>> GetEmployees()
         {
-            return _context.Employees.ToList();
-        }
+            
+            var listaEmpleados = await _context.Employees.ToListAsync();
 
-        // 2. Método para registrar un nuevo empleado
-        public bool AddEmployee(Employee employee)
-        {
-            try
+            
+            return listaEmpleados.Select(e => new EmployeesDto
             {
-                _context.Employees.Add(employee);
-                _context.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        // 3. Método para modificar un empleado existente
-        public bool UpdateEmployee(Employee employee)
-        {
-            try
-            {
-                _context.Employees.Update(employee);
-                _context.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+                EmployeesID = e.EmployeeId.ToString(),
+                LastName = e.LastName,
+                FirstName = e.FirstName,
+                HomePhone = e.HomePhone,
+                Address = e.Address
+            }).ToList();
         }
 
         
-        public List<Order> GetOrdersByEmployee(int employeeId)
+        public async Task<EmployeesDto> GetEmployeesById(string EmployeesID)
         {
-            
-            return _context.Orders.Where(o => o.EmployeeId == employeeId).ToList();
+            int id = int.Parse(EmployeesID);
+            var e = await _context.Employees.FindAsync(id);
+
+            if (e == null) return null;
+
+            return new EmployeesDto
+            {
+                EmployeesID = e.EmployeeId.ToString(),
+                LastName = e.LastName,
+                FirstName = e.FirstName,
+                HomePhone = e.HomePhone,
+                Address = e.Address
+            };
         }
 
+        
+        public async Task<List<Order>> GetOrdersByEmployee(int employeeId)
+        {
+            return await _context.Orders
+                .Where(o => o.EmployeeId == employeeId)
+                .ToListAsync();
+        }
     }
 }
