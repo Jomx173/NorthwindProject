@@ -2,7 +2,7 @@
 using Domain.Models.Intefaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Domain.Services
 {
@@ -10,7 +10,6 @@ namespace Domain.Services
     {
         private readonly IEmployees _employees;
 
-        
         public EmployeesServices(IEmployees employees)
         {
             _employees = employees;
@@ -23,10 +22,25 @@ namespace Domain.Services
         }
 
         
-        public async Task<EmployeesDto> GetEmployeesById(string EmployeesID)
+        public async Task<EmployeesDto> GetEmployeesById(string employesID)
         {
-            return await _employees.GetEmployeesById(EmployeesID);
+            return await _employees.GetEmployeesById(employesID);
         }
 
+        
+        public async Task<List<OrderDto>> GetOrdersByEmployee(string employeeId)
+        {
+            if (string.IsNullOrEmpty(employeeId))
+            {
+                return new List<OrderDto>();
+            }
+
+            if (int.TryParse(employeeId, out int id))
+            {
+                return await _employees.GetOrdersByEmployee(id);
+            }
+
+            return new List<OrderDto>();
+        }
     }
 }

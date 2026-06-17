@@ -12,13 +12,16 @@ namespace Data_access.Service
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddDataAccess( this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddDataAccess(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<NorthWindContext>(opt => opt.UseSqlServer(config.GetConnectionString("NorthwindDatabase")));
             services.AddScoped<ICustomer, CustomerRepository>();
+
+            
+            services.AddScoped<IEmployees, DataAccess.Repository.EmployeeRepository.EmployeeRepository>();
+
             return services;
         }
-
 
     }
 }

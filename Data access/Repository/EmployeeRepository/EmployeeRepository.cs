@@ -1,8 +1,11 @@
 ﻿using Data_access.Context;
-using Data_access.Models;
 using Domain.Models.DTO;
 using Domain.Models.Intefaces;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DataAccess.Repository.EmployeeRepository
 {
@@ -18,11 +21,9 @@ namespace DataAccess.Repository.EmployeeRepository
         
         public async Task<List<EmployeesDto>> GetEmployees()
         {
-            
-            var listaEmpleados = await _context.Employees.ToListAsync();
+            var lista = await _context.Employees.ToListAsync();
 
-            
-            return listaEmpleados.Select(e => new EmployeesDto
+            return lista.Select(e => new EmployeesDto
             {
                 EmployeesID = e.EmployeeId.ToString(),
                 LastName = e.LastName,
@@ -32,30 +33,44 @@ namespace DataAccess.Repository.EmployeeRepository
             }).ToList();
         }
 
-        
-        public async Task<EmployeesDto> GetEmployeesById(string EmployeesID)
+       
+        public async Task<EmployeesDto> GetEmployeesById(string EmployesID)
         {
-            int id = int.Parse(EmployeesID);
-            var e = await _context.Employees.FindAsync(id);
-
-            if (e == null) return null;
-
-            return new EmployeesDto
+            if (int.TryParse(EmployesID, out int id))
             {
-                EmployeesID = e.EmployeeId.ToString(),
-                LastName = e.LastName,
-                FirstName = e.FirstName,
-                HomePhone = e.HomePhone,
-                Address = e.Address
-            };
+                var e = await _context.Employees.FindAsync(id);
+                if (e == null) return null;
+
+                return new EmployeesDto
+                {
+                    EmployeesID = e.EmployeeId.ToString(),
+                    LastName = e.LastName,
+                    FirstName = e.FirstName,
+                    HomePhone = e.HomePhone,
+                    Address = e.Address
+                };
+            }
+            return null;
         }
 
         
-        public async Task<List<Order>> GetOrdersByEmployee(int employeeId)
+        public async Task<List<OrderDto>> GetOrdersByEmployee(int id)
         {
-            return await _context.Orders
-                .Where(o => o.EmployeeId == employeeId)
-                .ToListAsync();
+           
+            var pedidosDb = await _context.Orders
+                                          .Where(o => o.EmployeeId == id)
+                                          .ToListAsync();
+
+            
+            return pedidosDb.Select(o => new OrderDto
+            {
+                OrderId = o.OrderId,
+                CustomerId = o.CustomerId,
+                EmployeeId = o.EmployeeId,
+                OrderDate = o.OrderDate,
+                ShipName = o.ShipName,
+                ShipCity = o.ShipCity
+            }).ToList();
         }
     }
 }
