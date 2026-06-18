@@ -16,7 +16,7 @@ namespace NorthwinAdmin
         {
             InitializeComponent();
             _employeesServices = employeesServices;
-
+            EstilizarTablas();
 
             dgvEmpleados.CellClick += dgvEmpleados_CellClick;
 
@@ -72,6 +72,57 @@ namespace NorthwinAdmin
                     MessageBox.Show($"Error al cargar los pedidos de este empleado: {ex.Message}",
                                     "Error de Detalle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+        private void EstilizarTablas()
+        {
+            
+            System.Drawing.Color azulOscuro = System.Drawing.Color.FromArgb(31, 41, 112);
+            
+            System.Drawing.Color azulSeleccion = System.Drawing.Color.FromArgb(0, 122, 204);
+           
+            System.Drawing.Color grisClaro = System.Drawing.Color.FromArgb(245, 247, 250);
+
+            DataGridView[] tablas = { dgvEmpleados, dgvPedidos };
+
+            foreach (var dgv in tablas)
+            {
+                if (dgv == null) continue;
+
+                
+                dgv.BackgroundColor = System.Drawing.Color.White;
+                dgv.BorderStyle = BorderStyle.None;
+                dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgv.MultiSelect = false;
+                dgv.AllowUserToResizeRows = false;
+                dgv.RowHeadersVisible = false; 
+
+               
+                dgv.EnableHeadersVisualStyles = false;
+
+               
+                dgv.ColumnHeadersHeight = 40;
+                dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                dgv.ColumnHeadersDefaultCellStyle.BackColor = azulOscuro;
+                dgv.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+                dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                
+                dgv.RowTemplate.Height = 35;
+                dgv.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+                dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
+                dgv.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+                dgv.DefaultCellStyle.SelectionBackColor = azulSeleccion;
+                dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+                dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                
+                dgv.AlternatingRowsDefaultCellStyle.BackColor = grisClaro;
+
+                
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 

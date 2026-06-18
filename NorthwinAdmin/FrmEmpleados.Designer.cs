@@ -233,7 +233,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = SystemColors.ActiveCaption;
+            panel3.BackColor = Color.Navy;
             panel3.Location = new Point(-4, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(268, 887);
