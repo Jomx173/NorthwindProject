@@ -34,7 +34,7 @@ namespace DataAccess.Repository.EmployeeRepository
             }).ToList();
         }
 
-
+        
         public async Task<EmployeesDto> GetEmployeesById(string EmployesID)
         {
             if (int.TryParse(EmployesID, out int id))
@@ -110,7 +110,7 @@ public async Task<bool> AddEmployee(EmployeesDto employeeDto)
                     var empleadoDb = await _context.Employees.FindAsync(id);
                     if (empleadoDb == null) return false;
 
-                    // Actualizamos los campos con los nuevos valores del DTO
+                    
                     empleadoDb.FirstName = employeeDto.FirstName;
                     empleadoDb.LastName = employeeDto.LastName;
                     empleadoDb.HomePhone = employeeDto.HomePhone;
