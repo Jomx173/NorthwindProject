@@ -15,5 +15,13 @@ namespace Domain.Models.Intefaces
 
         
         Task<List<OrderDto>> GetOrdersByEmployee(int id);
+
+        Task<bool> AddEmployee(EmployeesDto employeeDto);
+
+     
+        Task<bool> UpdateEmployee(EmployeesDto employeeDto);
+
+       
+        Task<bool> ExistsByName(string firstName, string lastName);
     }
 }

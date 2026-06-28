@@ -76,7 +76,7 @@
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(335, 34);
-            txtAddress.TabIndex = 7;
+            txtAddress.TabIndex = 3;
             // 
             // txtHomePhone
             // 
@@ -85,31 +85,31 @@
             txtHomePhone.Multiline = true;
             txtHomePhone.Name = "txtHomePhone";
             txtHomePhone.Size = new Size(335, 34);
-            txtHomePhone.TabIndex = 6;
+            txtHomePhone.TabIndex = 2;
             // 
             // txtFirstName
             // 
             txtFirstName.Font = new Font("Nirmala UI", 10.8F);
-            txtFirstName.Location = new Point(103, 79);
+            txtFirstName.Location = new Point(104, 29);
             txtFirstName.Multiline = true;
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(335, 34);
-            txtFirstName.TabIndex = 5;
+            txtFirstName.TabIndex = 0;
             // 
             // txtLastName
             // 
             txtLastName.Font = new Font("Nirmala UI", 10.8F);
-            txtLastName.Location = new Point(103, 29);
+            txtLastName.Location = new Point(104, 82);
             txtLastName.Multiline = true;
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(335, 34);
-            txtLastName.TabIndex = 4;
+            txtLastName.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 10.8F);
-            label4.Location = new Point(462, 93);
+            label4.Location = new Point(462, 82);
             label4.Name = "label4";
             label4.Size = new Size(89, 25);
             label4.TabIndex = 3;
@@ -163,7 +163,7 @@
             btnModificar.Location = new Point(480, 7);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(409, 40);
-            btnModificar.TabIndex = 1;
+            btnModificar.TabIndex = 5;
             btnModificar.Text = "MODIFICAR";
             btnModificar.UseVisualStyleBackColor = false;
             // 
@@ -174,7 +174,7 @@
             btnAgregar.Location = new Point(21, 7);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(418, 40);
-            btnAgregar.TabIndex = 0;
+            btnAgregar.TabIndex = 4;
             btnAgregar.Text = "AGREGAR";
             btnAgregar.UseVisualStyleBackColor = false;
             // 

@@ -2,6 +2,7 @@
 using Domain.Models.Intefaces;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Domain.Services
@@ -41,6 +42,65 @@ namespace Domain.Services
             }
 
             return new List<OrderDto>();
+        }
+        public async Task<bool> AddEmployee(EmployeesDto employeeDto)
+        {
+           
+            if (string.IsNullOrWhiteSpace(employeeDto.FirstName) || string.IsNullOrWhiteSpace(employeeDto.LastName))
+            {
+                throw new Exception("El Nombre y el Apellido son campos obligatorios.");
+            }
+
+            
+            var patronLetras = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$");
+
+            if (!patronLetras.IsMatch(employeeDto.FirstName))
+            {
+                throw new Exception("El campo 'Nombre' solo puede contener letras y espacios.");
+            }
+
+            if (!patronLetras.IsMatch(employeeDto.LastName))
+            {
+                throw new Exception("El campo 'Apellido' solo puede contener letras y espacios.");
+            }
+
+            bool yaExiste = await _employees.ExistsByName(employeeDto.FirstName.Trim(), employeeDto.LastName.Trim());
+
+            if (yaExiste)
+            {
+                
+                throw new Exception($"Ya existe un empleado registrado con el nombre '{employeeDto.FirstName} {employeeDto.LastName}'.");
+            }
+
+            return await _employees.AddEmployee(employeeDto);
+        }
+
+        public async Task<bool> UpdateEmployee(EmployeesDto employeeDto)
+        {
+            if (string.IsNullOrWhiteSpace(employeeDto.EmployeesID))
+            {
+                throw new Exception("No se puede modificar un empleado sin su ID.");
+            }
+
+            if (string.IsNullOrWhiteSpace(employeeDto.FirstName) || string.IsNullOrWhiteSpace(employeeDto.LastName))
+            {
+                throw new Exception("El Nombre y el Apellido no pueden quedar vacíos al modificar.");
+            }
+
+            
+            var patronLetras = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$");
+
+            if (!patronLetras.IsMatch(employeeDto.FirstName))
+            {
+                throw new Exception("El campo 'Nombre' solo puede contener letras y espacios.");
+            }
+
+            if (!patronLetras.IsMatch(employeeDto.LastName))
+            {
+                throw new Exception("El campo 'Apellido' solo puede contener letras y espacios.");
+            }
+
+            return await _employees.UpdateEmployee(employeeDto);
         }
     }
 }

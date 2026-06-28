@@ -19,6 +19,10 @@ namespace NorthwinAdmin
             EstilizarTablas();
 
             dgvEmpleados.CellClick += dgvEmpleados_CellClick;
+            btnAgregar.Click += btnAgregar_Click;
+            btnModificar.Click += btnModificar_Click;
+            txtFirstName.KeyPress += SoloLetras_KeyPress;
+            txtLastName.KeyPress += SoloLetras_KeyPress;
 
         }
 
@@ -51,6 +55,11 @@ namespace NorthwinAdmin
 
             if (e.RowIndex >= 0)
             {
+                
+                txtFirstName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["FirstName"].Value?.ToString();
+                txtLastName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["LastName"].Value?.ToString();
+                txtHomePhone.Text = dgvEmpleados.Rows[e.RowIndex].Cells["HomePhone"].Value?.ToString();
+                txtAddress.Text = dgvEmpleados.Rows[e.RowIndex].Cells["Address"].Value?.ToString();
                 try
                 {
 
@@ -126,6 +135,102 @@ namespace NorthwinAdmin
             }
         }
 
+      
+        private async void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                var nuevoEmp = new EmployeesDto
+                {
+                 
+                    FirstName = txtFirstName.Text.Trim(),
+                    LastName = txtLastName.Text.Trim(),
+                    HomePhone = txtHomePhone.Text.Trim(),
+                    Address = txtAddress.Text.Trim()
+                };
+
+                bool exito = await _employeesServices.AddEmployee(nuevoEmp);
+
+                if (exito)
+                {
+                    MessageBox.Show("¡Empleado registrado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                    await CargarListaEmpleados(); 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar: {ex.Message}", "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        
+        private async void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvEmpleados.CurrentRow == null)
+                {
+                    MessageBox.Show("Por favor, selecciona un empleado de la lista primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                
+                var idSeleccionado = dgvEmpleados.CurrentRow.Cells["EmployeesID"].Value?.ToString();
+
+                var empModificado = new EmployeesDto
+                {
+                    EmployeesID = idSeleccionado,
+                    FirstName = txtFirstName.Text.Trim(),
+                    LastName = txtLastName.Text.Trim(),
+                    HomePhone = txtHomePhone.Text.Trim(),
+                    Address = txtAddress.Text.Trim()
+                };
+
+                bool exito = await _employeesServices.UpdateEmployee(empModificado);
+
+                if (exito)
+                {
+                    MessageBox.Show("¡Datos del empleado actualizados!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                    await CargarListaEmpleados();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al modificar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+        private void LimpiarCampos()
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtHomePhone.Clear();
+            txtAddress.Clear();
+        }
+
+        private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+                
+                e.Handled = false;
+            }
+           
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+               
+                e.Handled = true;
+            }
+        }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
