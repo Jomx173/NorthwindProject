@@ -29,11 +29,11 @@ namespace NortwindAdmin
                 services.AddScoped<ProductService>();
 
                 // Registrar el formularios
-                services.AddTransient<Form1>();
+                services.AddTransient<FrmProductos>();
 
             }).Build();
 
-            var mainform = host.Services.GetRequiredService<Form1>();
+            var mainform = host.Services.GetRequiredService<FrmProductos>();
             Application.Run(mainform);
         }
     }

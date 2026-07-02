@@ -15,11 +15,15 @@ namespace DataAccess.Extensions
             services.AddDbContext<NorthWindContext>(opt =>
                 opt.UseSqlServer(config.GetConnectionString("NorthwindDatabase")));
 
+            // Repositorios
             services.AddScoped<ICustomer, CustomerRepository>();
             services.AddScoped<IProduct, ProductRepository>();
+            services.AddScoped<ICategory, CategoryRepository>();
 
+            // Servicios
             services.AddScoped<CustomerService>();
             services.AddScoped<ProductService>();
+            services.AddScoped<CategoryService>();
 
             return services;
         }
