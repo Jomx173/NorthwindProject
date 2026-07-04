@@ -46,5 +46,24 @@ namespace DataAccess.Repository
                 ))
                 .ToListAsync();
         }
+
+        public async Task<List<(string Producto, int Cantidad)>> GetProductosMasVendidos()
+        {
+            var datos = await _context.OrderDetails
+                .Include(od => od.Product)
+                .GroupBy(od => od.Product.ProductName)
+                .Select(g => new
+                {
+                    Producto = g.Key,
+                    Cantidad = g.Sum(od => od.Quantity)
+                })
+                .OrderByDescending(x => x.Cantidad)
+                .Take(5)
+                .ToListAsync();
+
+            return datos
+                .Select(x => (x.Producto, x.Cantidad))
+                .ToList();
+        }
     }
 }

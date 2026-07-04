@@ -13,5 +13,7 @@ namespace Domain.Models.Interfaces
     {
         Task<DashboardSummaryDto> GetDashboardSummary();
         Task<List<(string Empleado, decimal TotalVentas)>> GetVentasPorEmpleado();
+
+        Task<List<(string Producto, int Cantidad)>> GetProductosMasVendidos();
     }
 }

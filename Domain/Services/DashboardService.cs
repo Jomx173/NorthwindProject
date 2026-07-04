@@ -26,5 +26,10 @@ namespace Domain.Services
         {
             return await _dashboardRepository.GetVentasPorEmpleado();
         }
+
+        public async Task<List<(string Producto, int Cantidad)>> GetProductosMasVendidos()
+        {
+            return await _dashboardRepository.GetProductosMasVendidos();
+        }
     }
 }
