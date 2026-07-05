@@ -1,0 +1,28 @@
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.runtimeconfig.json
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.csproj.AssemblyReference.cache
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.genruntimeconfig.cache
+C:\Users\susan\source\repos\Proyecto_implementacion\Domain\obj\Debug\net10.0\ref\Domain.dll
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.runtimeconfig.json
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.csproj.AssemblyReference.cache
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\Domain.genruntimeconfig.cache
+C:\Users\kiara\OneDrive\Desktop\Implementación de Sistemas\ProyectoImplementación\Proyecto_implementacion\Domain\obj\Debug\net10.0\ref\Domain.dll

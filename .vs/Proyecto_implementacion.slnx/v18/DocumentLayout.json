@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F5FEF982-BCC1-4362-A0DF-F660CBE96C5B}|NorthwinAdmin\\NorthwinAdmin.csproj|c:\\users\\kiara\\onedrive\\desktop\\implementaci\u00F3n de sistemas\\proyectoimplementaci\u00F3n\\proyecto_implementacion\\northwinadmin\\frmventasempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F5FEF982-BCC1-4362-A0DF-F660CBE96C5B}|NorthwinAdmin\\NorthwinAdmin.csproj|solutionrelative:northwinadmin\\frmventasempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5FEF982-BCC1-4362-A0DF-F660CBE96C5B}|NorthwinAdmin\\NorthwinAdmin.csproj|c:\\users\\kiara\\onedrive\\desktop\\implementaci\u00F3n de sistemas\\proyectoimplementaci\u00F3n\\proyecto_implementacion\\northwinadmin\\frmventasempleados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5FEF982-BCC1-4362-A0DF-F660CBE96C5B}|NorthwinAdmin\\NorthwinAdmin.csproj|solutionrelative:northwinadmin\\frmventasempleados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5FEF982-BCC1-4362-A0DF-F660CBE96C5B}|NorthwinAdmin\\NorthwinAdmin.csproj|c:\\users\\kiara\\onedrive\\desktop\\implementaci\u00F3n de sistemas\\proyectoimplementaci\u00F3n\\proyecto_implementacion\\northwinadmin\\frmventasempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5FEF982-BCC1-4362-A0DF-F660CBE96C5B}|NorthwinAdmin\\NorthwinAdmin.csproj|solutionrelative:northwinadmin\\frmventasempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmVentasEmpleados.cs",
+              "DocumentMoniker": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\NorthwinAdmin\\FrmVentasEmpleados.cs",
+              "RelativeDocumentMoniker": "NorthwinAdmin\\FrmVentasEmpleados.cs",
+              "ToolTip": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\NorthwinAdmin\\FrmVentasEmpleados.cs",
+              "RelativeToolTip": "NorthwinAdmin\\FrmVentasEmpleados.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-05T20:50:15.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmVentasEmpleados.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\NorthwinAdmin\\FrmVentasEmpleados.Designer.cs",
+              "RelativeDocumentMoniker": "NorthwinAdmin\\FrmVentasEmpleados.Designer.cs",
+              "ToolTip": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\NorthwinAdmin\\FrmVentasEmpleados.Designer.cs",
+              "RelativeToolTip": "NorthwinAdmin\\FrmVentasEmpleados.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-05T20:49:49.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmVentasEmpleados.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\NorthwinAdmin\\FrmVentasEmpleados.cs",
+              "RelativeDocumentMoniker": "NorthwinAdmin\\FrmVentasEmpleados.cs",
+              "ToolTip": "C:\\Users\\kiara\\OneDrive\\Desktop\\Implementaci\u00F3n de Sistemas\\ProyectoImplementaci\u00F3n\\Proyecto_implementacion\\NorthwinAdmin\\FrmVentasEmpleados.cs [Dise\u00F1o]",
+              "RelativeToolTip": "NorthwinAdmin\\FrmVentasEmpleados.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-05T20:35:50.322Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
