@@ -40,6 +40,13 @@ namespace NorthwinAdmin
 
                 dgvEmpleados.DataSource = null;
                 dgvEmpleados.DataSource = empleados;
+                if (dgvEmpleados.Columns["EmployeesID"] != null) dgvEmpleados.Columns["EmployeesID"].HeaderText = "ID";
+                if (dgvEmpleados.Columns["FirstName"] != null) dgvEmpleados.Columns["FirstName"].HeaderText = "Nombre";
+                if (dgvEmpleados.Columns["LastName"] != null) dgvEmpleados.Columns["LastName"].HeaderText = "Apellido";
+                if (dgvEmpleados.Columns["HomePhone"] != null) dgvEmpleados.Columns["HomePhone"].HeaderText = "Teléfono";
+                if (dgvEmpleados.Columns["Address"] != null) dgvEmpleados.Columns["Address"].HeaderText = "Dirección";
+
+
                 dgvEmpleados.Refresh();
             }
             catch (Exception ex)
@@ -55,7 +62,7 @@ namespace NorthwinAdmin
 
             if (e.RowIndex >= 0)
             {
-                
+
                 txtFirstName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["FirstName"].Value?.ToString();
                 txtLastName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["LastName"].Value?.ToString();
                 txtHomePhone.Text = dgvEmpleados.Rows[e.RowIndex].Cells["HomePhone"].Value?.ToString();
@@ -73,6 +80,12 @@ namespace NorthwinAdmin
 
                         dgvPedidos.DataSource = null;
                         dgvPedidos.DataSource = pedidos;
+                        if (dgvPedidos.Columns["OrderId"] != null) dgvPedidos.Columns["OrderId"].HeaderText = "N° Orden";
+                        if (dgvPedidos.Columns["CustomerId"] != null) dgvPedidos.Columns["CustomerId"].HeaderText = "Cliente";
+                        if (dgvPedidos.Columns["EmployeeId"] != null) dgvPedidos.Columns["EmployeeId"].HeaderText = "ID Empleado";
+                        if (dgvPedidos.Columns["OrderDate"] != null) dgvPedidos.Columns["OrderDate"].HeaderText = "Fecha Pedido";
+                        if (dgvPedidos.Columns["ShipName"] != null) dgvPedidos.Columns["ShipName"].HeaderText = "Destinatario / Empresa";
+                        if (dgvPedidos.Columns["ShipCity"] != null) dgvPedidos.Columns["ShipCity"].HeaderText = "Ciudad de Destino";
                         dgvPedidos.Refresh();
                     }
                 }
@@ -85,11 +98,11 @@ namespace NorthwinAdmin
         }
         private void EstilizarTablas()
         {
-            
+
             System.Drawing.Color azulOscuro = System.Drawing.Color.FromArgb(31, 41, 112);
-            
+
             System.Drawing.Color azulSeleccion = System.Drawing.Color.FromArgb(0, 122, 204);
-           
+
             System.Drawing.Color grisClaro = System.Drawing.Color.FromArgb(245, 247, 250);
 
             DataGridView[] tablas = { dgvEmpleados, dgvPedidos };
@@ -98,19 +111,19 @@ namespace NorthwinAdmin
             {
                 if (dgv == null) continue;
 
-                
+
                 dgv.BackgroundColor = System.Drawing.Color.White;
                 dgv.BorderStyle = BorderStyle.None;
                 dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
                 dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dgv.MultiSelect = false;
                 dgv.AllowUserToResizeRows = false;
-                dgv.RowHeadersVisible = false; 
+                dgv.RowHeadersVisible = false;
 
-               
+
                 dgv.EnableHeadersVisualStyles = false;
 
-               
+
                 dgv.ColumnHeadersHeight = 40;
                 dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
                 dgv.ColumnHeadersDefaultCellStyle.BackColor = azulOscuro;
@@ -118,7 +131,7 @@ namespace NorthwinAdmin
                 dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
                 dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                
+
                 dgv.RowTemplate.Height = 35;
                 dgv.DefaultCellStyle.BackColor = System.Drawing.Color.White;
                 dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(51, 51, 51);
@@ -127,23 +140,25 @@ namespace NorthwinAdmin
                 dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
                 dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                
+
                 dgv.AlternatingRowsDefaultCellStyle.BackColor = grisClaro;
 
-                
+
                 dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
             }
         }
 
-      
+
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-               
+
                 var nuevoEmp = new EmployeesDto
                 {
-                 
+
                     FirstName = txtFirstName.Text.Trim(),
                     LastName = txtLastName.Text.Trim(),
                     HomePhone = txtHomePhone.Text.Trim(),
@@ -156,7 +171,7 @@ namespace NorthwinAdmin
                 {
                     MessageBox.Show("¡Empleado registrado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
-                    await CargarListaEmpleados(); 
+                    await CargarListaEmpleados();
                 }
             }
             catch (Exception ex)
@@ -165,7 +180,7 @@ namespace NorthwinAdmin
             }
         }
 
-        
+
         private async void btnModificar_Click(object sender, EventArgs e)
         {
             try
@@ -176,7 +191,7 @@ namespace NorthwinAdmin
                     return;
                 }
 
-                
+
                 var idSeleccionado = dgvEmpleados.CurrentRow.Cells["EmployeesID"].Value?.ToString();
 
                 var empModificado = new EmployeesDto
@@ -203,7 +218,7 @@ namespace NorthwinAdmin
             }
         }
 
-        
+
         private void LimpiarCampos()
         {
             txtFirstName.Clear();
@@ -214,26 +229,34 @@ namespace NorthwinAdmin
 
         private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if (char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
             {
-                
+
                 e.Handled = false;
             }
-           
+
             else if (char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
             }
             else
             {
-               
+
                 e.Handled = true;
             }
         }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtHomePhone.Clear();
+            txtAddress.Clear();
         }
     }
 }

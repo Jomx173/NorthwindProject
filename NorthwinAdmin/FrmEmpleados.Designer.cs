@@ -46,6 +46,7 @@
             label6 = new Label();
             label7 = new Label();
             panel3 = new Panel();
+            btnLimpiar = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
@@ -148,6 +149,7 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(btnLimpiar);
             panel2.Controls.Add(btnModificar);
             panel2.Controls.Add(btnAgregar);
             panel2.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -158,22 +160,22 @@
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = SystemColors.GradientActiveCaption;
+            btnModificar.BackColor = Color.LightSkyBlue;
             btnModificar.ForeColor = SystemColors.ButtonHighlight;
-            btnModificar.Location = new Point(480, 7);
+            btnModificar.Location = new Point(322, 7);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(409, 40);
+            btnModificar.Size = new Size(272, 40);
             btnModificar.TabIndex = 5;
             btnModificar.Text = "MODIFICAR";
             btnModificar.UseVisualStyleBackColor = false;
             // 
             // btnAgregar
             // 
-            btnAgregar.BackColor = SystemColors.ActiveCaption;
+            btnAgregar.BackColor = Color.SteelBlue;
             btnAgregar.ForeColor = SystemColors.ControlLightLight;
-            btnAgregar.Location = new Point(21, 7);
+            btnAgregar.Location = new Point(18, 7);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(418, 40);
+            btnAgregar.Size = new Size(274, 40);
             btnAgregar.TabIndex = 4;
             btnAgregar.Text = "AGREGAR";
             btnAgregar.UseVisualStyleBackColor = false;
@@ -240,6 +242,18 @@
             panel3.TabIndex = 13;
             panel3.Paint += panel3_Paint;
             // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = SystemColors.ActiveCaption;
+            btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
+            btnLimpiar.Location = new Point(616, 7);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(272, 40);
+            btnLimpiar.TabIndex = 6;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // FrmEmpleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -285,5 +299,6 @@
         private Label label6;
         private Label label7;
         private Panel panel3;
+        private Button btnLimpiar;
     }
 }
