@@ -84,7 +84,7 @@ namespace NorthwinAdmin
                         if (dgvPedidos.Columns["CustomerId"] != null) dgvPedidos.Columns["CustomerId"].HeaderText = "Cliente";
                         if (dgvPedidos.Columns["EmployeeId"] != null) dgvPedidos.Columns["EmployeeId"].HeaderText = "ID Empleado";
                         if (dgvPedidos.Columns["OrderDate"] != null) dgvPedidos.Columns["OrderDate"].HeaderText = "Fecha Pedido";
-                        if (dgvPedidos.Columns["ShipName"] != null) dgvPedidos.Columns["ShipName"].HeaderText = "Destinatario/Empresa";
+                        if (dgvPedidos.Columns["ShipName"] != null) dgvPedidos.Columns["ShipName"].HeaderText = "Destinatario / Empresa";
                         if (dgvPedidos.Columns["ShipCity"] != null) dgvPedidos.Columns["ShipCity"].HeaderText = "Ciudad de Destino";
                         dgvPedidos.Refresh();
                     }
