@@ -36,8 +36,9 @@ namespace NorthwinAdmin
                 services.AddTransient<FrmEmpleados>();
 
             }).Build();
-            var mainForm = host.Services.GetRequiredService<FrmEmpleados>();
-            Application.Run(mainForm);
+       
+            host.Start();
+            Application.Run(host.Services.GetRequiredService<FrmEmpleados>());
         }
     }
 }
