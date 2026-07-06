@@ -14,9 +14,6 @@ namespace NortwindAdmin
         // Indica si el formulario aún está cargando datos
         private bool _cargando = true;
 
-        // Panel lateral izquierdo (creado por código)
-        private Panel panelIzquierdo;
-
         public FrmProductos(ProductService productService,
                             CategoryService categoryService)
         {
@@ -24,6 +21,7 @@ namespace NortwindAdmin
 
             _productService = productService;
             _categoryService = categoryService;
+
         }
 
 
@@ -169,10 +167,10 @@ namespace NortwindAdmin
 
         private void DarFormatoTabla()
         {
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Font = new Font("Nirmala UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ClientSize = new Size(1132, 678);
+            //AutoScaleDimensions = new SizeF(10F, 25F);
+            //AutoScaleMode = AutoScaleMode.Font;
+            //Font = new Font("Nirmala UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            //ClientSize = new Size(1132, 678);
 
 
 
@@ -254,6 +252,26 @@ namespace NortwindAdmin
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
