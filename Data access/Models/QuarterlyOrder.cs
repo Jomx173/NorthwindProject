@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Data_access.Models;
+namespace DataAccess.Models;
 
 public partial class QuarterlyOrder
 {

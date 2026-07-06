@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data_access.Models;
+using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data_access.Context;
+namespace DataAccess.Context;
 
 public partial class NorthWindContext : DbContext
 {
@@ -22,6 +22,8 @@ public partial class NorthWindContext : DbContext
 
     public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; }
 
+    public virtual DbSet<Contact> Contacts { get; set; }
+
     public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; }
 
     public virtual DbSet<Customer> Customers { get; set; }
@@ -29,6 +31,8 @@ public partial class NorthWindContext : DbContext
     public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; }
 
     public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
+
+    public virtual DbSet<DwEmpleado> DwEmpleados { get; set; }
 
     public virtual DbSet<Employee> Employees { get; set; }
 
@@ -70,12 +74,48 @@ public partial class NorthWindContext : DbContext
 
     public virtual DbSet<Territory> Territories { get; set; }
 
+    public virtual DbSet<VwClientesXempleado> VwClientesXempleados { get; set; }
+
+    public virtual DbSet<VwEjercicio1Per3> VwEjercicio1Per3s { get; set; }
+
+    public virtual DbSet<VwEjercicio2Per3> VwEjercicio2Per3s { get; set; }
+
+    public virtual DbSet<VwEjercicio4Per3> VwEjercicio4Per3s { get; set; }
+
+    public virtual DbSet<VwEjercicio5Per3> VwEjercicio5Per3s { get; set; }
+
+    public virtual DbSet<VwEjercicio6Per3> VwEjercicio6Per3s { get; set; }
+
+    public virtual DbSet<VwEjercicio7Per3> VwEjercicio7Per3s { get; set; }
+
+    public virtual DbSet<VwEjercicio8Per3> VwEjercicio8Per3s { get; set; }
+
+    public virtual DbSet<VwNombrecategoriaproducto> VwNombrecategoriaproductos { get; set; }
+
+    public virtual DbSet<VwOrdenesprodu11> VwOrdenesprodu11s { get; set; }
+
+    public virtual DbSet<VwOrdenesproducto11> VwOrdenesproducto11s { get; set; }
+
+    public virtual DbSet<VwOrdenesxcliente> VwOrdenesxclientes { get; set; }
+
+    public virtual DbSet<VwOrdenesxcliente1> VwOrdenesxcliente1s { get; set; }
+
+    public virtual DbSet<VwPrimeraVistum> VwPrimeraVista { get; set; }
+
+    public virtual DbSet<VwProducto> VwProductos { get; set; }
+
+    public virtual DbSet<VwTotalOrdenesSinDescuento> VwTotalOrdenesSinDescuentos { get; set; }
+
+    public virtual DbSet<Vwproductosentre4y20> Vwproductosentre4y20s { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=(local);Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
+
         modelBuilder.Entity<AlphabeticalListOfProduct>(entity =>
         {
             entity
@@ -97,6 +137,7 @@ public partial class NorthWindContext : DbContext
 
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CategoryName).HasMaxLength(15);
+            entity.Property(e => e.Description).HasColumnType("ntext");
             entity.Property(e => e.Picture).HasColumnType("image");
         });
 
@@ -108,6 +149,28 @@ public partial class NorthWindContext : DbContext
 
             entity.Property(e => e.CategoryName).HasMaxLength(15);
             entity.Property(e => e.CategorySales).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<Contact>(entity =>
+        {
+            entity.HasKey(e => e.ContactId).HasName("PK_Contact");
+
+            entity.Property(e => e.ContactId).HasColumnName("ContactID");
+            entity.Property(e => e.Address).HasMaxLength(60);
+            entity.Property(e => e.City).HasMaxLength(15);
+            entity.Property(e => e.CompanyName).HasMaxLength(40);
+            entity.Property(e => e.ContactName).HasMaxLength(30);
+            entity.Property(e => e.ContactTitle).HasMaxLength(30);
+            entity.Property(e => e.ContactType).HasMaxLength(50);
+            entity.Property(e => e.Country).HasMaxLength(15);
+            entity.Property(e => e.Extension).HasMaxLength(4);
+            entity.Property(e => e.Fax).HasMaxLength(24);
+            entity.Property(e => e.HomePage).HasColumnType("ntext");
+            entity.Property(e => e.Phone).HasMaxLength(24);
+            entity.Property(e => e.Photo).HasColumnType("image");
+            entity.Property(e => e.PhotoPath).HasMaxLength(255);
+            entity.Property(e => e.PostalCode).HasMaxLength(10);
+            entity.Property(e => e.Region).HasMaxLength(15);
         });
 
         modelBuilder.Entity<CurrentProductList>(entity =>
@@ -195,6 +258,18 @@ public partial class NorthWindContext : DbContext
                 .HasMaxLength(10)
                 .IsFixedLength()
                 .HasColumnName("CustomerTypeID");
+            entity.Property(e => e.CustomerDesc).HasColumnType("ntext");
+        });
+
+        modelBuilder.Entity<DwEmpleado>(entity =>
+        {
+            entity.HasKey(e => e.CodigoEmpleado);
+
+            entity.ToTable("Dw_Empleados");
+
+            entity.Property(e => e.CodigoEmpleado).ValueGeneratedNever();
+            entity.Property(e => e.Direccion).HasMaxLength(255);
+            entity.Property(e => e.NombreCompleto).HasMaxLength(150);
         });
 
         modelBuilder.Entity<Employee>(entity =>
@@ -213,6 +288,7 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.HireDate).HasColumnType("datetime");
             entity.Property(e => e.HomePhone).HasMaxLength(24);
             entity.Property(e => e.LastName).HasMaxLength(20);
+            entity.Property(e => e.Notes).HasColumnType("ntext");
             entity.Property(e => e.Photo).HasColumnType("image");
             entity.Property(e => e.PhotoPath).HasMaxLength(255);
             entity.Property(e => e.PostalCode).HasMaxLength(10);
@@ -306,7 +382,7 @@ public partial class NorthWindContext : DbContext
                 .HasColumnName("CustomerID");
             entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
             entity.Property(e => e.Freight)
-                .HasDefaultValue(0m, "DF_Orders_Freight")
+                .HasDefaultValue(0m)
                 .HasColumnType("money");
             entity.Property(e => e.OrderDate).HasColumnType("datetime");
             entity.Property(e => e.RequiredDate).HasColumnType("datetime");
@@ -347,7 +423,7 @@ public partial class NorthWindContext : DbContext
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.Quantity).HasDefaultValue((short)1, "DF_Order_Details_Quantity");
+            entity.Property(e => e.Quantity).HasDefaultValue((short)1);
             entity.Property(e => e.UnitPrice).HasColumnType("money");
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
@@ -430,13 +506,13 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.ProductName).HasMaxLength(40);
             entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
-            entity.Property(e => e.ReorderLevel).HasDefaultValue((short)0, "DF_Products_ReorderLevel");
+            entity.Property(e => e.ReorderLevel).HasDefaultValue((short)0);
             entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
             entity.Property(e => e.UnitPrice)
-                .HasDefaultValue(0m, "DF_Products_UnitPrice")
+                .HasDefaultValue(0m)
                 .HasColumnType("money");
-            entity.Property(e => e.UnitsInStock).HasDefaultValue((short)0, "DF_Products_UnitsInStock");
-            entity.Property(e => e.UnitsOnOrder).HasDefaultValue((short)0, "DF_Products_UnitsOnOrder");
+            entity.Property(e => e.UnitsInStock).HasDefaultValue((short)0);
+            entity.Property(e => e.UnitsOnOrder).HasDefaultValue((short)0);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
@@ -575,6 +651,7 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.ContactTitle).HasMaxLength(30);
             entity.Property(e => e.Country).HasMaxLength(15);
             entity.Property(e => e.Fax).HasMaxLength(24);
+            entity.Property(e => e.HomePage).HasColumnType("ntext");
             entity.Property(e => e.Phone).HasMaxLength(24);
             entity.Property(e => e.PostalCode).HasMaxLength(10);
             entity.Property(e => e.Region).HasMaxLength(15);
@@ -596,6 +673,221 @@ public partial class NorthWindContext : DbContext
                 .HasForeignKey(d => d.RegionId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Territories_Region");
+        });
+
+        modelBuilder.Entity<VwClientesXempleado>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_ClientesXempleado");
+
+            entity.Property(e => e.Clientes).HasColumnName("clientes");
+            entity.Property(e => e.Empleado).HasMaxLength(31);
+        });
+
+        modelBuilder.Entity<VwEjercicio1Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio1-per3");
+
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.ProductId)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("ProductID");
+            entity.Property(e => e.ProductName).HasMaxLength(40);
+            entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
+            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
+            entity.Property(e => e.UnitPrice).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<VwEjercicio2Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio2-per3");
+
+            entity.Property(e => e.Cliente).HasMaxLength(40);
+        });
+
+        modelBuilder.Entity<VwEjercicio4Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio4-per3");
+
+            entity.Property(e => e.Address).HasMaxLength(60);
+            entity.Property(e => e.BirthDate).HasColumnType("datetime");
+            entity.Property(e => e.City).HasMaxLength(15);
+            entity.Property(e => e.Country).HasMaxLength(15);
+            entity.Property(e => e.EmployeeId)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("EmployeeID");
+            entity.Property(e => e.Extension).HasMaxLength(4);
+            entity.Property(e => e.FirstName).HasMaxLength(10);
+            entity.Property(e => e.HireDate).HasColumnType("datetime");
+            entity.Property(e => e.HomePhone).HasMaxLength(24);
+            entity.Property(e => e.LastName).HasMaxLength(20);
+            entity.Property(e => e.Notes).HasColumnType("ntext");
+            entity.Property(e => e.Photo).HasColumnType("image");
+            entity.Property(e => e.PhotoPath).HasMaxLength(255);
+            entity.Property(e => e.PostalCode).HasMaxLength(10);
+            entity.Property(e => e.Region).HasMaxLength(15);
+            entity.Property(e => e.Title).HasMaxLength(30);
+            entity.Property(e => e.TitleOfCourtesy).HasMaxLength(25);
+        });
+
+        modelBuilder.Entity<VwEjercicio5Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio5_per3");
+
+            entity.Property(e => e.NombreCategoria)
+                .HasMaxLength(15)
+                .HasColumnName("Nombre Categoria");
+            entity.Property(e => e.ProductName).HasMaxLength(40);
+        });
+
+        modelBuilder.Entity<VwEjercicio6Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio6_per3");
+
+            entity.Property(e => e.Empleado).HasMaxLength(31);
+        });
+
+        modelBuilder.Entity<VwEjercicio7Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio7-per3");
+
+            entity.Property(e => e.TotalSinDescuento).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<VwEjercicio8Per3>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_Ejercicio8-per3");
+
+            entity.Property(e => e.TotalSinDescuento).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<VwNombrecategoriaproducto>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_nombrecategoriaproductos");
+
+            entity.Property(e => e.Categoria)
+                .HasMaxLength(15)
+                .HasColumnName("categoria");
+            entity.Property(e => e.Producto)
+                .HasMaxLength(40)
+                .HasColumnName("producto");
+        });
+
+        modelBuilder.Entity<VwOrdenesprodu11>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_ordenesprodu11");
+
+            entity.Property(e => e.Ordenes).HasColumnName("ordenes");
+            entity.Property(e => e.ProductName).HasMaxLength(40);
+        });
+
+        modelBuilder.Entity<VwOrdenesproducto11>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_ordenesproducto11");
+
+            entity.Property(e => e.Ordenes).HasColumnName("ordenes");
+            entity.Property(e => e.Producto)
+                .HasMaxLength(40)
+                .HasColumnName("producto");
+        });
+
+        modelBuilder.Entity<VwOrdenesxcliente>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_ordenesxcliente");
+
+            entity.Property(e => e.CompanyName).HasMaxLength(40);
+            entity.Property(e => e.Ordenes).HasColumnName("ordenes");
+        });
+
+        modelBuilder.Entity<VwOrdenesxcliente1>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_ordenesxcliente1");
+
+            entity.Property(e => e.CompanyName).HasMaxLength(40);
+            entity.Property(e => e.Ordenes).HasColumnName("ordenes");
+        });
+
+        modelBuilder.Entity<VwPrimeraVistum>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_PrimeraVista");
+
+            entity.Property(e => e.CategoryId)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("CategoryID");
+            entity.Property(e => e.CategoryName).HasMaxLength(15);
+            entity.Property(e => e.Description).HasColumnType("ntext");
+            entity.Property(e => e.Picture).HasColumnType("image");
+        });
+
+        modelBuilder.Entity<VwProducto>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_productos");
+
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.ProductId)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("ProductID");
+            entity.Property(e => e.ProductName).HasMaxLength(40);
+            entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
+            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
+            entity.Property(e => e.UnitPrice).HasColumnType("money");
+        });
+
+        modelBuilder.Entity<VwTotalOrdenesSinDescuento>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vw_TotalOrdenesSinDescuento");
+
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.Total)
+                .HasColumnType("money")
+                .HasColumnName("total");
+        });
+
+        modelBuilder.Entity<Vwproductosentre4y20>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("vwproductosentre4y20");
+
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.ProductId)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("ProductID");
+            entity.Property(e => e.ProductName).HasMaxLength(40);
+            entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
+            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
+            entity.Property(e => e.UnitPrice).HasColumnType("money");
         });
 
         OnModelCreatingPartial(modelBuilder);

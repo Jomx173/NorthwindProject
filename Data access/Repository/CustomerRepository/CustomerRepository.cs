@@ -1,36 +1,37 @@
-﻿using Data_access.Context;
+﻿using DataAccess.Context;
 using Domain.Models.DTO;
-using Domain.Models.Intefaces;
+using Domain.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Data_access.Repository.CustomerRepository
+
+namespace DataAccess.Repository
 {
     public class CustomerRepository : ICustomer
     {
-        public readonly NorthWindContext _context;
-        public CustomerRepository(NorthWindContext context) {
-
-            _context = context;
-
-
-                }
-        public async Task<CustomerDTO> GetCustomerById(string CustomerId)
+        private readonly NorthWindContext _context;
+        public CustomerRepository(NorthWindContext context) 
+        { 
+            _context = context;    
+        }
+        public async Task<CustomerDto> GetCustomerById(string CustomerId)
         {
-            var mapper = new CustomerMap();
-            var customer = await _context.Customers
-                .AsTracking()
-                .FirstOrDefaultAsync(c=> c.CustomerId == CustomerId);
 
-            return customer is null? null: CustomerMap.ToDto(customer);
+            var customer = await _context.Customers
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.CustomerId == CustomerId);
+            return customer is null ? null : CustomerMap.ToDto(customer);
         }
 
-        public Task<List<CustomerDTO>> GetCustomers()
+        public Task<List<CustomerDto>> GetCustomerDtos()
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
