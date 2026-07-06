@@ -1,5 +1,8 @@
 using Data_access.Service;
+using DataAccess.Repository.EmployeeRepository;
+using Domain.Models.Intefaces;
 using Domain.Services;
+using Data_access.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Net;
@@ -21,12 +24,19 @@ namespace NorthwinAdmin
             using IHost host = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
             {
                 services.AddDataAccess(context.Configuration);
-                services.AddTransient<CustomerServices>();
 
-                services.AddTransient<Form1>();
+                // 1. Registramos la interfaz con su repositorio real (visto en la capa DataAccess)
+                services.AddTransient<IEmployees, EmployeeRepository>();
+
+            
+                services.AddTransient<CustomerServices>();
+                services.AddTransient<EmployeesServices>();
+
+                
+                services.AddTransient<FrmEmpleados>();
 
             }).Build();
-            var mainForm = host.Services.GetRequiredService<Form1>();
+            var mainForm = host.Services.GetRequiredService<FrmEmpleados>();
             Application.Run(mainForm);
         }
     }

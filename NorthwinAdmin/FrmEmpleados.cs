@@ -59,24 +59,22 @@ namespace NorthwinAdmin
 
         private async void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
-
                 txtFirstName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["FirstName"].Value?.ToString();
                 txtLastName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["LastName"].Value?.ToString();
                 txtHomePhone.Text = dgvEmpleados.Rows[e.RowIndex].Cells["HomePhone"].Value?.ToString();
                 txtAddress.Text = dgvEmpleados.Rows[e.RowIndex].Cells["Address"].Value?.ToString();
                 try
                 {
-
                     var idEmpleadoStr = dgvEmpleados.Rows[e.RowIndex].Cells["EmployeesID"].Value?.ToString();
 
                     if (!string.IsNullOrEmpty(idEmpleadoStr))
                     {
+                        
+                        int idEmpleadoInt = int.Parse(idEmpleadoStr);
 
-                        List<OrderDto> pedidos = await _employeesServices.GetOrdersByEmployee(idEmpleadoStr);
-
+                        List<OrderDto> pedidos = await _employeesServices.GetOrdersByEmployee(idEmpleadoInt);
 
                         dgvPedidos.DataSource = null;
                         dgvPedidos.DataSource = pedidos;

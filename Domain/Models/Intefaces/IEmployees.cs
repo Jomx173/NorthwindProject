@@ -10,6 +10,9 @@ namespace Domain.Models.Intefaces
         Task<List<EmployeesDto>> GetEmployees();
 
         Task<EmployeesDto> GetEmployeesById(string EmployesID);
+        Task<List<OrderDto>> GetOrdersByEmployee(int employeeId);
+        Task<bool> AddEmployee(EmployeesDto employee);
+        Task<bool> UpdateEmployee(EmployeesDto employee);
 
     }
 }
