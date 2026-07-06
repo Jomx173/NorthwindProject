@@ -38,6 +38,7 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            btnLimpiar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
             dgvEmpleados = new DataGridView();
@@ -46,7 +47,6 @@
             label6 = new Label();
             label7 = new Label();
             panel3 = new Panel();
-            btnLimpiar = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
@@ -158,9 +158,21 @@
             panel2.Size = new Size(915, 61);
             panel2.TabIndex = 8;
             // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = SystemColors.ActiveCaption;
+            btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
+            btnLimpiar.Location = new Point(616, 7);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(272, 40);
+            btnLimpiar.TabIndex = 6;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // btnModificar
             // 
-            btnModificar.BackColor = Color.LightSkyBlue;
+            btnModificar.BackColor = Color.SkyBlue;
             btnModificar.ForeColor = SystemColors.ButtonHighlight;
             btnModificar.Location = new Point(322, 7);
             btnModificar.Name = "btnModificar";
@@ -241,18 +253,6 @@
             panel3.Size = new Size(268, 887);
             panel3.TabIndex = 13;
             panel3.Paint += panel3_Paint;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.BackColor = SystemColors.ActiveCaption;
-            btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
-            btnLimpiar.Location = new Point(616, 7);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(272, 40);
-            btnLimpiar.TabIndex = 6;
-            btnLimpiar.Text = "LIMPIAR";
-            btnLimpiar.UseVisualStyleBackColor = false;
-            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // FrmEmpleados
             // 
