@@ -80,7 +80,7 @@ namespace NorthwinAdmin
 
                         dgvPedidos.DataSource = null;
                         dgvPedidos.DataSource = pedidos;
-                        if (dgvPedidos.Columns["OrderId"] != null) dgvPedidos.Columns["OrderId"].HeaderText = "N° Orden";
+                        if (dgvPedidos.Columns["OrderId"] != null) dgvPedidos.Columns["OrderId"].HeaderText = "N° de Orden";
                         if (dgvPedidos.Columns["CustomerId"] != null) dgvPedidos.Columns["CustomerId"].HeaderText = "Cliente";
                         if (dgvPedidos.Columns["EmployeeId"] != null) dgvPedidos.Columns["EmployeeId"].HeaderText = "ID Empleado";
                         if (dgvPedidos.Columns["OrderDate"] != null) dgvPedidos.Columns["OrderDate"].HeaderText = "Fecha Pedido";
