@@ -32,13 +32,15 @@ namespace NorthwinAdmin
                 services.AddTransient<CustomerServices>();
                 services.AddTransient<EmployeesServices>();
 
+
                 
-                services.AddTransient<FrmEmpleados>();
+                services.AddTransient<FrmMenuGestiones>();
 
             }).Build();
-       
-            host.Start();
-            Application.Run(host.Services.GetRequiredService<FrmEmpleados>());
+
+            
+            var mainForm = host.Services.GetRequiredService<FrmMenuGestiones>();
+            Application.Run(mainForm);
         }
     }
 }
