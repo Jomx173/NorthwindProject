@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DataAccess/DataAccess.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="ISupplier/ISupplier.csproj" />
+  <Project Path="NorthwindAdmin/NorthwindAdmin.csproj" />
+</Solution>
