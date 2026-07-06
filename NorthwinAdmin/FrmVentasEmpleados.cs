@@ -18,11 +18,6 @@ namespace NorthwinAdmin
             dtpHasta.CustomFormat = "dddd dd 'de' MMMM 'de' yyyy";
 
             _ventasEmpleadosServices = ventasEmpleadosServices;
-
-
-            btnBuscar.Click += btnBuscar_Click;
-            btnLimpiar.Click += btnLimpiar_Click;
-            btnExportar.Click += btnExportar_Click;
         }
 
         private async void FrmVentasEmpleados_Load(object sender, EventArgs e)
@@ -225,71 +220,59 @@ namespace NorthwinAdmin
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            ExportarDataGridViewACsv();
+        }
+
+        private void ExportarDataGridViewACsv()
+        {
             if (dgvVentasEmpleados.Rows.Count == 0)
             {
-                MessageBox.Show(
-                    "No hay datos para exportar.",
-                    "Exportar",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-
+                MessageBox.Show("No hay datos para exportar.");
                 return;
             }
 
-            SaveFileDialog guardar = new SaveFileDialog();
-            guardar.Filter = "Archivo CSV (*.csv)|*.csv";
-            guardar.Title = "Guardar reporte";
-            guardar.FileName = "ReporteVentasEmpleados.csv";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivo CSV (*.csv)|*.csv";
+            saveFileDialog.Title = "Guardar reporte";
+            saveFileDialog.FileName = "Reporte_Ventas_Por_Empleado.csv";
 
-            if (guardar.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                ExportarCSV(guardar.FileName);
+                StringBuilder sb = new StringBuilder();
 
-                MessageBox.Show(
-                    "Reporte exportado correctamente.",
-                    "Exportar",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-            }
-        }
-
-        private void ExportarCSV(string ruta)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < dgvVentasEmpleados.Columns.Count; i++)
-            {
-                sb.Append(dgvVentasEmpleados.Columns[i].HeaderText);
-
-                if (i < dgvVentasEmpleados.Columns.Count - 1)
-                {
-                    sb.Append(",");
-                }
-            }
-
-            sb.AppendLine();
-
-            foreach (DataGridViewRow fila in dgvVentasEmpleados.Rows)
-            {
                 for (int i = 0; i < dgvVentasEmpleados.Columns.Count; i++)
                 {
-                    string valor = fila.Cells[i].Value?.ToString() ?? "";
-                    valor = valor.Replace(",", " ");
-
-                    sb.Append(valor);
+                    sb.Append(dgvVentasEmpleados.Columns[i].HeaderText);
 
                     if (i < dgvVentasEmpleados.Columns.Count - 1)
-                    {
-                        sb.Append(",");
-                    }
+                        sb.Append(";");
                 }
 
                 sb.AppendLine();
-            }
 
-            File.WriteAllText(ruta, sb.ToString(), Encoding.UTF8);
+                foreach (DataGridViewRow row in dgvVentasEmpleados.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        for (int i = 0; i < dgvVentasEmpleados.Columns.Count; i++)
+                        {
+                            var valor = row.Cells[i].Value?.ToString() ?? "";
+                            valor = valor.Replace(";", ",");
+
+                            sb.Append(valor);
+
+                            if (i < dgvVentasEmpleados.Columns.Count - 1)
+                                sb.Append(";");
+                        }
+
+                        sb.AppendLine();
+                    }
+                }
+
+                File.WriteAllText(saveFileDialog.FileName, sb.ToString(), Encoding.UTF8);
+
+                MessageBox.Show("Reporte exportado correctamente.");
+            }
         }
 
 
