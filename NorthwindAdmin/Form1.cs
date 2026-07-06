@@ -1,4 +1,4 @@
-using DataAccces.Context;
+﻿using DataAccces.Context;
 using DataAccces.Models;
 
 namespace NorthwindAdmin
@@ -27,42 +27,43 @@ namespace NorthwindAdmin
 
         private void AplicarDisenoInstitucional()
         {
-            // Estándar visual solicitado
+            // Estándar visual solicitado por el catedrático.
+            // Se modifica solamente presentación: no se cambia la lógica del módulo.
             Color fondoFormulario = Color.FromArgb(240, 240, 240);   // #F0F0F0
             Color azulPanel = Color.FromArgb(25, 25, 111);           // #19196F
             Color azulEncabezado = Color.FromArgb(25, 25, 111);      // #19196F
-            Color azulAcento = Color.FromArgb(0, 120, 215);          // azul para columna destacada
+            Color azulAcento = Color.FromArgb(0, 120, 215);          // #0078D7
             Color textoTabla = Color.FromArgb(47, 79, 79);           // #2F4F4F
             Color grisGrid = Color.FromArgb(221, 221, 221);          // #DDDDDD
             Color filaAlterna = Color.FromArgb(245, 245, 245);       // #F5F5F5
 
+            Text = "Gestión de Pedidos - Northwind";
             BackColor = fondoFormulario;
-            ClientSize = new Size(1520, 790);
+            FormBorderStyle = FormBorderStyle.Sizable;
+            StartPosition = FormStartPosition.CenterScreen;
+            ClientSize = new Size(1375, 790);
+            MinimumSize = new Size(1375, 830);
+            WindowState = FormWindowState.Maximized;
 
-            // Panel azul izquierdo para futuros atajos del sistema
-            panelIzquierdo.Name = "panelIzquierdo";
-            panelIzquierdo.BackColor = azulPanel;
-            panelIzquierdo.Location = new Point(0, 0);
-            panelIzquierdo.Size = new Size(155, ClientSize.Height);
-            panelIzquierdo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            // Panel lateral según la referencia enviada.
+            ConfigurarPanelIzquierdo(azulPanel);
 
-            if (!Controls.Contains(panelIzquierdo))
-            {
-                Controls.Add(panelIzquierdo);
-                panelIzquierdo.SendToBack();
-            }
+            // Área principal: inicia después del panel azul.
+            int contenidoX = 312;
 
-            // Mover el contenido hacia la derecha para respetar el panel azul
-            foreach (Control control in Controls)
-            {
-                if (control == panelIzquierdo) continue;
-                if (control.Left < 170)
-                    control.Left += 120;
-            }
-
-            lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            lblTitulo.Location = new Point(180, 20);
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitulo.ForeColor = azulPanel;
+            lblTitulo.Location = new Point(contenidoX, 55);
             lblTitulo.Text = "Gestión de Pedidos";
+
+            Label lblDescripcion = Controls.Find("lblDescripcionModulo", true).FirstOrDefault() as Label ?? new Label();
+            lblDescripcion.Name = "lblDescripcionModulo";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+            lblDescripcion.ForeColor = Color.FromArgb(35, 35, 35);
+            lblDescripcion.Text = "Administración de órdenes de compra realizadas por los clientes.";
+            lblDescripcion.Location = new Point(contenidoX, 95);
+            if (!Controls.Contains(lblDescripcion)) Controls.Add(lblDescripcion);
 
             lblEstadoPedido.ForeColor = azulPanel;
             lblEstadoPedido.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -77,42 +78,217 @@ namespace NorthwindAdmin
             EstilizarTabla(dgvPedidos, azulEncabezado, azulAcento, textoTabla, grisGrid, filaAlterna);
             EstilizarTabla(dgvDetalle, azulEncabezado, azulAcento, textoTabla, grisGrid, filaAlterna);
 
-            // Ubicación final tipo referencia: panel izquierdo, controles arriba y tablas al centro
-            lblPedidoId.Location = new Point(205, 84);
-            txtPedidoId.Location = new Point(305, 81);
-            btnBuscarPedido.Location = new Point(500, 75);
-            btnNuevoPedido.Location = new Point(650, 75);
-            lblEstadoPedido.Location = new Point(825, 84);
+            // Distribución similar a la referencia: filtros arriba, tablas al centro, totales abajo.
+            lblPedidoId.Location = new Point(contenidoX, 145);
+            txtPedidoId.Location = new Point(contenidoX + 105, 141);
+            txtPedidoId.Size = new Size(170, 27);
+            btnBuscarPedido.Location = new Point(contenidoX + 295, 134);
+            btnBuscarPedido.Size = new Size(145, 42);
+            btnNuevoPedido.Location = new Point(contenidoX + 455, 134);
+            btnNuevoPedido.Size = new Size(145, 42);
+            lblEstadoPedido.Location = new Point(contenidoX + 630, 145);
 
-            lblCliente.Location = new Point(225, 139);
-            cmbCliente.Location = new Point(305, 136);
-            lblEmpleado.Location = new Point(655, 139);
-            cmbEmpleado.Location = new Point(760, 136);
+            lblCliente.Location = new Point(contenidoX, 195);
+            cmbCliente.Location = new Point(contenidoX + 105, 191);
+            cmbCliente.Size = new Size(330, 28);
+            lblEmpleado.Location = new Point(contenidoX + 480, 195);
+            cmbEmpleado.Location = new Point(contenidoX + 590, 191);
+            cmbEmpleado.Size = new Size(270, 28);
 
-            lblProducto.Location = new Point(210, 196);
-            cmbProducto.Location = new Point(305, 193);
-            lblCantidadTexto.Location = new Point(665, 196);
-            txtCantidad.Location = new Point(760, 193);
-            lblDescuentoTexto.Location = new Point(880, 196);
-            txtDescuento.Location = new Point(1005, 193);
-            btnAgregarProducto.Location = new Point(1115, 181);
-            btnQuitarProducto.Location = new Point(1295, 181);
+            lblProducto.Location = new Point(contenidoX, 245);
+            cmbProducto.Location = new Point(contenidoX + 105, 241);
+            cmbProducto.Size = new Size(330, 28);
+            lblCantidadTexto.Location = new Point(contenidoX + 480, 245);
+            txtCantidad.Location = new Point(contenidoX + 590, 241);
+            txtCantidad.Size = new Size(90, 27);
+            lblDescuentoTexto.Location = new Point(contenidoX + 710, 245);
+            txtDescuento.Location = new Point(contenidoX + 830, 241);
+            txtDescuento.Size = new Size(80, 27);
+            btnAgregarProducto.Location = new Point(contenidoX + 940, 232);
+            btnAgregarProducto.Size = new Size(165, 45);
+            btnQuitarProducto.Location = new Point(contenidoX + 1120, 232);
+            btnQuitarProducto.Size = new Size(125, 45);
 
-            lblPedidosExistentes.Location = new Point(180, 245);
-            btnMostrarPedidos.Location = new Point(1250, 238);
-            dgvPedidos.Location = new Point(180, 280);
-            dgvPedidos.Size = new Size(1210, 170);
+            lblPedidosExistentes.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblPedidosExistentes.ForeColor = azulPanel;
+            lblPedidosExistentes.Location = new Point(contenidoX, 298);
+            btnMostrarPedidos.Location = new Point(contenidoX + 1090, 288);
+            btnMostrarPedidos.Size = new Size(155, 42);
 
-            dgvDetalle.Location = new Point(180, 500);
-            dgvDetalle.Size = new Size(1210, 170);
+            dgvPedidos.Location = new Point(contenidoX, 335);
+            dgvPedidos.Size = new Size(1245, 155);
 
-            lblSubtotalTexto.Location = new Point(880, 685);
-            lblSubtotal.Location = new Point(1000, 685);
-            lblDescuentoTotalTexto.Location = new Point(850, 715);
-            lblDescuento.Location = new Point(1000, 715);
-            lblTotalTexto.Location = new Point(895, 745);
-            lblTotal.Location = new Point(1000, 745);
-            btnGuardarPedido.Location = new Point(1180, 700);
+            dgvDetalle.Location = new Point(contenidoX, 525);
+            dgvDetalle.Size = new Size(1245, 145);
+
+            // Totales ordenados dentro de una tarjeta para evitar que se monten o se vean desalineados.
+            Panel panelTotales = Controls.Find("panelTotalesPedido", true).FirstOrDefault() as Panel ?? new Panel();
+            panelTotales.Name = "panelTotalesPedido";
+            panelTotales.BackColor = Color.White;
+            panelTotales.BorderStyle = BorderStyle.FixedSingle;
+            panelTotales.Location = new Point(contenidoX + 690, 675);
+            panelTotales.Size = new Size(280, 105);
+            if (!Controls.Contains(panelTotales)) Controls.Add(panelTotales);
+
+            lblSubtotalTexto.Parent = panelTotales;
+            lblSubtotalTexto.Location = new Point(20, 12);
+            lblSubtotalTexto.Size = new Size(110, 24);
+            lblSubtotalTexto.TextAlign = ContentAlignment.MiddleRight;
+            lblSubtotalTexto.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+
+            lblSubtotal.Parent = panelTotales;
+            lblSubtotal.Location = new Point(140, 12);
+            lblSubtotal.Size = new Size(120, 24);
+            lblSubtotal.TextAlign = ContentAlignment.MiddleRight;
+            lblSubtotal.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+
+            lblDescuentoTotalTexto.Parent = panelTotales;
+            lblDescuentoTotalTexto.Location = new Point(20, 42);
+            lblDescuentoTotalTexto.Size = new Size(110, 24);
+            lblDescuentoTotalTexto.TextAlign = ContentAlignment.MiddleRight;
+            lblDescuentoTotalTexto.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+
+            lblDescuento.Parent = panelTotales;
+            lblDescuento.Location = new Point(140, 42);
+            lblDescuento.Size = new Size(120, 24);
+            lblDescuento.TextAlign = ContentAlignment.MiddleRight;
+            lblDescuento.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+
+            lblTotalTexto.Parent = panelTotales;
+            lblTotalTexto.Location = new Point(20, 72);
+            lblTotalTexto.Size = new Size(110, 24);
+            lblTotalTexto.TextAlign = ContentAlignment.MiddleRight;
+            lblTotalTexto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            lblTotal.Parent = panelTotales;
+            lblTotal.Location = new Point(140, 72);
+            lblTotal.Size = new Size(120, 24);
+            lblTotal.TextAlign = ContentAlignment.MiddleRight;
+            lblTotal.ForeColor = azulPanel;
+            lblTotal.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            btnGuardarPedido.Location = new Point(contenidoX + 995, 690);
+            btnGuardarPedido.Size = new Size(190, 55);
+
+
+            panelTotales.BringToFront();
+            btnGuardarPedido.BringToFront();
+            panelIzquierdo.BringToFront();
+        }
+
+        private void ConfigurarPanelIzquierdo(Color azulPanel)
+        {
+            panelIzquierdo.Name = "panelIzquierdo";
+            panelIzquierdo.BackColor = azulPanel;
+            panelIzquierdo.Location = new Point(0, 0);
+            panelIzquierdo.Size = new Size(260, ClientSize.Height);
+            panelIzquierdo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelIzquierdo.Controls.Clear();
+
+            if (!Controls.Contains(panelIzquierdo))
+                Controls.Add(panelIzquierdo);
+
+            Label lblInstitucion = CrearLabelMenu("IMPLEMENTACIÓN\nDE SISTEMAS\nDE SOFTWARE", 20, 28, 13F, true);
+            lblInstitucion.TextAlign = ContentAlignment.MiddleCenter;
+            lblInstitucion.Size = new Size(220, 90);
+            panelIzquierdo.Controls.Add(lblInstitucion);
+
+            Label lblNorthwind = CrearLabelMenu("NORTHWIND", 20, 140, 11F, true);
+            lblNorthwind.TextAlign = ContentAlignment.MiddleCenter;
+            lblNorthwind.Size = new Size(220, 28);
+            panelIzquierdo.Controls.Add(lblNorthwind);
+
+            AgregarLineaMenu(20, 188);
+
+            Button btnInicioMenu = CrearBotonMenu("INICIO", "inicio.png", 20, 205);
+            Button btnGestionesMenu = CrearBotonMenu("GESTIONES", "gestiones.png", 20, 305);
+            Button btnControlesMenu = CrearBotonMenu("CONTROLES", "controles.png", 20, 375);
+            Button btnReportesMenu = CrearBotonMenu("REPORTES", "reportes.png", 20, 445);
+            Button btnDashboardMenu = CrearBotonMenu("DASHBOARD", "dashboard.png", 20, 515);
+            Button btnCerrarMenu = CrearBotonMenu("CERRAR SESIÓN", "salir.png", 20, ClientSize.Height - 90);
+            btnCerrarMenu.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+
+            // El módulo actual pertenece a Gestiones.
+            btnGestionesMenu.BackColor = Color.White;
+            btnGestionesMenu.ForeColor = Color.Black;
+
+            panelIzquierdo.Controls.Add(btnInicioMenu);
+            panelIzquierdo.Controls.Add(btnGestionesMenu);
+            panelIzquierdo.Controls.Add(btnControlesMenu);
+            panelIzquierdo.Controls.Add(btnReportesMenu);
+            panelIzquierdo.Controls.Add(btnDashboardMenu);
+            panelIzquierdo.Controls.Add(btnCerrarMenu);
+
+            AgregarLineaMenu(20, 275);
+            AgregarLineaMenu(20, 585);
+        }
+
+        private Label CrearLabelMenu(string texto, int x, int y, float size, bool negrita)
+        {
+            return new Label
+            {
+                Text = texto,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", size, negrita ? FontStyle.Bold | FontStyle.Italic : FontStyle.Regular),
+                Location = new Point(x, y),
+                AutoSize = false,
+                BackColor = Color.Transparent
+            };
+        }
+
+        private void AgregarLineaMenu(int x, int y)
+        {
+            Panel linea = new Panel
+            {
+                BackColor = Color.White,
+                Location = new Point(x, y),
+                Size = new Size(220, 2)
+            };
+            panelIzquierdo.Controls.Add(linea);
+        }
+
+        private Button CrearBotonMenu(string texto, string icono, int x, int y)
+        {
+            Button boton = new Button
+            {
+                Text = "  " + texto,
+                Location = new Point(x, y),
+                Size = new Size(220, 52),
+                BackColor = Color.White,
+                ForeColor = Color.Black,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 10.5F, FontStyle.Bold | FontStyle.Italic),
+                TextAlign = ContentAlignment.MiddleCenter,
+                ImageAlign = ContentAlignment.MiddleLeft,
+                TextImageRelation = TextImageRelation.ImageBeforeText,
+                Cursor = Cursors.Hand
+            };
+            boton.FlatAppearance.BorderSize = 0;
+
+            Image? imagen = CargarIconoMenu(icono);
+            if (imagen != null)
+                boton.Image = new Bitmap(imagen, new Size(38, 38));
+
+            return boton;
+        }
+
+        private Image? CargarIconoMenu(string nombreArchivo)
+        {
+            string[] rutas =
+            {
+                Path.Combine(AppContext.BaseDirectory, "Iconos ISS", nombreArchivo),
+                Path.Combine(Application.StartupPath, "Iconos ISS", nombreArchivo),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Iconos ISS", nombreArchivo),
+                Path.Combine(Environment.CurrentDirectory, "Iconos ISS", nombreArchivo)
+            };
+
+            foreach (string ruta in rutas)
+            {
+                if (File.Exists(ruta))
+                    return Image.FromFile(ruta);
+            }
+
+            return null;
         }
 
         private void EstilizarBoton(Button boton)
@@ -476,6 +652,11 @@ namespace NorthwindAdmin
                     .ToList();
 
                 db.OrderDetails.RemoveRange(detallesAnteriores);
+
+                // Primero se eliminan los detalles anteriores en la base de datos.
+                // Esto evita el error de Entity Framework cuando se vuelve a agregar
+                // un OrderDetail con la misma llave compuesta OrderId + ProductId.
+                db.SaveChanges();
             }
             else
             {
