@@ -205,6 +205,7 @@
             btnAgregar.TabIndex = 4;
             btnAgregar.Text = "AGREGAR";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click_1;
             // 
             // dgvEmpleados
             // 

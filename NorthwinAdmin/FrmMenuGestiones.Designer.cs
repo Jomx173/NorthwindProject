@@ -89,6 +89,7 @@
             btnEmpleados.Size = new Size(315, 207);
             btnEmpleados.TabIndex = 3;
             btnEmpleados.UseVisualStyleBackColor = false;
+            btnEmpleados.Click += btnEmpleados_Click;
             // 
             // button2
             // 
@@ -150,6 +151,7 @@
             label3.TabIndex = 9;
             label3.Text = "Gestione la información de los empleados.";
             label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Click += label3_Click;
             // 
             // pictureBox1
             // 

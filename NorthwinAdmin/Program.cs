@@ -11,6 +11,7 @@ namespace NorthwinAdmin
 {
     internal static class Program
     {
+        public static IServiceProvider ServiceProvider { get; private set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -32,13 +33,13 @@ namespace NorthwinAdmin
                 services.AddTransient<CustomerServices>();
                 services.AddTransient<EmployeesServices>();
 
+                services.AddTransient<FrmEmpleados>();
 
-                
                 services.AddTransient<FrmMenuGestiones>();
 
             }).Build();
 
-            
+            ServiceProvider = host.Services;
             var mainForm = host.Services.GetRequiredService<FrmMenuGestiones>();
             Application.Run(mainForm);
         }

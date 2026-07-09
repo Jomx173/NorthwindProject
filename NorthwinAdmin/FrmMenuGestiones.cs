@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +12,23 @@ namespace NorthwinAdmin
 {
     public partial class FrmMenuGestiones : Form
     {
+        private readonly IServiceProvider _serviceProvider;
         public FrmMenuGestiones()
         {
             InitializeComponent();
+            
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            var frm = Program.ServiceProvider.GetRequiredService<FrmEmpleados>();
+            frm.Show();
+            this.Hide();
         }
     }
 }

@@ -8,9 +8,9 @@ namespace Domain.Models.DTO
     {
         public int OrderId { get; set; }
         public string CustomerId { get; set; }
-        public int? EmployeeId { get; set; } // El "?" corrige el error CS0266 de la línea 70
+        public int? EmployeeId { get; set; } 
         public DateTime? OrderDate { get; set; }
-        public string ShipName { get; set; } // Añadido para corregir el error de la línea 72
+        public string ShipName { get; set; } 
         public string ShipCity { get; set; }
     }
     }
