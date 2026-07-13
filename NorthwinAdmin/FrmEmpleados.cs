@@ -71,7 +71,7 @@ namespace NorthwinAdmin
 
                     if (!string.IsNullOrEmpty(idEmpleadoStr))
                     {
-                        
+
                         int idEmpleadoInt = int.Parse(idEmpleadoStr);
 
                         List<OrderDto> pedidos = await _employeesServices.GetOrdersByEmployee(idEmpleadoInt);
@@ -255,6 +255,16 @@ namespace NorthwinAdmin
             txtLastName.Clear();
             txtHomePhone.Clear();
             txtAddress.Clear();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
