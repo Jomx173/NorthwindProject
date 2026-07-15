@@ -44,28 +44,62 @@ namespace NortwindAdmin
             // Ya terminó de cargar el formulario
             _cargando = false;
         }
+        private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         // Busca un producto por su ID
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtIdProducto.Text, out int productId))
+            // Validar que el campo no esté vacío
+            if (string.IsNullOrWhiteSpace(txtIdProducto.Text))
             {
-                MessageBox.Show("Ingrese un ID válido");
+                MessageBox.Show(
+                    "Ingrese el ID del producto.",
+                    "Campo requerido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtIdProducto.Focus();
                 return;
             }
 
+            // Validar que solo sean números
+            if (!int.TryParse(txtIdProducto.Text, out int productId))
+            {
+                MessageBox.Show(
+                    "El ID del producto solo puede contener números.",
+                    "Dato inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtIdProducto.SelectAll();
+                txtIdProducto.Focus();
+                return;
+            }
+
+            // Buscar el producto
             var producto = await _productService.GetProductById(productId);
 
             if (producto != null)
             {
                 dataGridView1.DataSource = new List<ProductDto>
-                {
-                    producto
-                };
+        {
+            producto
+        };
+
                 DarFormatoTabla();
             }
             else
             {
-                MessageBox.Show("Producto no encontrado");
+                MessageBox.Show(
+                    "Producto no encontrado.",
+                    "Búsqueda",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
         }
 
@@ -272,6 +306,11 @@ namespace NortwindAdmin
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
 
         }

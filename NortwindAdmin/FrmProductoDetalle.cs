@@ -21,12 +21,15 @@ namespace NortwindAdmin
         public FrmProductoDetalle(ProductService productService)
         {
             InitializeComponent();
+            txtNombre.MaxLength = 40;
+            txtPrecio.MaxLength = 10;
+            txtStock.MaxLength = 5;
 
             _productService = productService;
             _producto = new ProductDto();
         }
 
-        // Carga los datos cuando se edita un producto
+        // Carga los datos cuando se edita un producto 
         private void FrmProductoDetalle_Load(object sender, EventArgs e)
         {
             if (_producto.ProductId > 0)
@@ -54,31 +57,118 @@ namespace NortwindAdmin
         // Guarda los cambios o agrega un nuevo producto
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            _producto.ProductName = txtNombre.Text;
-            _producto.UnitPrice = decimal.Parse(txtPrecio.Text);
-            _producto.UnitsInStock = short.Parse(txtStock.Text);
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("Debe ingresar el nombre del producto.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                txtNombre.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
+            {
+                MessageBox.Show("Ingrese un precio válido.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                txtPrecio.Focus();
+                return;
+            }
+
+            if (precio <= 0)
+            {
+                MessageBox.Show("El precio debe ser mayor que cero.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                txtPrecio.Focus();
+                return;
+            }
+
+            if (!short.TryParse(txtStock.Text, out short stock))
+            {
+                MessageBox.Show("Ingrese un stock válido.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                txtStock.Focus();
+                return;
+            }
+
+            if (stock < 0)
+            {
+                MessageBox.Show("El stock no puede ser negativo.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                txtStock.Focus();
+                return;
+            }
+
+            _producto.ProductName = txtNombre.Text.Trim();
+            _producto.UnitPrice = precio;
+            _producto.UnitsInStock = stock;
 
             if (_producto.ProductId == 0)
             {
                 await _productService.AddProduct(_producto);
 
-                MessageBox.Show("Producto agregado correctamente");
+                MessageBox.Show("Producto agregado correctamente.",
+                                "Éxito",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
             else
             {
                 await _productService.UpdateProduct(_producto);
 
-                MessageBox.Show("Producto actualizado correctamente");
+                MessageBox.Show("Producto actualizado correctamente.",
+                                "Éxito",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
+            DialogResult = DialogResult.OK;
+            Close();
+        }   
 
         // Cierra el formulario
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsLetterOrDigit(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar) &&
+                e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txtPrecio.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

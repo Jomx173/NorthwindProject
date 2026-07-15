@@ -64,13 +64,14 @@
             label2.Size = new Size(78, 25);
             label2.TabIndex = 2;
             label2.Text = "Nombre";
-            // 
+            //  
             // txtNombre
             // 
             txtNombre.Location = new Point(545, 27);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(164, 31);
             txtNombre.TabIndex = 3;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // txtPrecio
             // 
@@ -78,6 +79,7 @@
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(164, 31);
             txtPrecio.TabIndex = 4;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // txtStock
             // 
@@ -85,6 +87,7 @@
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(164, 31);
             txtStock.TabIndex = 5;
+            txtStock.KeyPress += txtStock_KeyPress;
             // 
             // label3
             // 
@@ -122,6 +125,7 @@
             BtnCancelar.TabIndex = 10;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = true;
+            BtnCancelar.Click += btnCancelar_Click;
             // 
             // FrmProductoDetalle
             // 

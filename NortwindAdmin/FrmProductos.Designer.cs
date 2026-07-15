@@ -188,6 +188,8 @@
             txtIdProducto.Name = "txtIdProducto";
             txtIdProducto.Size = new Size(251, 25);
             txtIdProducto.TabIndex = 2;
+            txtIdProducto.TextChanged += txtIdProducto_TextChanged;
+            txtIdProducto.KeyPress += txtIdProducto_KeyPress;
             // 
             // btnBuscar
             // 
