@@ -5,15 +5,12 @@ namespace DataAccess.Repository
 {
     internal class CustomerMap
     {
-        public  static CustomerDto ToDto(Customer customer)
+        public static CustomerDto ToDto(Customer customer)
         {
             return new CustomerDto
             {
-<<<<<<< HEAD
-                Id = customer.CustomerId,
-=======
-                CustomerID = customer.CustomerID,
->>>>>>> origin/gestion-clientes
+                CustomerId = customer.CustomerId,
+                CompanyName = customer.CompanyName,
                 ContactName = customer.ContactName,
                 ContactTitle = customer.ContactTitle,
                 Phone = customer.Phone,

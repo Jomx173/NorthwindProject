@@ -1,25 +1,11 @@
 ﻿using Domain.Models.DTO;
-<<<<<<< HEAD
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-=======
-using System.Collections.Generic;
->>>>>>> origin/gestion-clientes
 using System.Threading.Tasks;
 
 namespace Domain.Models.Interfaces
 {
     public interface ICustomer
     {
-<<<<<<< HEAD
-        Task<List<CustomerDto>> GetCustomers();
-
-        Task<CustomerDto> GetCustomerById(string customerId);
-    }
-}
-=======
         // Consultar todos los clientes
         Task<List<CustomerDto>> GetCustomers();
 
@@ -39,4 +25,3 @@ namespace Domain.Models.Interfaces
         Task DeleteCustomer(string customerId);
     }
 }
->>>>>>> origin/gestion-clientes
