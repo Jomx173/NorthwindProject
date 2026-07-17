@@ -1,9 +1,13 @@
 ﻿using Domain.Models.DTO;
 using Domain.Models.Interfaces;
+<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+=======
+using System.Collections.Generic;
+>>>>>>> origin/gestion-clientes
 using System.Threading.Tasks;
 
 namespace Domain.Services
@@ -17,14 +21,52 @@ namespace Domain.Services
             _customer = customer;
         }
 
+<<<<<<< HEAD
+=======
+        // Obtener todos los clientes
+>>>>>>> origin/gestion-clientes
         public async Task<List<CustomerDto>> GetCustomers()
         {
             return await _customer.GetCustomers();
         }
 
+<<<<<<< HEAD
         public async Task<CustomerDto> GetCustomerById(string customerId)
         {
             return await _customer.GetCustomerById(customerId);
         }
     }
 }
+=======
+        // Buscar cliente por ID
+        public async Task<CustomerDto?> GetCustomerById(string customerId)
+        {
+            return await _customer.GetCustomerById(customerId);
+        }
+
+        // Buscar por empresa, ciudad o país
+        public async Task<List<CustomerDto>> SearchCustomers(string texto)
+        {
+            return await _customer.SearchCustomers(texto);
+        }
+
+        // Registrar un nuevo cliente
+        public async Task AddCustomer(CustomerDto customer)
+        {
+            await _customer.AddCustomer(customer);
+        }
+
+        // Modificar cliente existente
+        public async Task UpdateCustomer(CustomerDto customer)
+        {
+            await _customer.UpdateCustomer(customer);
+        }
+
+        // Eliminar cliente
+        public async Task DeleteCustomer(string customerId)
+        {
+            await _customer.DeleteCustomer(customerId);
+        }
+    }
+}
+>>>>>>> origin/gestion-clientes

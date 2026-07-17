@@ -9,7 +9,11 @@ namespace DataAccess.Repository
         {
             return new CustomerDto
             {
+<<<<<<< HEAD
                 Id = customer.CustomerId,
+=======
+                CustomerID = customer.CustomerID,
+>>>>>>> origin/gestion-clientes
                 ContactName = customer.ContactName,
                 ContactTitle = customer.ContactTitle,
                 Phone = customer.Phone,

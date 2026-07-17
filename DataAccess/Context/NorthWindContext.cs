@@ -19,123 +19,118 @@ public partial class NorthWindContext : DbContext
     public virtual DbSet<AlphabeticalListOfProduct> AlphabeticalListOfProducts { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
+public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; }
 
-    public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; }
+public virtual DbSet<Contact> Contacts { get; set; }
 
+public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; }
 
-    public virtual DbSet<Contact> Contacts { get; set; }
+public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; }
+public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; }
 
-    public virtual DbSet<Customer> Customers { get; set; }
+public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
 
-    public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; }
+public virtual DbSet<DwEmpleado> DwEmpleados { get; set; }
 
-    public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
+public virtual DbSet<Employee> Employees { get; set; }
 
+public virtual DbSet<Invoice> Invoices { get; set; }
 
-    public virtual DbSet<DwEmpleado> DwEmpleados { get; set; }
+public virtual DbSet<Order> Orders { get; set; }
 
-    public virtual DbSet<Employee> Employees { get; set; }
+public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
-    public virtual DbSet<Invoice> Invoices { get; set; }
+public virtual DbSet<OrderDetailsExtended> OrderDetailsExtendeds { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+public virtual DbSet<OrderSubtotal> OrderSubtotals { get; set; }
 
-    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+public virtual DbSet<OrdersQry> OrdersQries { get; set; }
 
-    public virtual DbSet<OrderDetailsExtended> OrderDetailsExtendeds { get; set; }
+public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<OrderSubtotal> OrderSubtotals { get; set; }
+public virtual DbSet<ProductSalesFor1997> ProductSalesFor1997s { get; set; }
 
-    public virtual DbSet<OrdersQry> OrdersQries { get; set; }
+public virtual DbSet<ProductsAboveAveragePrice> ProductsAboveAveragePrices { get; set; }
 
-    public virtual DbSet<Product> Products { get; set; }
+public virtual DbSet<ProductsByCategory> ProductsByCategories { get; set; }
 
-    public virtual DbSet<ProductSalesFor1997> ProductSalesFor1997s { get; set; }
+public virtual DbSet<QuarterlyOrder> QuarterlyOrders { get; set; }
 
-    public virtual DbSet<ProductsAboveAveragePrice> ProductsAboveAveragePrices { get; set; }
+public virtual DbSet<Region> Regions { get; set; }
 
-    public virtual DbSet<ProductsByCategory> ProductsByCategories { get; set; }
+public virtual DbSet<SalesByCategory> SalesByCategories { get; set; }
 
-    public virtual DbSet<QuarterlyOrder> QuarterlyOrders { get; set; }
+public virtual DbSet<SalesTotalsByAmount> SalesTotalsByAmounts { get; set; }
 
-    public virtual DbSet<Region> Regions { get; set; }
+public virtual DbSet<Shipper> Shippers { get; set; }
 
-    public virtual DbSet<SalesByCategory> SalesByCategories { get; set; }
+public virtual DbSet<SummaryOfSalesByQuarter> SummaryOfSalesByQuarters { get; set; }
 
-    public virtual DbSet<SalesTotalsByAmount> SalesTotalsByAmounts { get; set; }
+public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYears { get; set; }
 
-    public virtual DbSet<Shipper> Shippers { get; set; }
+public virtual DbSet<Supplier> Suppliers { get; set; }
 
-    public virtual DbSet<SummaryOfSalesByQuarter> SummaryOfSalesByQuarters { get; set; }
+public virtual DbSet<Territory> Territories { get; set; }
 
-    public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYears { get; set; }
+public virtual DbSet<VwClientesXempleado> VwClientesXempleados { get; set; }
 
-    public virtual DbSet<Supplier> Suppliers { get; set; }
+public virtual DbSet<VwEjercicio1Per3> VwEjercicio1Per3s { get; set; }
 
-    public virtual DbSet<Territory> Territories { get; set; }
+public virtual DbSet<VwEjercicio2Per3> VwEjercicio2Per3s { get; set; }
 
-    public virtual DbSet<VwClientesXempleado> VwClientesXempleados { get; set; }
+public virtual DbSet<VwEjercicio4Per3> VwEjercicio4Per3s { get; set; }
 
-    public virtual DbSet<VwEjercicio1Per3> VwEjercicio1Per3s { get; set; }
+public virtual DbSet<VwEjercicio5Per3> VwEjercicio5Per3s { get; set; }
 
-    public virtual DbSet<VwEjercicio2Per3> VwEjercicio2Per3s { get; set; }
+public virtual DbSet<VwEjercicio6Per3> VwEjercicio6Per3s { get; set; }
 
-    public virtual DbSet<VwEjercicio4Per3> VwEjercicio4Per3s { get; set; }
+public virtual DbSet<VwEjercicio7Per3> VwEjercicio7Per3s { get; set; }
 
-    public virtual DbSet<VwEjercicio5Per3> VwEjercicio5Per3s { get; set; }
+public virtual DbSet<VwEjercicio8Per3> VwEjercicio8Per3s { get; set; }
 
-    public virtual DbSet<VwEjercicio6Per3> VwEjercicio6Per3s { get; set; }
+public virtual DbSet<VwNombrecategoriaproducto> VwNombrecategoriaproductos { get; set; }
 
-    public virtual DbSet<VwEjercicio7Per3> VwEjercicio7Per3s { get; set; }
+public virtual DbSet<VwOrdenesprodu11> VwOrdenesprodu11s { get; set; }
 
-    public virtual DbSet<VwEjercicio8Per3> VwEjercicio8Per3s { get; set; }
+public virtual DbSet<VwOrdenesproducto11> VwOrdenesproducto11s { get; set; }
 
-    public virtual DbSet<VwNombrecategoriaproducto> VwNombrecategoriaproductos { get; set; }
+public virtual DbSet<VwOrdenesxcliente> VwOrdenesxclientes { get; set; }
 
-    public virtual DbSet<VwOrdenesprodu11> VwOrdenesprodu11s { get; set; }
+public virtual DbSet<VwOrdenesxcliente1> VwOrdenesxcliente1s { get; set; }
 
-    public virtual DbSet<VwOrdenesproducto11> VwOrdenesproducto11s { get; set; }
+public virtual DbSet<VwPrimeraVistum> VwPrimeraVista { get; set; }
 
-    public virtual DbSet<VwOrdenesxcliente> VwOrdenesxclientes { get; set; }
+public virtual DbSet<VwProducto> VwProductos { get; set; }
 
-    public virtual DbSet<VwOrdenesxcliente1> VwOrdenesxcliente1s { get; set; }
+public virtual DbSet<VwTotalOrdenesSinDescuento> VwTotalOrdenesSinDescuentos { get; set; }
 
-    public virtual DbSet<VwPrimeraVistum> VwPrimeraVista { get; set; }
+public virtual DbSet<Vwproductosentre4y20> Vwproductosentre4y20s { get; set; }
 
-    public virtual DbSet<VwProducto> VwProductos { get; set; }
-
-    public virtual DbSet<VwTotalOrdenesSinDescuento> VwTotalOrdenesSinDescuentos { get; set; }
-
-    public virtual DbSet<Vwproductosentre4y20> Vwproductosentre4y20s { get; set; }
-
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(local);Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;");
+    => optionsBuilder.UseSqlServer("Server=(local);Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;");
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
+
+    modelBuilder.Entity<AlphabeticalListOfProduct>(entity =>
     {
+        entity
+            .HasNoKey()
+            .ToView("Alphabetical list of products");
 
-        modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
+        entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+        entity.Property(e => e.CategoryName).HasMaxLength(15);
+        entity.Property(e => e.ProductId).HasColumnName("ProductID");
+        entity.Property(e => e.ProductName).HasMaxLength(40);
+        entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
+        entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
+        entity.Property(e => e.UnitPrice).HasColumnType("money");
+    });
 
-        modelBuilder.Entity<AlphabeticalListOfProduct>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Alphabetical list of products");
-
-            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-            entity.Property(e => e.CategoryName).HasMaxLength(15);
-            entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.ProductName).HasMaxLength(40);
-            entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
-            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
-            entity.Property(e => e.UnitPrice).HasColumnType("money");
-        });
-
-        modelBuilder.Entity<Category>(entity =>
+               modelBuilder.Entity<Category>(entity =>
         {
             entity.HasIndex(e => e.CategoryName, "CategoryName");
 
@@ -177,7 +172,6 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.Region).HasMaxLength(15);
         });
 
-
         modelBuilder.Entity<CurrentProductList>(entity =>
         {
             entity
@@ -204,6 +198,7 @@ public partial class NorthWindContext : DbContext
                 .HasMaxLength(5)
                 .IsFixedLength()
                 .HasColumnName("CustomerID");
+
             entity.Property(e => e.Address).HasMaxLength(60);
             entity.Property(e => e.City).HasMaxLength(15);
             entity.Property(e => e.CompanyName).HasMaxLength(40);
@@ -266,7 +261,6 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.CustomerDesc).HasColumnType("ntext");
         });
 
-
         modelBuilder.Entity<DwEmpleado>(entity =>
         {
             entity.HasKey(e => e.CodigoEmpleado);
@@ -277,7 +271,6 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.Direccion).HasMaxLength(255);
             entity.Property(e => e.NombreCompleto).HasMaxLength(150);
         });
-
 
         modelBuilder.Entity<Employee>(entity =>
         {
@@ -562,109 +555,7 @@ public partial class NorthWindContext : DbContext
             entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
         });
 
-        modelBuilder.Entity<QuarterlyOrder>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Quarterly Orders");
-
-            entity.Property(e => e.City).HasMaxLength(15);
-            entity.Property(e => e.CompanyName).HasMaxLength(40);
-            entity.Property(e => e.Country).HasMaxLength(15);
-            entity.Property(e => e.CustomerId)
-                .HasMaxLength(5)
-                .IsFixedLength()
-                .HasColumnName("CustomerID");
-        });
-
-        modelBuilder.Entity<Region>(entity =>
-        {
-            entity.HasKey(e => e.RegionId).IsClustered(false);
-
-            entity.ToTable("Region");
-
-            entity.Property(e => e.RegionId)
-                .ValueGeneratedNever()
-                .HasColumnName("RegionID");
-            entity.Property(e => e.RegionDescription)
-                .HasMaxLength(50)
-                .IsFixedLength();
-        });
-
-        modelBuilder.Entity<SalesByCategory>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Sales by Category");
-
-            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-            entity.Property(e => e.CategoryName).HasMaxLength(15);
-            entity.Property(e => e.ProductName).HasMaxLength(40);
-            entity.Property(e => e.ProductSales).HasColumnType("money");
-        });
-
-        modelBuilder.Entity<SalesTotalsByAmount>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Sales Totals by Amount");
-
-            entity.Property(e => e.CompanyName).HasMaxLength(40);
-            entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.SaleAmount).HasColumnType("money");
-            entity.Property(e => e.ShippedDate).HasColumnType("datetime");
-        });
-
-        modelBuilder.Entity<Shipper>(entity =>
-        {
-            entity.Property(e => e.ShipperId).HasColumnName("ShipperID");
-            entity.Property(e => e.CompanyName).HasMaxLength(40);
-            entity.Property(e => e.Phone).HasMaxLength(24);
-        });
-
-        modelBuilder.Entity<SummaryOfSalesByQuarter>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Summary of Sales by Quarter");
-
-            entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.ShippedDate).HasColumnType("datetime");
-            entity.Property(e => e.Subtotal).HasColumnType("money");
-        });
-
-        modelBuilder.Entity<SummaryOfSalesByYear>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("Summary of Sales by Year");
-
-            entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.ShippedDate).HasColumnType("datetime");
-            entity.Property(e => e.Subtotal).HasColumnType("money");
-        });
-
-        modelBuilder.Entity<Supplier>(entity =>
-        {
-            entity.HasIndex(e => e.CompanyName, "CompanyName");
-
-            entity.HasIndex(e => e.PostalCode, "PostalCode");
-
-            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
-            entity.Property(e => e.Address).HasMaxLength(60);
-            entity.Property(e => e.City).HasMaxLength(15);
-            entity.Property(e => e.CompanyName).HasMaxLength(40);
-            entity.Property(e => e.ContactName).HasMaxLength(30);
-            entity.Property(e => e.ContactTitle).HasMaxLength(30);
-            entity.Property(e => e.Country).HasMaxLength(15);
-            entity.Property(e => e.Fax).HasMaxLength(24);
-            entity.Property(e => e.HomePage).HasColumnType("ntext");
-            entity.Property(e => e.Phone).HasMaxLength(24);
-            entity.Property(e => e.PostalCode).HasMaxLength(10);
-            entity.Property(e => e.Region).HasMaxLength(15);
-        });
-
-        modelBuilder.Entity<Territory>(entity =>
+                modelBuilder.Entity<Territory>(entity =>
         {
             entity.HasKey(e => e.TerritoryId).IsClustered(false);
 
@@ -681,7 +572,6 @@ public partial class NorthWindContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Territories_Region");
         });
-
 
         modelBuilder.Entity<VwClientesXempleado>(entity =>
         {

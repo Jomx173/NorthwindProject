@@ -1,9 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataAccess.Context;
+using DataAccess.Repository;
+using Domain.Interfaces;
+using Domain.Models.Interfaces;
+using Domain.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DataAccess.Extensions
 {

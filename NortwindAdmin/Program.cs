@@ -1,40 +1,40 @@
-using System.Net;
+using DataAccess.Extensions;
 using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DataAccess.Extensions;
 
 namespace NortwindAdmin
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
             using IHost host = Host.CreateDefaultBuilder()
             .ConfigureServices((context, services) =>
             {
-                // Registrar los repositorios y servicios necesarios para la aplicación
+                // Registrar todos los servicios de DataAccess
                 services.AddDataAccess(context.Configuration);
 
-                // Servicios del Dominio
+                // Servicios del dominio
                 services.AddScoped<CustomerService>();
                 services.AddScoped<ProductService>();
+                services.AddScoped<OrderService>();
 
-                // Registrar el formularios
+                // Formularios
+                services.AddTransient<FormClientes>();
                 services.AddTransient<FrmProductos>();
 
             }).Build();
 
-            var mainform = host.Services.GetRequiredService<FrmProductos>();
-            Application.Run(mainform);
+            var provider = host.Services;
+
+            // Puedes cambiar el formulario inicial según el proyecto.
+            var mainForm = provider.GetRequiredService<FrmProductos>();
+
+            Application.Run(mainForm);
         }
     }
 }
