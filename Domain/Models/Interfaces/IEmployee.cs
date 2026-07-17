@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Models.Interfaces
 {
-    public interface ICustomer
+    public interface IEmployee
     {
-        Task<List<CustomerDto>> GetCustomers();
-
-        Task<CustomerDto> GetCustomerById(string customerId);
+        Task<List<EmployeeDto>> GetEmployeeDtos();
+        Task<EmployeeDto> GetEmployeeById(String EmployeeId);
     }
 }

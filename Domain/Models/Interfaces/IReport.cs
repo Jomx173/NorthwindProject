@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Models.Interfaces
 {
-    public interface ICustomer
+    public interface IReport
     {
-        Task<List<CustomerDto>> GetCustomers();
-
-        Task<CustomerDto> GetCustomerById(string customerId);
+        Task<List<SalesByCustomerDto>> GetSalesByCustomer(DateTime desde, DateTime hasta);
     }
 }

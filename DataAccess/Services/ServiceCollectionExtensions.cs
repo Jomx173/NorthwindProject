@@ -1,10 +1,9 @@
-﻿using DataAccess.Context;
-using DataAccess.Repository;
-using Domain.Interfaces;
-using Domain.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DataAccess.Extensions
 {
@@ -19,11 +18,13 @@ namespace DataAccess.Extensions
             services.AddScoped<ICustomer, CustomerRepository>();
             services.AddScoped<IProduct, ProductRepository>();
             services.AddScoped<ICategory, CategoryRepository>();
+            services.AddScoped<IReport, ReportRepository>();
 
             // Servicios
             services.AddScoped<CustomerService>();
             services.AddScoped<ProductService>();
             services.AddScoped<CategoryService>();
+            services.AddScoped<ReportService>();
 
             return services;
         }

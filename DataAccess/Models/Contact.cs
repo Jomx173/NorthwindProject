@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 namespace DataAccess.Models;
 
-public partial class Customer
+public partial class Contact
 {
-    public string CustomerId { get; set; } = null!;
+    public int ContactId { get; set; }
+
+    public string? ContactType { get; set; }
 
     public string CompanyName { get; set; } = null!;
 
@@ -25,9 +27,13 @@ public partial class Customer
 
     public string? Phone { get; set; }
 
+    public string? Extension { get; set; }
+
     public string? Fax { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public string? HomePage { get; set; }
 
-    public virtual ICollection<CustomerDemographic> CustomerTypes { get; set; } = new List<CustomerDemographic>();
+    public string? PhotoPath { get; set; }
+
+    public byte[]? Photo { get; set; }
 }
