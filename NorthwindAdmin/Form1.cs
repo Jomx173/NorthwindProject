@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 ﻿using DataAccces.Context;
 using DataAccces.Models;
+=======
+using System;
+using System.Windows.Forms;
+using ProyectoProveedores;
+using MiProveedor = Domain.Supplier;
+>>>>>>> origin/GestionProveedores
 
 namespace NorthwindAdmin
 {
     public partial class Form1 : Form
     {
+<<<<<<< HEAD
         private readonly NorthwindContext db = new NorthwindContext();
 
         private DataGridView dgvPedidos = new DataGridView();
@@ -16,10 +24,14 @@ namespace NorthwindAdmin
         private decimal subtotal = 0;
         private decimal descuentoTotal = 0;
         private decimal total = 0;
+=======
+        private readonly SupplierServices _supplierServices;
+>>>>>>> origin/GestionProveedores
 
         public Form1()
         {
             InitializeComponent();
+<<<<<<< HEAD
             ConfigurarSeccionPedidosExistentes();
             CargarDatos();
             AplicarDisenoInstitucional();
@@ -747,3 +759,114 @@ namespace NorthwindAdmin
         }
     }
 }
+=======
+
+            var repository = new SupplierRepository();
+            _supplierServices = new SupplierServices(repository);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            BuscarPorPais("USA");
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPais.Text))
+            {
+                MessageBox.Show("Por favor, escribe un país para realizar la filtración.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            BuscarPorPais(txtPais.Text.Trim());
+        }
+
+        private void BuscarPorPais(string pais)
+        {
+            try
+            {
+                var proveedores = _supplierServices.FiltrarProveedoresPorPais(pais);
+                dgvProveedores.DataSource = proveedores;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al consultar la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmpresa.Text))
+            {
+                MessageBox.Show("El nombre de la empresa es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var nuevo = new MiProveedor
+            {
+                CompanyName = txtEmpresa.Text.Trim(),
+                ContactName = txtContacto.Text.Trim(),
+                Country = txtPais.Text.Trim(),
+                Phone = txtTelefono.Text.Trim()
+            };
+
+            string mensaje = _supplierServices.Registrar(nuevo);
+            MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            BuscarPorPais(txtPais.Text.Trim());
+            LimpiarCamposFormulario();
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Por favor, selecciona primero un proveedor de la tabla.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var modificado = new MiProveedor
+            {
+                SupplierID = int.Parse(txtId.Text),
+                CompanyName = txtEmpresa.Text.Trim(),
+                ContactName = txtContacto.Text.Trim(),
+                Country = txtPais.Text.Trim(),
+                Phone = txtTelefono.Text.Trim()
+            };
+
+            string mensaje = _supplierServices.Actualizar(modificado);
+            MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            BuscarPorPais(txtPais.Text.Trim());
+            LimpiarCamposFormulario();
+        }
+
+        private void DgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvProveedores.Rows[e.RowIndex];
+
+                txtId.Text = fila.Cells["SupplierID"].Value?.ToString() ?? "";
+                txtEmpresa.Text = fila.Cells["CompanyName"].Value?.ToString() ?? "";
+                txtContacto.Text = fila.Cells["ContactName"].Value?.ToString() ?? "";
+                txtPais.Text = fila.Cells["Country"].Value?.ToString() ?? "";
+                txtTelefono.Text = fila.Cells["Phone"].Value?.ToString() ?? "";
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposFormulario();
+        }
+
+        private void LimpiarCamposFormulario()
+        {
+            txtId.Clear();
+            txtEmpresa.Clear();
+            txtContacto.Clear();
+            txtPais.Clear();
+            txtTelefono.Clear();
+        }
+    }
+}
+>>>>>>> origin/GestionProveedores

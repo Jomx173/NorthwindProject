@@ -1,12 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+<<<<<<< HEAD
     <TargetFramework>net8.0</TargetFramework>
+=======
+    <TargetFramework>net10.0</TargetFramework>
+>>>>>>> origin/GestionProveedores
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
@@ -21,6 +26,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+=======
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\ISupplier\ISupplier.csproj" />
+>>>>>>> origin/GestionProveedores
   </ItemGroup>
 
 </Project>
