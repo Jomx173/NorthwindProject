@@ -131,7 +131,7 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BackColor = Color.White;
-            label2.Font = new Font("Nirmala UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Nirmala UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(130, 220);
             label2.Name = "label2";
             label2.Size = new Size(144, 39);
@@ -157,9 +157,9 @@
             // 
             pictureBox1.BackColor = SystemColors.ControlLightLight;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(119, 139);
+            pictureBox1.Location = new Point(140, 153);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(166, 78);
+            pictureBox1.Size = new Size(122, 64);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
@@ -168,7 +168,7 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.BackColor = Color.White;
-            label4.Font = new Font("Nirmala UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Nirmala UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(463, 220);
             label4.Name = "label4";
             label4.Size = new Size(144, 39);
@@ -180,7 +180,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.BackColor = Color.White;
-            label5.Font = new Font("Nirmala UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Nirmala UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(799, 220);
             label5.Name = "label5";
             label5.Size = new Size(144, 39);
@@ -192,7 +192,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.BackColor = Color.White;
-            label6.Font = new Font("Nirmala UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Nirmala UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(119, 460);
             label6.Name = "label6";
             label6.Size = new Size(155, 39);
@@ -204,10 +204,10 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.BackColor = Color.White;
-            label7.Font = new Font("Nirmala UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Nirmala UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(463, 460);
             label7.Name = "label7";
-            label7.Size = new Size(144, 39);
+            label7.Size = new Size(144, 29);
             label7.TabIndex = 14;
             label7.Text = "Categorías";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -268,9 +268,9 @@
             // 
             pictureBox2.BackColor = SystemColors.ControlLightLight;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(450, 139);
+            pictureBox2.Location = new Point(473, 153);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(166, 78);
+            pictureBox2.Size = new Size(122, 64);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 19;
             pictureBox2.TabStop = false;
@@ -279,20 +279,21 @@
             // 
             pictureBox3.BackColor = SystemColors.ControlLightLight;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(787, 139);
+            pictureBox3.Location = new Point(810, 153);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(166, 78);
+            pictureBox3.Size = new Size(122, 64);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 20;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox4
             // 
             pictureBox4.BackColor = SystemColors.ControlLightLight;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(119, 379);
+            pictureBox4.Location = new Point(140, 393);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(166, 78);
+            pictureBox4.Size = new Size(122, 64);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 21;
             pictureBox4.TabStop = false;
@@ -301,9 +302,9 @@
             // 
             pictureBox5.BackColor = SystemColors.ControlLightLight;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(450, 379);
+            pictureBox5.Location = new Point(473, 393);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(166, 78);
+            pictureBox5.Size = new Size(122, 64);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 22;
             pictureBox5.TabStop = false;
@@ -338,6 +339,7 @@
             Controls.Add(label8);
             Name = "FrmMenuGestiones";
             Text = "Gestiones";
+            Load += FrmMenuGestiones_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

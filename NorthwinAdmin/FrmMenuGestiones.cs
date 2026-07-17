@@ -16,7 +16,7 @@ namespace NorthwinAdmin
         public FrmMenuGestiones()
         {
             InitializeComponent();
-            
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -29,6 +29,16 @@ namespace NorthwinAdmin
             var frm = Program.ServiceProvider.GetRequiredService<FrmEmpleados>();
             frm.Show();
             this.Hide();
+        }
+
+        private void FrmMenuGestiones_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
