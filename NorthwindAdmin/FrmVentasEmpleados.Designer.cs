@@ -316,6 +316,7 @@
             button4.TabIndex = 12;
             button4.Text = "REPORTES";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -338,6 +339,7 @@
             button2.TabIndex = 10;
             button2.Text = "GESTIONES";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 

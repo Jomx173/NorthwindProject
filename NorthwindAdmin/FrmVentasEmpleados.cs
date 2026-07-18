@@ -1,10 +1,12 @@
 ﻿using Domain.Services;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace NorthwindAdmin
 {
     public partial class FrmVentasEmpleados : Form
     {
+        private readonly ReportService _reportService;
         private readonly VentasEmpleadosServices _ventasEmpleadosServices;
 
         public FrmVentasEmpleados(VentasEmpleadosServices ventasEmpleadosServices)
@@ -296,6 +298,25 @@ namespace NorthwindAdmin
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmMenuReportes frm = new FrmMenuReportes(
+            _reportService, _ventasEmpleadosServices);
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmMenuGestiones frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
     }
 
 

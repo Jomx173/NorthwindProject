@@ -26,6 +26,10 @@ namespace NorthwindAdmin
 
                     // Servicios
                     services.AddScoped<CustomerService>();
+                    services.AddTransient<ReportService>();
+                    services.AddTransient<EmployeesServices>();
+                    services.AddTransient<VentasEmpleadosServices>();
+                    services.AddTransient<IVentasEmpleados, VentasEmpleadosRepository>();
 
                     // Empleados
                     services.AddTransient<IEmployees, EmployeeRepository>();
@@ -36,6 +40,9 @@ namespace NorthwindAdmin
                     services.AddTransient<FrmEmpleados>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();
+                    services.AddTransient<ReportService>();
+                    services.AddTransient<VentasEmpleadosServices>();
+                    services.AddTransient<FrmSalesByCustomerReport>();
                 })
                 .Build();
 
@@ -43,7 +50,7 @@ namespace NorthwindAdmin
 
             ServiceProvider = host.Services;
 
-            Application.Run(host.Services.GetRequiredService<FrmMenuGestiones>());
+            Application.Run(host.Services.GetRequiredService<FrmMenuReportes>());
         }
     }
 }

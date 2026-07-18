@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace NorthwindAdmin
 {
     public partial class FrmMenuReportes : Form
     {
-        private ReportService _reportService;
+        private readonly ReportService _reportService;
+        private readonly VentasEmpleadosServices _ventasEmpleadosServices;
 
-        public FrmMenuReportes(ReportService reportService)
+        public FrmMenuReportes(ReportService reportService, VentasEmpleadosServices ventasEmpleadosServices)
         {
             InitializeComponent();
             _reportService = reportService;
+            _ventasEmpleadosServices = ventasEmpleadosServices;
             StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -40,16 +43,37 @@ namespace NorthwindAdmin
         private void button7_Click(object sender, EventArgs e)
         {
             FrmSalesByCustomerReport frm =
-            new FrmSalesByCustomerReport(_reportService);
+            Program.ServiceProvider.GetRequiredService<FrmSalesByCustomerReport>();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
+
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            FrmVentasEmpleados frm =
+            new FrmVentasEmpleados(_ventasEmpleadosServices);
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmMenuGestiones frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
         }
     }
 }

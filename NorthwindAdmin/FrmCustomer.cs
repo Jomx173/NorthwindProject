@@ -7,10 +7,12 @@ namespace NorthwindAdmin
     {
         private readonly CustomerService _customerService;
         private readonly ReportService _reportService;
-        public FrmCustomer(CustomerService customerService)
+
+        public FrmCustomer(CustomerService customerService, ReportService reportService)
         {
             InitializeComponent();
             _customerService = customerService;
+            _reportService = reportService;
         }
 
         private async void Form1_Load(object sender, EventArgs e)
@@ -27,20 +29,8 @@ namespace NorthwindAdmin
 
         }
 
-        public FrmCustomer(CustomerService customerService, ReportService reportService)
-        {
-            InitializeComponent();
-            _customerService = customerService;
-            _reportService = reportService;
-        }
-
         private void btnReportes_Click(object sender, EventArgs e)
-        {
-            FrmSalesByCustomerReport frmReport =
-            new FrmSalesByCustomerReport(_reportService);
-            frmReport.StartPosition = FormStartPosition.CenterScreen;
-            frmReport.ShowDialog();
-            
+        {   
 
         }
 

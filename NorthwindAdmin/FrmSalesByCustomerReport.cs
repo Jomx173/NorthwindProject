@@ -10,17 +10,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace NorthwindAdmin
 {
     public partial class FrmSalesByCustomerReport : Form
     {
         private readonly ReportService _reportService;
+        private readonly VentasEmpleadosServices _ventasEmpleadosServices;
 
-        public FrmSalesByCustomerReport(ReportService reportService)
+        public FrmSalesByCustomerReport(ReportService reportService,
+        VentasEmpleadosServices ventasEmpleadosServices)
+        
         {
             InitializeComponent();
+
             _reportService = reportService;
+            _ventasEmpleadosServices = ventasEmpleadosServices;
+
             StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -169,7 +176,12 @@ namespace NorthwindAdmin
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            FrmMenuGestiones frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
 
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
         }
 
         private void label16_Click(object sender, EventArgs e)
@@ -179,8 +191,8 @@ namespace NorthwindAdmin
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FrmMenuReportes frm =
-            new FrmMenuReportes(_reportService);
+            FrmMenuReportes frm = new FrmMenuReportes(
+            _reportService, _ventasEmpleadosServices);
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();

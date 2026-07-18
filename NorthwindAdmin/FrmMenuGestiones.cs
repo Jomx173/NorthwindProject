@@ -13,10 +13,11 @@ namespace NorthwindAdmin
     public partial class FrmMenuGestiones : Form
     {
         private readonly IServiceProvider _serviceProvider;
-        public FrmMenuGestiones()
+
+        public FrmMenuGestiones(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            
+            _serviceProvider = serviceProvider;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -26,8 +27,12 @@ namespace NorthwindAdmin
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            var frm = Program.ServiceProvider.GetRequiredService<FrmEmpleados>();
+            FrmEmpleados frm =
+                _serviceProvider.GetRequiredService<FrmEmpleados>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
+
             this.Hide();
         }
     }

@@ -573,6 +573,96 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
                 .HasConstraintName("FK_Territories_Region");
         });
 
+        modelBuilder.Entity<QuarterlyOrder>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.Property(e => e.CustomerId)
+                .HasMaxLength(5)
+                .IsFixedLength();
+        });
+
+        modelBuilder.Entity<SalesByCategory>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<SalesTotalsByAmount>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<SummaryOfSalesByQuarter>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<SummaryOfSalesByYear>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwEjercicio5Per3>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwEjercicio6Per3>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwEjercicio7Per3>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwEjercicio8Per3>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwNombrecategoriaproducto>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwOrdenesprodu11>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwOrdenesproducto11>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwOrdenesxcliente>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwOrdenesxcliente1>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwPrimeraVistum>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwProducto>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+        modelBuilder.Entity<VwTotalOrdenesSinDescuento>(entity =>
+        {
+            entity.HasNoKey();
+        });
+
+
         modelBuilder.Entity<VwClientesXempleado>(entity =>
         {
             entity

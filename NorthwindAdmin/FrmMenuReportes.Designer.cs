@@ -140,6 +140,7 @@
             button2.TabIndex = 10;
             button2.Text = "GESTIONES";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -340,6 +341,7 @@
             btnEmpleados.TabIndex = 16;
             btnEmpleados.Text = "VER";
             btnEmpleados.UseVisualStyleBackColor = false;
+            btnEmpleados.Click += btnEmpleados_Click;
             // 
             // label7
             // 
