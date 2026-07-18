@@ -317,6 +317,16 @@ namespace NorthwindAdmin
             frm.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenuPrincipal frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuPrincipal>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
     }
 
 

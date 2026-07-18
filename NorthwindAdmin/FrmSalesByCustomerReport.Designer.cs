@@ -166,6 +166,7 @@ namespace NorthwindAdmin
             button1.TabIndex = 9;
             button1.Text = "INICIO";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label16
             // 
