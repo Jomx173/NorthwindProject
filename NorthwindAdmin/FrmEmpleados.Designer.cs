@@ -1,4 +1,4 @@
-﻿namespace NorthwinAdmin
+﻿namespace NorthwindAdmin
 {
     partial class FrmEmpleados
     {

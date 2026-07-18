@@ -3,6 +3,7 @@ using DataAccess.Models;
 using Domain.Models.DTO;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,9 +26,9 @@ namespace DataAccess.Repository
                 .Where(o => o.CustomerId == customerId)
                 .Select(o => new OrderDto
                 {
-                    OrderID = o.OrderId,
-                    CustomerID = o.CustomerId ?? string.Empty,
-                    OrderDate = o.OrderDate ?? DateTime.MinValue,
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId ?? string.Empty,
+                    OrderDate = o.OrderDate,
                     ShipCity = o.ShipCity ?? string.Empty
                 })
                 .ToListAsync();
@@ -48,9 +49,9 @@ namespace DataAccess.Repository
 
             return order == null ? null : new OrderDto
             {
-                OrderID = order.OrderId,
-                CustomerID = order.CustomerId ?? string.Empty,
-                OrderDate = order.OrderDate ?? DateTime.MinValue,
+                OrderId = order.OrderId,
+                CustomerId = order.CustomerId ?? string.Empty,
+                OrderDate = order.OrderDate,
                 ShipCity = order.ShipCity ?? string.Empty
             };
         }
@@ -59,7 +60,7 @@ namespace DataAccess.Repository
         {
             var order = new Order
             {
-                CustomerId = orderDto.CustomerID,
+                CustomerId = orderDto.CustomerId,
                 OrderDate = orderDto.OrderDate,
                 ShipCity = orderDto.ShipCity
             };
@@ -70,12 +71,14 @@ namespace DataAccess.Repository
 
         public async Task UpdateOrder(OrderDto orderDto)
         {
-            var order = await _context.Orders.FindAsync(orderDto.OrderID);
+            var order = await _context.Orders.FindAsync(orderDto.OrderId);
 
             if (order != null)
             {
+                order.CustomerId = orderDto.CustomerId;
                 order.OrderDate = orderDto.OrderDate;
                 order.ShipCity = orderDto.ShipCity;
+
                 await _context.SaveChangesAsync();
             }
         }
