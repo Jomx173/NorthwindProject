@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Domain.Models.Interfaces;
 using Domain.Models.DTO;
-using Domain.Interfaces;
 
 namespace Domain.Services
 {
@@ -14,40 +17,14 @@ namespace Domain.Services
             _order = order;
         }
 
-        // Obtener todos los pedidos de un cliente
-        public async Task<List<OrderDto>> GetOrdersByCustomer(string customerId)
+        public async Task<List<OrderDto>> GetOrders()
         {
-            return await _order.GetOrdersByCustomer(customerId);
+            return await _order.GetOrders();
         }
 
-        // Este es el método que usa FormClientes
-        public async Task<List<OrderDto>> GetOrdersByCustomerId(string customerId)
-        {
-            return await _order.GetOrdersByCustomer(customerId);
-        }
-
-        // Obtener un pedido específico
-        public async Task<OrderDto?> GetOrderById(int orderId)
+        public async Task<OrderDto> GetOrderById(string orderId)
         {
             return await _order.GetOrderById(orderId);
-        }
-
-        // Registrar un nuevo pedido
-        public async Task AddOrder(OrderDto order)
-        {
-            await _order.AddOrder(order);
-        }
-
-        // Modificar un pedido existente
-        public async Task UpdateOrder(OrderDto order)
-        {
-            await _order.UpdateOrder(order);
-        }
-
-        // Eliminar un pedido
-        public async Task DeleteOrder(int orderId)
-        {
-            await _order.DeleteOrder(orderId);
         }
     }
 }

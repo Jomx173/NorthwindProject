@@ -1,12 +1,12 @@
-﻿using DataAccess.Context;
-using DataAccess.Models;
-using Domain.Models.DTO;
-using Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Domain.Models.DTO;
+using Domain.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using DataAccess.Context;
 
 namespace DataAccess.Repository
 {
@@ -19,79 +19,28 @@ namespace DataAccess.Repository
             _context = context;
         }
 
-        public async Task<List<OrderDto>> GetOrdersByCustomer(string customerId)
-        {
-            var orders = await _context.Orders
-                .AsNoTracking()
-                .Where(o => o.CustomerId == customerId)
-                .Select(o => new OrderDto
-                {
-                    OrderId = o.OrderId,
-                    CustomerId = o.CustomerId ?? string.Empty,
-                    OrderDate = o.OrderDate,
-                    ShipCity = o.ShipCity ?? string.Empty
-                })
-                .ToListAsync();
-
-            return orders;
-        }
-
-        public async Task<List<OrderDto>> GetOrdersByCustomerId(string customerId)
-        {
-            return await GetOrdersByCustomer(customerId);
-        }
-
-        public async Task<OrderDto?> GetOrderById(int orderId)
+        public async Task<OrderDto> GetOrderById(string orderId)
         {
             var order = await _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.Employee)
+                .Include(o => o.OrderDetails)
                 .AsNoTracking()
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+                .FirstOrDefaultAsync(o => o.OrderId.ToString() == orderId);
 
-            return order == null ? null : new OrderDto
-            {
-                OrderId = order.OrderId,
-                CustomerId = order.CustomerId ?? string.Empty,
-                OrderDate = order.OrderDate,
-                ShipCity = order.ShipCity ?? string.Empty
-            };
+            return order is null ? null : OrderMap.ToDto(order);
         }
 
-        public async Task AddOrder(OrderDto orderDto)
+        public async Task<List<OrderDto>> GetOrders()
         {
-            var order = new Order
-            {
-                CustomerId = orderDto.CustomerId,
-                OrderDate = orderDto.OrderDate,
-                ShipCity = orderDto.ShipCity
-            };
+            var orders = await _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.Employee)
+                .Include(o => o.OrderDetails)
+                .AsNoTracking()
+                .ToListAsync();
 
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task UpdateOrder(OrderDto orderDto)
-        {
-            var order = await _context.Orders.FindAsync(orderDto.OrderId);
-
-            if (order != null)
-            {
-                order.CustomerId = orderDto.CustomerId;
-                order.OrderDate = orderDto.OrderDate;
-                order.ShipCity = orderDto.ShipCity;
-
-                await _context.SaveChangesAsync();
-            }
-        }
-
-        public async Task DeleteOrder(int orderId)
-        {
-            var order = await _context.Orders.FindAsync(orderId);
-
-            if (order != null)
-            {
-                _context.Orders.Remove(order);
-                await _context.SaveChangesAsync();
-            }
+            return orders.Select(o => OrderMap.ToDto(o)).ToList();
         }
     }
 }
