@@ -1,10 +1,17 @@
-﻿using Domain.Models.DTO;
+using Domain.Models.DTO;
 
-namespace Domain.Interfaces
+namespace Domain.Models.Interfaces
 {
     public interface ICategory
     {
-        // Obtiene la lista de categorías
         Task<List<CategoryDto>> GetCategories();
+
+        Task<CategoryDto?> GetCategoryById(int id);
+
+        Task<bool> CreateCategory(CategoryDto category);
+
+        Task<bool> UpdateCategory(CategoryDto category);
+
+        Task<bool> DeleteCategory(int id);
     }
 }

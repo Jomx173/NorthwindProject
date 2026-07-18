@@ -1,17 +1,27 @@
-﻿using DataAccess.Models;
+using DataAccess.Models;
 using Domain.Models.DTO;
 
 namespace DataAccess.Repository
 {
-    internal class CategoryMap
+    internal static class CategoryMap
     {
-        // Convierte la entidad Category en CategoryDto
         public static CategoryDto ToDto(Category category)
         {
             return new CategoryDto
             {
                 CategoryId = category.CategoryId,
-                CategoryName = category.CategoryName
+                CategoryName = category.CategoryName,
+                Description = category.Description
+            };
+        }
+
+        public static Category ToEntity(CategoryDto dto)
+        {
+            return new Category
+            {
+                CategoryId = dto.CategoryId,
+                CategoryName = dto.CategoryName,
+                Description = dto.Description
             };
         }
     }
