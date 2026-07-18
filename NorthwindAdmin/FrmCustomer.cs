@@ -16,7 +16,7 @@ namespace NorthwindAdmin
         private async void Form1_Load(object sender, EventArgs e)
         {
             var customer = await _customerService.GetCustomerById("ALFKI");
-            if (customer != null && customer.Id == "ALFKI")
+            if (customer != null && customer.CustomerId == "ALFKI")
             {
                 dataGridView1.DataSource = new List<Domain.Models.DTO.CustomerDto> { customer };
             }

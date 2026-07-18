@@ -2,7 +2,7 @@ using DataAccess.Extensions;
 using DataAccess.Repository.EmployeeRepository;
 using Domain.Models.Intefaces;
 using Domain.Services;
-using Data_access.Repository;
+using DataAccess.Repository.VentasEmpleadosRepository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Net;
@@ -29,7 +29,7 @@ namespace NorthwindAdmin
 
                     // Empleados
                     services.AddTransient<IEmployees, EmployeeRepository>();
-                    services.AddTransient<CustomerServices>();
+                    services.AddTransient<CustomerService>();
                     services.AddTransient<EmployeesServices>();
 
                     // Formularios

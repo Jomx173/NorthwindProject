@@ -1,11 +1,11 @@
-﻿using DataAccces.Context;
-using DataAccces.Models;
+﻿using DataAccess.Context;
+using DataAccess.Models;
 
 namespace NorthwindAdmin
 {
     public partial class Form1 : Form
     {
-        private readonly NorthwindContext db = new NorthwindContext();
+        private readonly NorthWindContext db = new NorthWindContext();
 
         private DataGridView dgvPedidos = new DataGridView();
         private Label lblPedidosExistentes = new Label();

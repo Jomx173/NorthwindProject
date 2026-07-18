@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NorthwinAdmin
+namespace NorthwindAdmin
 {
     public partial class FrmEmpleados : Form
     {

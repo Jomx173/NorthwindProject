@@ -1,7 +1,7 @@
 ﻿using Domain.Services;
 using System.Text;
 
-namespace NorthwinAdmin
+namespace NorthwindAdmin
 {
     public partial class FrmVentasEmpleados : Form
     {

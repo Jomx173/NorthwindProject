@@ -25,8 +25,8 @@ namespace DataAccess.Repository
                 .Where(o => o.CustomerId == customerId)
                 .Select(o => new OrderDto
                 {
-                    OrderID = o.OrderId,
-                    CustomerID = o.CustomerId ?? string.Empty,
+                    OrderId = o.OrderId,
+                    CustomerId = o.CustomerId ?? string.Empty,
                     OrderDate = o.OrderDate ?? DateTime.MinValue,
                     ShipCity = o.ShipCity ?? string.Empty
                 })
@@ -48,8 +48,8 @@ namespace DataAccess.Repository
 
             return order == null ? null : new OrderDto
             {
-                OrderID = order.OrderId,
-                CustomerID = order.CustomerId ?? string.Empty,
+                OrderId = order.OrderId,
+                CustomerId = order.CustomerId ?? string.Empty,
                 OrderDate = order.OrderDate ?? DateTime.MinValue,
                 ShipCity = order.ShipCity ?? string.Empty
             };
@@ -59,7 +59,7 @@ namespace DataAccess.Repository
         {
             var order = new Order
             {
-                CustomerId = orderDto.CustomerID,
+                CustomerId = orderDto.CustomerId,
                 OrderDate = orderDto.OrderDate,
                 ShipCity = orderDto.ShipCity
             };
@@ -70,7 +70,7 @@ namespace DataAccess.Repository
 
         public async Task UpdateOrder(OrderDto orderDto)
         {
-            var order = await _context.Orders.FindAsync(orderDto.OrderID);
+            var order = await _context.Orders.FindAsync(orderDto.OrderId);
 
             if (order != null)
             {
