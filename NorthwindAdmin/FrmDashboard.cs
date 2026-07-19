@@ -181,7 +181,12 @@ namespace NortwindAdmin
 
         private void btncontroles_Click(object sender, EventArgs e)
         {
+            Form1 frm =
+           Program.ServiceProvider.GetRequiredService<Form1>();
 
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
