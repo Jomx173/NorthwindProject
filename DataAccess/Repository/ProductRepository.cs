@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repository
 {
-    internal class ProductRepository : IProduct
+    public class ProductRepository : IProduct
     {
         private readonly NorthWindContext _context;
 
@@ -15,39 +15,51 @@ namespace DataAccess.Repository
             _context = context;
         }
 
-        // Busca un producto por su ID
-        public async Task<ProductDto> GetProductById(int productId)
-        {
-            var product = await _context.Products
-                .AsNoTracking()
-                .FirstOrDefaultAsync(p => p.ProductId == productId);
-
-            return product is null ? null : ProductMap.ToDto(product);
-        }
-
-        // Obtiene la lista de todos los productos
+        // Obtiene todos los productos
         public async Task<List<ProductDto>> GetProducts()
         {
             return await _context.Products
                 .AsNoTracking()
-                .Select(p => ProductMap.ToDto(p))
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock
+                })
                 .ToListAsync();
         }
 
-        // Actualiza la información de un producto
-        public async Task UpdateProduct(ProductDto productDto)
+        // Busca un producto por su ID
+        public async Task<ProductDto?> GetProductById(int productId)
         {
-            var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == productDto.ProductId);
+            return await _context.Products
+                .AsNoTracking()
+                .Where(p => p.ProductId == productId)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock
+                })
+                .FirstOrDefaultAsync();
+        }
 
-            if (product != null)
-            {
-                product.ProductName = productDto.ProductName;
-                product.UnitPrice = productDto.UnitPrice;
-                product.UnitsInStock = productDto.UnitsInStock;
-
-                await _context.SaveChangesAsync();
-            }
+        // Obtiene los productos de una categoría
+        public async Task<List<ProductDto>> GetProductsByCategory(int categoryId)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(p => p.CategoryId == categoryId)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock
+                })
+                .ToListAsync();
         }
 
         // Agrega un nuevo producto
@@ -61,30 +73,34 @@ namespace DataAccess.Repository
             };
 
             _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+        }
+
+        // Actualiza un producto
+        public async Task UpdateProduct(ProductDto productDto)
+        {
+            var product = await _context.Products.FindAsync(productDto.ProductId);
+
+            if (product == null)
+                return;
+
+            product.ProductName = productDto.ProductName;
+            product.UnitPrice = productDto.UnitPrice;
+            product.UnitsInStock = productDto.UnitsInStock;
 
             await _context.SaveChangesAsync();
         }
-        // Elimina un producto por su ID
+
+        // Elimina un producto
         public async Task DeleteProduct(int productId)
         {
-            var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == productId);
+            var product = await _context.Products.FindAsync(productId);
 
-            if (product != null)
-            {
-                _context.Products.Remove(product);
+            if (product == null)
+                return;
 
-                await _context.SaveChangesAsync();
-            }
-        }
-        // Obtiene los productos de una categoría
-        public async Task<List<ProductDto>> GetProductsByCategory(int categoryId)
-        {
-            return await _context.Products
-                .AsNoTracking()
-                .Where(p => p.CategoryId == categoryId)
-                .Select(p => ProductMap.ToDto(p))
-                .ToListAsync();
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
         }
     }
 }

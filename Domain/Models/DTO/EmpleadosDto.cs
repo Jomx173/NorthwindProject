@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Models.DTO
 {
@@ -19,5 +15,10 @@ namespace Domain.Models.DTO
         public string City { get; set; }
 
         public string Phone { get; set; }
+
+        // Agregados
+        public string Country { get; set; }
+
+        public string Address { get; set; }
     }
 }

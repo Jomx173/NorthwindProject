@@ -59,7 +59,8 @@ namespace NorthwindAdmin
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             FrmVentasEmpleados frm =
-            new FrmVentasEmpleados(_ventasEmpleadosServices);
+        Program.ServiceProvider
+        .GetRequiredService<FrmVentasEmpleados>();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();

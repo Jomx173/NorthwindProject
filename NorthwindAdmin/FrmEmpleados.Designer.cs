@@ -78,55 +78,60 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(284, 50);
+            panel1.Location = new Point(248, 38);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(915, 154);
+            panel1.Size = new Size(801, 116);
             panel1.TabIndex = 3;
             // 
             // txtAddress
             // 
             txtAddress.BorderStyle = BorderStyle.None;
             txtAddress.Font = new Font("Nirmala UI", 10.8F);
-            txtAddress.Location = new Point(553, 82);
+            txtAddress.Location = new Point(484, 62);
+            txtAddress.Margin = new Padding(3, 2, 3, 2);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(335, 34);
+            txtAddress.Size = new Size(293, 26);
             txtAddress.TabIndex = 3;
             // 
             // txtHomePhone
             // 
             txtHomePhone.Font = new Font("Nirmala UI", 10.8F);
-            txtHomePhone.Location = new Point(553, 29);
+            txtHomePhone.Location = new Point(484, 22);
+            txtHomePhone.Margin = new Padding(3, 2, 3, 2);
             txtHomePhone.Multiline = true;
             txtHomePhone.Name = "txtHomePhone";
-            txtHomePhone.Size = new Size(335, 34);
+            txtHomePhone.Size = new Size(294, 26);
             txtHomePhone.TabIndex = 2;
             // 
             // txtFirstName
             // 
             txtFirstName.Font = new Font("Nirmala UI", 10.8F);
-            txtFirstName.Location = new Point(104, 29);
+            txtFirstName.Location = new Point(91, 22);
+            txtFirstName.Margin = new Padding(3, 2, 3, 2);
             txtFirstName.Multiline = true;
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(335, 34);
+            txtFirstName.Size = new Size(294, 26);
             txtFirstName.TabIndex = 0;
             // 
             // txtLastName
             // 
             txtLastName.Font = new Font("Nirmala UI", 10.8F);
-            txtLastName.Location = new Point(104, 82);
+            txtLastName.Location = new Point(91, 62);
+            txtLastName.Margin = new Padding(3, 2, 3, 2);
             txtLastName.Multiline = true;
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(335, 34);
+            txtLastName.Size = new Size(294, 26);
             txtLastName.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 10.8F);
-            label4.Location = new Point(462, 82);
+            label4.Location = new Point(404, 62);
             label4.Name = "label4";
-            label4.Size = new Size(89, 25);
+            label4.Size = new Size(75, 20);
             label4.TabIndex = 3;
             label4.Text = "Dirección:";
             // 
@@ -134,9 +139,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Nirmala UI", 10.8F);
-            label3.Location = new Point(462, 32);
+            label3.Location = new Point(404, 24);
             label3.Name = "label3";
-            label3.Size = new Size(83, 25);
+            label3.Size = new Size(69, 20);
             label3.TabIndex = 2;
             label3.Text = "Teléfono:";
             // 
@@ -144,9 +149,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Nirmala UI", 10.8F);
-            label2.Location = new Point(18, 82);
+            label2.Location = new Point(16, 62);
             label2.Name = "label2";
-            label2.Size = new Size(82, 25);
+            label2.Size = new Size(69, 20);
             label2.TabIndex = 1;
             label2.Text = "Apellido:";
             // 
@@ -154,9 +159,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 10.8F);
-            label1.Location = new Point(20, 32);
+            label1.Location = new Point(18, 24);
             label1.Name = "label1";
-            label1.Size = new Size(82, 25);
+            label1.Size = new Size(67, 20);
             label1.TabIndex = 0;
             label1.Text = "Nombre:";
             // 
@@ -167,18 +172,20 @@
             panel2.Controls.Add(btnModificar);
             panel2.Controls.Add(btnAgregar);
             panel2.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(284, 219);
+            panel2.Location = new Point(248, 164);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(915, 61);
+            panel2.Size = new Size(801, 46);
             panel2.TabIndex = 8;
             // 
             // btnLimpiar
             // 
             btnLimpiar.BackColor = SystemColors.ActiveCaption;
             btnLimpiar.ForeColor = SystemColors.ButtonHighlight;
-            btnLimpiar.Location = new Point(616, 7);
+            btnLimpiar.Location = new Point(539, 5);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(272, 40);
+            btnLimpiar.Size = new Size(238, 30);
             btnLimpiar.TabIndex = 6;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -188,9 +195,10 @@
             // 
             btnModificar.BackColor = Color.SkyBlue;
             btnModificar.ForeColor = SystemColors.ButtonHighlight;
-            btnModificar.Location = new Point(322, 7);
+            btnModificar.Location = new Point(282, 5);
+            btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(272, 40);
+            btnModificar.Size = new Size(238, 30);
             btnModificar.TabIndex = 5;
             btnModificar.Text = "MODIFICAR";
             btnModificar.UseVisualStyleBackColor = false;
@@ -199,9 +207,10 @@
             // 
             btnAgregar.BackColor = Color.SteelBlue;
             btnAgregar.ForeColor = SystemColors.ControlLightLight;
-            btnAgregar.Location = new Point(18, 7);
+            btnAgregar.Location = new Point(16, 5);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(274, 40);
+            btnAgregar.Size = new Size(240, 30);
             btnAgregar.TabIndex = 4;
             btnAgregar.Text = "AGREGAR";
             btnAgregar.UseVisualStyleBackColor = false;
@@ -211,20 +220,22 @@
             // 
             dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmpleados.Location = new Point(284, 317);
+            dgvEmpleados.Location = new Point(248, 238);
+            dgvEmpleados.Margin = new Padding(3, 2, 3, 2);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(914, 224);
+            dgvEmpleados.Size = new Size(800, 168);
             dgvEmpleados.TabIndex = 9;
             // 
             // dgvPedidos
             // 
             dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPedidos.Location = new Point(284, 578);
+            dgvPedidos.Location = new Point(248, 434);
+            dgvPedidos.Margin = new Padding(3, 2, 3, 2);
             dgvPedidos.Name = "dgvPedidos";
             dgvPedidos.RowHeadersWidth = 51;
-            dgvPedidos.Size = new Size(914, 224);
+            dgvPedidos.Size = new Size(800, 168);
             dgvPedidos.TabIndex = 10;
             // 
             // label5
@@ -232,9 +243,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(283, 286);
+            label5.Location = new Point(248, 214);
             label5.Name = "label5";
-            label5.Size = new Size(193, 28);
+            label5.Size = new Size(156, 21);
             label5.TabIndex = 8;
             label5.Text = "Lista de Empleados";
             // 
@@ -243,9 +254,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(283, 550);
+            label6.Location = new Point(248, 412);
             label6.Name = "label6";
-            label6.Size = new Size(207, 28);
+            label6.Size = new Size(168, 21);
             label6.TabIndex = 11;
             label6.Text = "Pedidos Gestionados";
             // 
@@ -254,9 +265,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Nirmala UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(0, 0, 64);
-            label7.Location = new Point(575, 9);
+            label7.Location = new Point(503, 7);
             label7.Name = "label7";
-            label7.Size = new Size(314, 35);
+            label7.Size = new Size(253, 28);
             label7.TabIndex = 12;
             label7.Text = "GESTIÓN DE EMPLEADOS";
             // 
@@ -277,17 +288,19 @@
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
             panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(262, 824);
+            panel3.Size = new Size(229, 618);
             panel3.TabIndex = 13;
             // 
             // button6
             // 
             button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(12, 550);
+            button6.Location = new Point(10, 412);
+            button6.Margin = new Padding(3, 2, 3, 2);
             button6.Name = "button6";
-            button6.Size = new Size(234, 52);
+            button6.Size = new Size(205, 39);
             button6.TabIndex = 14;
             button6.Text = "DASHBOARD";
             button6.UseVisualStyleBackColor = true;
@@ -296,20 +309,23 @@
             // 
             button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(11, 657);
+            button5.Location = new Point(10, 493);
+            button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
-            button5.Size = new Size(234, 52);
+            button5.Size = new Size(205, 39);
             button5.TabIndex = 13;
             button5.Text = "CERRAR SESIÓN";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
             // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(11, 476);
+            button4.Location = new Point(10, 357);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(234, 52);
+            button4.Size = new Size(205, 39);
             button4.TabIndex = 12;
             button4.Text = "REPORTES";
             button4.UseVisualStyleBackColor = true;
@@ -319,20 +335,23 @@
             // 
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(12, 403);
+            button3.Location = new Point(10, 302);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(234, 52);
+            button3.Size = new Size(205, 39);
             button3.TabIndex = 11;
             button3.Text = "CONTROLES";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(11, 334);
+            button2.Location = new Point(10, 250);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(234, 52);
+            button2.Size = new Size(205, 39);
             button2.TabIndex = 10;
             button2.Text = "GESTIONES";
             button2.UseVisualStyleBackColor = true;
@@ -342,9 +361,10 @@
             // 
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(11, 215);
+            button1.Location = new Point(10, 161);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(234, 52);
+            button1.Size = new Size(205, 39);
             button1.TabIndex = 9;
             button1.Text = "INICIO";
             button1.UseVisualStyleBackColor = true;
@@ -355,9 +375,9 @@
             label16.AutoSize = true;
             label16.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label16.ForeColor = SystemColors.ButtonFace;
-            label16.Location = new Point(12, 605);
+            label16.Location = new Point(10, 454);
             label16.Name = "label16";
-            label16.Size = new Size(234, 29);
+            label16.Size = new Size(197, 23);
             label16.TabIndex = 8;
             label16.Text = "_________________";
             // 
@@ -366,9 +386,9 @@
             label14.AutoSize = true;
             label14.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = SystemColors.ButtonFace;
-            label14.Location = new Point(11, 271);
+            label14.Location = new Point(10, 203);
             label14.Name = "label14";
-            label14.Size = new Size(234, 29);
+            label14.Size = new Size(197, 23);
             label14.TabIndex = 6;
             label14.Text = "_________________";
             // 
@@ -377,9 +397,9 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label12.ForeColor = SystemColors.InactiveCaption;
-            label12.Location = new Point(68, 130);
+            label12.Location = new Point(60, 98);
             label12.Name = "label12";
-            label12.Size = new Size(120, 23);
+            label12.Size = new Size(99, 19);
             label12.TabIndex = 4;
             label12.Text = "NORTHWIND";
             // 
@@ -388,9 +408,9 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
             label11.ForeColor = SystemColors.InactiveCaption;
-            label11.Location = new Point(51, 49);
+            label11.Location = new Point(45, 37);
             label11.Name = "label11";
-            label11.Size = new Size(148, 28);
+            label11.Size = new Size(119, 21);
             label11.TabIndex = 3;
             label11.Text = " DE SISTEMAS";
             // 
@@ -399,9 +419,9 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
             label10.ForeColor = SystemColors.InactiveCaption;
-            label10.Location = new Point(51, 77);
+            label10.Location = new Point(45, 58);
             label10.Name = "label10";
-            label10.Size = new Size(155, 28);
+            label10.Size = new Size(124, 21);
             label10.TabIndex = 2;
             label10.Text = "DE SOFTWARE";
             // 
@@ -410,9 +430,9 @@
             label8.AutoSize = true;
             label8.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.ButtonFace;
-            label8.Location = new Point(11, 162);
+            label8.Location = new Point(10, 122);
             label8.Name = "label8";
-            label8.Size = new Size(234, 29);
+            label8.Size = new Size(197, 23);
             label8.TabIndex = 0;
             label8.Text = "_________________";
             // 
@@ -421,17 +441,17 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
             label9.ForeColor = SystemColors.InactiveCaption;
-            label9.Location = new Point(26, 21);
+            label9.Location = new Point(23, 16);
             label9.Name = "label9";
-            label9.Size = new Size(206, 28);
+            label9.Size = new Size(166, 21);
             label9.TabIndex = 1;
             label9.Text = "IMPLEMENTACIÓN ";
             // 
             // FrmEmpleados
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1229, 822);
+            ClientSize = new Size(1075, 562);
             Controls.Add(panel3);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -440,6 +460,7 @@
             Controls.Add(dgvEmpleados);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmEmpleados";
             Text = "FrmEmpleados";
             Load += FrmEmpleados_Load;

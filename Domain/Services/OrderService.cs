@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Domain.Models.DTO;
+﻿using Domain.DTO;
 using Domain.Interfaces;
+using Domain.Models.DTO;
+using Domain.Models.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Domain.Services
 {
@@ -13,6 +18,18 @@ namespace Domain.Services
         {
             _order = order;
         }
+
+        public async Task<List<OrderDto>> GetOrders()
+        {
+            return await _order.GetOrders();
+        }
+
+        public async Task<OrderDto> GetOrderById(string orderId)
+        {
+            return await _order.GetOrderById(orderId);
+
+        }
+
 
         // Obtener todos los pedidos de un cliente
         public async Task<List<OrderDto>> GetOrdersByCustomer(string customerId)

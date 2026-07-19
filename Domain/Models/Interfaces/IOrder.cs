@@ -5,7 +5,13 @@ using Domain.Models.DTO;
 namespace Domain.Interfaces
 {
     public interface IOrder
+
     {
+
+        Task<List<OrderDto>> GetOrders();
+
+        Task<OrderDto> GetOrderById(string orderId);
+
         // Obtener todos los pedidos de un cliente
         Task<List<OrderDto>> GetOrdersByCustomer(string customerId);
 

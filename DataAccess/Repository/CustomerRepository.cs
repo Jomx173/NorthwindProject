@@ -18,6 +18,7 @@ namespace DataAccess.Repository
         public async Task<List<CustomerDto>> GetCustomers()
         {
             return await _context.Customers
+                .AsNoTracking()
                 .Select(c => new CustomerDto
                 {
                     CustomerId = c.CustomerId,
@@ -32,25 +33,25 @@ namespace DataAccess.Repository
 
         public async Task<CustomerDto?> GetCustomerById(string customerId)
         {
-            var c = await _context.Customers.FindAsync(customerId);
-
-            if (c == null)
-                return null;
-
-            return new CustomerDto
-            {
-                CustomerId = c.CustomerId,
-                CompanyName = c.CompanyName,
-                ContactName = c.ContactName,
-                ContactTitle = c.ContactTitle,
-                Phone = c.Phone,
-                City = c.City
-            };
+            return await _context.Customers
+                .AsNoTracking()
+                .Where(c => c.CustomerId == customerId)
+                .Select(c => new CustomerDto
+                {
+                    CustomerId = c.CustomerId,
+                    CompanyName = c.CompanyName,
+                    ContactName = c.ContactName,
+                    ContactTitle = c.ContactTitle,
+                    Phone = c.Phone,
+                    City = c.City
+                })
+                .FirstOrDefaultAsync();
         }
 
         public async Task<List<CustomerDto>> SearchCustomers(string texto)
         {
             return await _context.Customers
+                .AsNoTracking()
                 .Where(c =>
                     c.CompanyName.Contains(texto) ||
                     (c.City != null && c.City.Contains(texto)) ||
@@ -87,27 +88,27 @@ namespace DataAccess.Repository
         {
             var entity = await _context.Customers.FindAsync(customer.CustomerId);
 
-            if (entity != null)
-            {
-                entity.CompanyName = customer.CompanyName;
-                entity.ContactName = customer.ContactName;
-                entity.ContactTitle = customer.ContactTitle;
-                entity.Phone = customer.Phone;
-                entity.City = customer.City;
+            if (entity == null)
+                return;
 
-                await _context.SaveChangesAsync();
-            }
+            entity.CompanyName = customer.CompanyName;
+            entity.ContactName = customer.ContactName;
+            entity.ContactTitle = customer.ContactTitle;
+            entity.Phone = customer.Phone;
+            entity.City = customer.City;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteCustomer(string customerId)
         {
             var entity = await _context.Customers.FindAsync(customerId);
 
-            if (entity != null)
-            {
-                _context.Customers.Remove(entity);
-                await _context.SaveChangesAsync();
-            }
+            if (entity == null)
+                return;
+
+            _context.Customers.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

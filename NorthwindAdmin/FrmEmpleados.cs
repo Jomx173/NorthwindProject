@@ -10,11 +10,11 @@ namespace NorthwindAdmin
 {
     public partial class FrmEmpleados : Form
     {
-        private readonly EmployeesServices _employeesServices;
+        private readonly EmpleadosService _employeesServices;
         private readonly ReportService _reportService;
         private readonly VentasEmpleadosServices _ventasEmpleadosServices;
 
-        public FrmEmpleados(EmployeesServices employeesServices)
+        public FrmEmpleados(EmpleadosService employeesServices)
         {
             InitializeComponent();
             _employeesServices = employeesServices;
@@ -42,10 +42,10 @@ namespace NorthwindAdmin
 
                 dgvEmpleados.DataSource = null;
                 dgvEmpleados.DataSource = empleados;
-                if (dgvEmpleados.Columns["EmployeesID"] != null) dgvEmpleados.Columns["EmployeesID"].HeaderText = "ID";
+                if (dgvEmpleados.Columns["EmployeeId"] != null) dgvEmpleados.Columns["EmployeeId"].HeaderText = "ID";
                 if (dgvEmpleados.Columns["FirstName"] != null) dgvEmpleados.Columns["FirstName"].HeaderText = "Nombre";
                 if (dgvEmpleados.Columns["LastName"] != null) dgvEmpleados.Columns["LastName"].HeaderText = "Apellido";
-                if (dgvEmpleados.Columns["HomePhone"] != null) dgvEmpleados.Columns["HomePhone"].HeaderText = "Teléfono";
+                if (dgvEmpleados.Columns["Phone"] != null) dgvEmpleados.Columns["Phone"].HeaderText = "Teléfono";
                 if (dgvEmpleados.Columns["Address"] != null) dgvEmpleados.Columns["Address"].HeaderText = "Dirección";
 
 
@@ -65,12 +65,11 @@ namespace NorthwindAdmin
             {
                 txtFirstName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["FirstName"].Value?.ToString();
                 txtLastName.Text = dgvEmpleados.Rows[e.RowIndex].Cells["LastName"].Value?.ToString();
-                txtHomePhone.Text = dgvEmpleados.Rows[e.RowIndex].Cells["HomePhone"].Value?.ToString();
+                txtHomePhone.Text = dgvEmpleados.Rows[e.RowIndex].Cells["Phone"].Value?.ToString();
                 txtAddress.Text = dgvEmpleados.Rows[e.RowIndex].Cells["Address"].Value?.ToString();
                 try
                 {
-                    var idEmpleadoStr = dgvEmpleados.Rows[e.RowIndex].Cells["EmployeesID"].Value?.ToString();
-
+                    var idEmpleadoStr = dgvEmpleados.Rows[e.RowIndex].Cells["EmployeeId"].Value?.ToString();
                     if (!string.IsNullOrEmpty(idEmpleadoStr))
                     {
 
@@ -156,12 +155,12 @@ namespace NorthwindAdmin
             try
             {
 
-                var nuevoEmp = new EmployeesDto
+                var nuevoEmp = new EmpleadosDto
                 {
 
                     FirstName = txtFirstName.Text.Trim(),
                     LastName = txtLastName.Text.Trim(),
-                    HomePhone = txtHomePhone.Text.Trim(),
+                    Phone = txtHomePhone.Text.Trim(),
                     Address = txtAddress.Text.Trim()
                 };
 
@@ -194,12 +193,12 @@ namespace NorthwindAdmin
 
                 var idSeleccionado = dgvEmpleados.CurrentRow.Cells["EmployeesID"].Value?.ToString();
 
-                var empModificado = new EmployeesDto
+                var empModificado = new EmpleadosDto
                 {
-                    EmployeesID = idSeleccionado,
+                    EmployeeId = int.Parse(idSeleccionado),
                     FirstName = txtFirstName.Text.Trim(),
                     LastName = txtLastName.Text.Trim(),
-                    HomePhone = txtHomePhone.Text.Trim(),
+                    Phone = txtHomePhone.Text.Trim(),
                     Address = txtAddress.Text.Trim()
                 };
 
@@ -297,6 +296,16 @@ namespace NorthwindAdmin
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
             this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

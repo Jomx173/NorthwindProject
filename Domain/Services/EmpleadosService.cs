@@ -1,30 +1,62 @@
-﻿using System;
+﻿using Domain.Models.DTO;
+using Domain.Models.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Domain.Interfaces;
 
 namespace Domain.Services
 {
-    public class EmpleadosService : IEmpleados
+    public class EmpleadosService
     {
-        //todo lo privado lleva un guion bajo
-        private readonly IEmpleados _empleados;
+        private readonly IEmployee _empleados;
 
-        public EmpleadosService(IEmpleados empleados)
+        public EmpleadosService(IEmployee empleados)
         {
             _empleados = empleados;
         }
 
-        public async Task<List<Models.DTO.EmpleadosDto>> GetEmpleados()
+        public async Task<List<EmpleadosDto>> GetEmpleados()
         {
             return await _empleados.GetEmpleados();
         }
 
-        public async Task<Models.DTO.EmpleadosDto> GetEmpleadoById(int employeeId)
+        public async Task<EmpleadosDto> GetEmpleadoById(int employeeId)
         {
             return await _empleados.GetEmpleadoById(employeeId);
+        }
+
+        public async Task<List<EmpleadosDto>> GetEmployeeDtos()
+        {
+            return await _empleados.GetEmployeeDtos();
+        }
+
+        public async Task<EmpleadosDto> GetEmployeeById(string employeeId)
+        {
+            return await _empleados.GetEmployeeById(employeeId);
+        }
+
+        public async Task<List<EmpleadosDto>> GetEmployees()
+        {
+            return await _empleados.GetEmployees();
+        }
+
+        public async Task<EmpleadosDto> GetEmployeesById(string employeesID)
+        {
+            return await _empleados.GetEmployeesById(employeesID);
+        }
+
+        public async Task<List<OrderDto>> GetOrdersByEmployee(int employeeId)
+        {
+            return await _empleados.GetOrdersByEmployee(employeeId);
+        }
+
+        public async Task<bool> AddEmployee(EmpleadosDto employee)
+        {
+            return await _empleados.AddEmployee(employee);
+        }
+
+        public async Task<bool> UpdateEmployee(EmpleadosDto employee)
+        {
+            return await _empleados.UpdateEmployee(employee);
         }
     }
 }

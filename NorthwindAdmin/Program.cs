@@ -1,11 +1,10 @@
 using DataAccess.Extensions;
 using DataAccess.Repository.EmployeeRepository;
-using Domain.Models.Intefaces;
-using Domain.Services;
 using DataAccess.Repository.VentasEmpleadosRepository;
+using Domain.Models.Interfaces;
+using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Net;
 
 namespace NorthwindAdmin
 {
@@ -21,28 +20,26 @@ namespace NorthwindAdmin
             using IHost host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-                    // Registrar acceso a datos
+                    // Acceso a datos
                     services.AddDataAccess(context.Configuration);
+
+                    // Repositorios e interfaces
+                    services.AddTransient<IEmployee, EmployeeRepository>();
+                    services.AddTransient<IVentasEmpleados, VentasEmpleadosRepository>();
 
                     // Servicios
                     services.AddScoped<CustomerService>();
                     services.AddTransient<ReportService>();
-                    services.AddTransient<EmployeesServices>();
+                    services.AddTransient<EmpleadosService>();
                     services.AddTransient<VentasEmpleadosServices>();
-                    services.AddTransient<IVentasEmpleados, VentasEmpleadosRepository>();
 
-                    // Empleados
-                    services.AddTransient<IEmployees, EmployeeRepository>();
-                    services.AddTransient<CustomerService>();
-                    services.AddTransient<EmployeesServices>();
-
+                    // Formularios
                     // Formularios
                     services.AddTransient<FrmEmpleados>();
                     services.AddTransient<FrmProductos>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();
-                    services.AddTransient<ReportService>();
-                    services.AddTransient<VentasEmpleadosServices>();
+                    services.AddTransient<FrmVentasEmpleados>();
                     services.AddTransient<FrmSalesByCustomerReport>();
                     services.AddTransient<FrmMenuPrincipal>();
                 })
@@ -52,7 +49,9 @@ namespace NorthwindAdmin
 
             ServiceProvider = host.Services;
 
-            Application.Run(host.Services.GetRequiredService<FrmMenuPrincipal>());
+            Application.Run(
+                host.Services.GetRequiredService<FrmMenuPrincipal>()
+            );
         }
     }
 }

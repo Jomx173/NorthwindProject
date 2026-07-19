@@ -1,5 +1,6 @@
 using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
+using NortwindAdmin;
 
 namespace NorthwindAdmin
 {
@@ -38,6 +39,15 @@ namespace NorthwindAdmin
         {
             FrmMenuGestiones frm =
             Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm = new FrmDashboard();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
