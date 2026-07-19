@@ -38,6 +38,7 @@ namespace NorthwindAdmin
 
                     // Formularios
                     services.AddTransient<FrmEmpleados>();
+                    services.AddTransient<FrmProductos>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();
                     services.AddTransient<ReportService>();

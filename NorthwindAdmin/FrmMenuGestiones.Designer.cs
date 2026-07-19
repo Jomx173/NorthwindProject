@@ -32,7 +32,7 @@
             label1 = new Label();
             label8 = new Label();
             btnEmpleados = new Button();
-            button2 = new Button();
+            BtnProductos = new Button();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
@@ -72,11 +72,11 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Showcard Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.SteelBlue;
             label8.Location = new Point(30, 52);
             label8.Name = "label8";
-            label8.Size = new Size(1020, 35);
+            label8.Size = new Size(1086, 32);
             label8.TabIndex = 2;
             label8.Text = "___________________________________________________________________";
             // 
@@ -91,14 +91,15 @@
             btnEmpleados.UseVisualStyleBackColor = false;
             btnEmpleados.Click += btnEmpleados_Click;
             // 
-            // button2
+            // BtnProductos
             // 
-            button2.BackColor = Color.White;
-            button2.Location = new Point(380, 119);
-            button2.Name = "button2";
-            button2.Size = new Size(315, 207);
-            button2.TabIndex = 4;
-            button2.UseVisualStyleBackColor = false;
+            BtnProductos.BackColor = Color.White;
+            BtnProductos.Location = new Point(380, 119);
+            BtnProductos.Name = "BtnProductos";
+            BtnProductos.Size = new Size(315, 207);
+            BtnProductos.TabIndex = 4;
+            BtnProductos.UseVisualStyleBackColor = false;
+            BtnProductos.Click += BtnProductos_Click;
             // 
             // button3
             // 
@@ -224,6 +225,7 @@
             label9.TabIndex = 15;
             label9.Text = "Administra productos y existencias.";
             label9.TextAlign = ContentAlignment.MiddleCenter;
+           // label9.Click += label9_Click;
             // 
             // label10
             // 
@@ -332,7 +334,7 @@
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(BtnProductos);
             Controls.Add(btnEmpleados);
             Controls.Add(label1);
             Controls.Add(label8);
@@ -351,7 +353,7 @@
         private Label label1;
         private Label label8;
         private Button btnEmpleados;
-        private Button button2;
+        private Button BtnProductos;
         private Button button3;
         private Button button4;
         private Button button5;

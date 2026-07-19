@@ -22,13 +22,23 @@ namespace NorthwindAdmin
 
         private void label3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             FrmEmpleados frm =
                 _serviceProvider.GetRequiredService<FrmEmpleados>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProductos frm =
+                _serviceProvider.GetRequiredService<FrmProductos>();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
