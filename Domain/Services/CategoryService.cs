@@ -1,0 +1,21 @@
+﻿using Domain.Interfaces;
+using Domain.Models.DTO;
+
+namespace Domain.Services
+{
+    public class CategoryService : ICategory
+    {
+        private readonly ICategory _category;
+
+        public CategoryService(ICategory category)
+        {
+            _category = category;
+        }
+
+        // Obtiene la lista de categorías
+        public async Task<List<CategoryDto>> GetCategories()
+        {
+            return await _category.GetCategories();
+        }
+    }
+}

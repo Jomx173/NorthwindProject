@@ -1,11 +1,11 @@
 ﻿using Domain.Models.DTO;
-using Domain.Models.Intefaces;
+using Domain.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 using Domain.Models.DTO;
-using Domain.Models.Intefaces;
+using Domain.Models.Interfaces;
 
 namespace Domain.Services
 {
