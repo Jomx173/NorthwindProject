@@ -56,5 +56,26 @@ namespace NorthwindAdmin
 
             Hide();
         }
+
+        private void FrmMenuGestiones_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            FrmClientes frm =
+      _serviceProvider.GetRequiredService<FrmClientes>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

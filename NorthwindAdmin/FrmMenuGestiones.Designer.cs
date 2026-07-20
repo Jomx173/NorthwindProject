@@ -51,11 +51,16 @@
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
+            btnClientes = new Button();
+            pictureBox6 = new PictureBox();
+            label13 = new Label();
+            label14 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -320,12 +325,65 @@
             pictureBox5.TabIndex = 22;
             pictureBox5.TabStop = false;
             // 
+            // btnClientes
+            // 
+            btnClientes.BackColor = Color.White;
+            btnClientes.Location = new Point(629, 266);
+            btnClientes.Margin = new Padding(3, 2, 3, 2);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(276, 155);
+            btnClientes.TabIndex = 24;
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = SystemColors.ControlLightLight;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(689, 284);
+            pictureBox6.Margin = new Padding(3, 2, 3, 2);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(145, 58);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 27;
+            pictureBox6.TabStop = false;
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Nirmala UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(699, 345);
+            label13.Name = "label13";
+            label13.Size = new Size(126, 29);
+            label13.TabIndex = 28;
+            label13.Text = "Clientes";
+            label13.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            label14.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label14.BackColor = Color.White;
+            label14.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(677, 367);
+            label14.Name = "label14";
+            label14.RightToLeft = RightToLeft.No;
+            label14.Size = new Size(183, 36);
+            label14.TabIndex = 29;
+            label14.Text = "Gestiona la información de los clientes.";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
+            label14.Click += label14_Click;
+            // 
             // FrmMenuGestiones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(931, 447);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(pictureBox6);
+            Controls.Add(btnClientes);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
@@ -351,11 +409,13 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmMenuGestiones";
             Text = "Gestiones";
+            Load += FrmMenuGestiones_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -383,5 +443,9 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
+        private Button btnClientes;
+        private PictureBox pictureBox6;
+        private Label label13;
+        private Label label14;
     }
 }
