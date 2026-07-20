@@ -326,6 +326,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestion de pedidos";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDetalle).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -5,6 +5,7 @@ using Domain.Models.Interfaces;
 using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NortwindAdmin;
 
 namespace NorthwindAdmin
 {
@@ -43,6 +44,7 @@ namespace NorthwindAdmin
                     services.AddTransient<FrmVentasEmpleados>();
                     services.AddTransient<FrmSalesByCustomerReport>();
                     services.AddTransient<FrmMenuPrincipal>();
+                    services.AddTransient<FrmDashboard>();
                 })
                 .Build();
 
