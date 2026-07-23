@@ -62,6 +62,23 @@ namespace DataAccess.Repository
                 .ToListAsync();
         }
 
+        // Obtiene los productos de un proveedor
+        public async Task<List<ProductDto>> GetProductsBySupplier(int supplierId)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(p => p.SupplierId == supplierId)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock,
+                    SupplierId = p.SupplierId
+                })
+                .ToListAsync();
+        }
+
         // Agrega un nuevo producto
         public async Task AddProduct(ProductDto productDto)
         {

@@ -32,6 +32,7 @@ namespace NorthwindAdmin
                     services.AddScoped<IOrder, OrderRepository>();
                     services.AddScoped<Domain.Interfaces.ICategory, CategoryRepository>();
                     services.AddScoped<IProduct, ProductRepository>();
+                    services.AddScoped<ISupplier, SupplierRepository>();
 
 
                     // Servicios
@@ -39,6 +40,7 @@ namespace NorthwindAdmin
                     services.AddScoped<OrderService>();
                     services.AddScoped<CategoryService>();
                     services.AddScoped<ProductService>();
+                    services.AddScoped<SupplierService>();
                     services.AddTransient<ReportService>();
                     services.AddTransient<EmpleadosService>();
                     services.AddTransient<VentasEmpleadosServices>();
@@ -49,6 +51,7 @@ namespace NorthwindAdmin
                     services.AddTransient<Form1>();
                     services.AddTransient<FrmProductos>();
                     services.AddTransient<FrmCategorias>();
+                    services.AddTransient<FrmProveedores>();
                     services.AddTransient<FrmClientes>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();

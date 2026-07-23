@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces;
+using Domain.Interfaces;
 using Domain.Models.DTO;
 
 namespace Domain.Services
@@ -27,20 +27,29 @@ namespace Domain.Services
         {
             await _product.UpdateProduct(product);
         }
+
         // Agrega un nuevo producto
         public async Task AddProduct(ProductDto product)
         {
             await _product.AddProduct(product);
         }
+
         // Elimina un producto por su ID
         public async Task DeleteProduct(int productId)
         {
             await _product.DeleteProduct(productId);
         }
+
         // Obtiene los productos de una categoría
         public async Task<List<ProductDto>> GetProductsByCategory(int categoryId)
         {
             return await _product.GetProductsByCategory(categoryId);
+        }
+
+        // Obtiene los productos de un proveedor
+        public async Task<List<ProductDto>> GetProductsBySupplier(int supplierId)
+        {
+            return await _product.GetProductsBySupplier(supplierId);
         }
     }
 }

@@ -88,5 +88,16 @@ namespace NorthwindAdmin
 
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmProveedores frm =
+                _serviceProvider.GetRequiredService<FrmProveedores>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+
+            this.Hide();
+        }
     }
 }
