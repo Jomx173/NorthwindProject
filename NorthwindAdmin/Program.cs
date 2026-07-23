@@ -30,11 +30,15 @@ namespace NorthwindAdmin
                     services.AddTransient<IEmployee, EmployeeRepository>();
                     services.AddTransient<IVentasEmpleados, VentasEmpleadosRepository>();
                     services.AddScoped<IOrder, OrderRepository>();
+                    services.AddScoped<Domain.Interfaces.ICategory, CategoryRepository>();
+                    services.AddScoped<IProduct, ProductRepository>();
 
 
                     // Servicios
                     services.AddScoped<CustomerService>();
                     services.AddScoped<OrderService>();
+                    services.AddScoped<CategoryService>();
+                    services.AddScoped<ProductService>();
                     services.AddTransient<ReportService>();
                     services.AddTransient<EmpleadosService>();
                     services.AddTransient<VentasEmpleadosServices>();
@@ -44,6 +48,7 @@ namespace NorthwindAdmin
                     services.AddTransient<FrmEmpleados>();
                     services.AddTransient<Form1>();
                     services.AddTransient<FrmProductos>();
+                    services.AddTransient<FrmCategorias>();
                     services.AddTransient<FrmClientes>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();

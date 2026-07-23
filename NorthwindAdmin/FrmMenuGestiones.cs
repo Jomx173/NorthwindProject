@@ -77,5 +77,16 @@ namespace NorthwindAdmin
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FrmCategorias frm =
+                _serviceProvider.GetRequiredService<FrmCategorias>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+
+            this.Hide();
+        }
     }
 }
