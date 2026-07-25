@@ -48,8 +48,8 @@ namespace NorthwindAdmin
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 frm =
-        _serviceProvider.GetRequiredService<Form1>();
+            FrmInventario frm =
+                _serviceProvider.GetRequiredService<FrmInventario>();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();

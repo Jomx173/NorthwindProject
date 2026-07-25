@@ -283,6 +283,10 @@ namespace NorthwindAdmin
                 dataGridView1.Columns["ProductName"].HeaderText = "Nombre";
                 dataGridView1.Columns["UnitPrice"].HeaderText = "Precio";
                 dataGridView1.Columns["UnitsInStock"].HeaderText = "Stock";
+
+                dataGridView1.Columns["UnitsOnOrder"].Visible = false;
+                dataGridView1.Columns["ReorderLevel"].Visible = false;
+                dataGridView1.Columns["SupplierId"].Visible = false;
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)

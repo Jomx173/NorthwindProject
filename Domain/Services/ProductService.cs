@@ -51,5 +51,20 @@ namespace Domain.Services
         {
             return await _product.GetProductsBySupplier(supplierId);
         }
+
+        public async Task<List<ProductDto>> GetLowStockProducts(int limite)
+        {
+            return await _product.GetLowStockProducts(limite);
+        }
+
+        public async Task<List<ProductDto>> GetOutOfStockProducts()
+        {
+            return await _product.GetOutOfStockProducts();
+        }
+
+        public async Task<List<ProductDto>> GetTopSellingProducts(int cantidad)
+        {
+            return await _product.GetTopSellingProducts(cantidad);
+        }
     }
 }

@@ -137,5 +137,10 @@ namespace NorthwindAdmin
             dgvProductos.DataSource =
                 await _productService.GetProductsBySupplier(proveedor.SupplierId);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

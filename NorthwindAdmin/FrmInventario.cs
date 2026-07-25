@@ -1,0 +1,130 @@
+﻿using Domain.Services;
+using System;
+using System.Windows.Forms;
+
+namespace NorthwindAdmin
+{
+    public partial class FrmInventario : Form
+    {
+        private readonly ProductService _productService;
+
+        public FrmInventario(ProductService productService)
+        {
+            InitializeComponent();
+
+            _productService = productService;
+
+            Load += FrmInventario_Load;
+        }
+
+        private async void FrmInventario_Load(object sender, EventArgs e)
+        {
+            dgvProducts.DataSource =
+                await _productService.GetProducts();
+
+            DarFormatoTabla();
+        }
+
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dgvProducts.DataSource =
+                await _productService.GetProducts();
+
+            DarFormatoTabla();
+        }
+
+        private async void btnLowStock_Click(object sender, EventArgs e)
+        {
+            dgvProducts.DataSource =
+                await _productService.GetLowStockProducts((int)numericUpDown1.Value);
+
+            DarFormatoTabla();
+        }
+
+        private async void btnOutOfStock_Click(object sender, EventArgs e)
+        {
+            dgvProducts.DataSource =
+                await _productService.GetOutOfStockProducts();
+
+            DarFormatoTabla();
+        }
+
+        private async void btnTopSelling_Click(object sender, EventArgs e)
+        {
+            dgvProducts.DataSource =
+                await _productService.GetTopSellingProducts((int)numericUpDown2.Value);
+
+            DarFormatoTabla();
+        }
+
+        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DarFormatoTabla()
+        {
+            dgvProducts.BackgroundColor = Color.White;
+            dgvProducts.BorderStyle = BorderStyle.None;
+            dgvProducts.GridColor = Color.FromArgb(221, 221, 221);
+
+            dgvProducts.EnableHeadersVisualStyles = false;
+            dgvProducts.RowHeadersVisible = false;
+
+            dgvProducts.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(25, 25, 111);
+
+            dgvProducts.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvProducts.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Nirmala UI", 10, FontStyle.Bold);
+
+            dgvProducts.DefaultCellStyle.Font =
+                new Font("Nirmala UI", 10);
+
+            dgvProducts.DefaultCellStyle.BackColor = Color.White;
+
+            dgvProducts.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(245, 245, 245);
+
+            dgvProducts.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvProducts.MultiSelect = false;
+            dgvProducts.ReadOnly = true;
+            dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.AllowUserToDeleteRows = false;
+            dgvProducts.AllowUserToResizeRows = false;
+            dgvProducts.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (dgvProducts.Columns.Count > 0)
+            {
+                if (dgvProducts.Columns.Contains("ProductId"))
+                    dgvProducts.Columns["ProductId"].HeaderText = "ID";
+
+                if (dgvProducts.Columns.Contains("ProductName"))
+                    dgvProducts.Columns["ProductName"].HeaderText = "Nombre";
+
+                if (dgvProducts.Columns.Contains("UnitPrice"))
+                    dgvProducts.Columns["UnitPrice"].HeaderText = "Precio";
+
+                if (dgvProducts.Columns.Contains("UnitsInStock"))
+                    dgvProducts.Columns["UnitsInStock"].HeaderText = "Stock";
+
+                if (dgvProducts.Columns.Contains("UnitsOnOrder"))
+                    dgvProducts.Columns["UnitsOnOrder"].Visible = false;
+
+                if (dgvProducts.Columns.Contains("ReorderLevel"))
+                    dgvProducts.Columns["ReorderLevel"].Visible = false;
+
+                if (dgvProducts.Columns.Contains("SupplierId"))
+                    dgvProducts.Columns["SupplierId"].Visible = false;
+
+                if (dgvProducts.Columns.Contains("CategoryId"))
+                    dgvProducts.Columns["CategoryId"].Visible = false;
+            }
+        }
+    }
+}

@@ -325,6 +325,7 @@ namespace NorthwindAdmin
             button6.TabIndex = 0;
             button6.Text = "INICIO";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // lblMainTitle
             // 

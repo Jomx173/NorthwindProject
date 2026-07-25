@@ -52,6 +52,7 @@ namespace NorthwindAdmin
                     services.AddTransient<FrmProductos>();
                     services.AddTransient<FrmCategorias>();
                     services.AddTransient<FrmProveedores>();
+                    services.AddTransient<FrmInventario>();
                     services.AddTransient<FrmClientes>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();

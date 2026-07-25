@@ -16,6 +16,10 @@ namespace Domain.Models.DTO
 
         public short? UnitsInStock { get; set; }
 
+        public short? UnitsOnOrder { get; set; }
+
+        public short? ReorderLevel { get; set; }
+
         public int? SupplierId { get; set; }
     }
 }

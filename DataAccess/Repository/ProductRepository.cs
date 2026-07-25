@@ -79,6 +79,64 @@ namespace DataAccess.Repository
                 .ToListAsync();
         }
 
+        // Productos con poco stock
+        public async Task<List<ProductDto>> GetLowStockProducts(int limite)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(p => p.UnitsInStock <= limite && p.UnitsInStock > 0)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock,
+                    UnitsOnOrder = p.UnitsOnOrder,
+                    ReorderLevel = p.ReorderLevel,
+                    SupplierId = p.SupplierId
+                })
+                .ToListAsync();
+        }
+
+        // Productos agotados
+        public async Task<List<ProductDto>> GetOutOfStockProducts()
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(p => p.UnitsInStock == 0)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock,
+                    UnitsOnOrder = p.UnitsOnOrder,
+                    ReorderLevel = p.ReorderLevel,
+                    SupplierId = p.SupplierId
+                })
+                .ToListAsync();
+        }
+
+        // Productos más vendidos
+        public async Task<List<ProductDto>> GetTopSellingProducts(int cantidad)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .OrderByDescending(p => p.UnitsOnOrder)
+                .Take(cantidad)
+                .Select(p => new ProductDto
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    UnitsInStock = p.UnitsInStock,
+                    UnitsOnOrder = p.UnitsOnOrder,
+                    ReorderLevel = p.ReorderLevel,
+                    SupplierId = p.SupplierId
+                })
+                .ToListAsync();
+        }
+
         // Agrega un nuevo producto
         public async Task AddProduct(ProductDto productDto)
         {
