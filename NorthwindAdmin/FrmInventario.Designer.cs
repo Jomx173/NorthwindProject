@@ -32,8 +32,6 @@
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
             button1 = new Button();
             label16 = new Label();
             label14 = new Label();
@@ -49,6 +47,7 @@
             btnTopSelling = new Button();
             numericUpDown1 = new NumericUpDown();
             numericUpDown2 = new NumericUpDown();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -58,11 +57,10 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(button6);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label16);
             panel1.Controls.Add(label14);
@@ -81,12 +79,13 @@
             button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button6.Image = Properties.Resources.dashboard1;
             button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(11, 508);
+            button6.Location = new Point(11, 469);
             button6.Name = "button6";
             button6.Size = new Size(234, 52);
             button6.TabIndex = 14;
             button6.Text = "DASHBOARD";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -99,42 +98,20 @@
             button5.TabIndex = 13;
             button5.Text = "CERRAR SESIÓN";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             button4.Image = Properties.Resources.reportes1;
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(11, 436);
+            button4.Location = new Point(11, 397);
             button4.Name = "button4";
             button4.Size = new Size(234, 52);
             button4.TabIndex = 12;
             button4.Text = "REPORTES";
             button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            button3.Image = Properties.Resources.controles1;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(11, 365);
-            button3.Name = "button3";
-            button3.Size = new Size(234, 52);
-            button3.TabIndex = 11;
-            button3.Text = "CONTROLES";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            button2.Image = Properties.Resources.gestiones1;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(11, 294);
-            button2.Name = "button2";
-            button2.Size = new Size(234, 52);
-            button2.TabIndex = 10;
-            button2.Text = "GESTIONES";
-            button2.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button1
             // 
@@ -147,6 +124,7 @@
             button1.TabIndex = 9;
             button1.Text = "INICIO";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label16
             // 
@@ -290,6 +268,19 @@
             numericUpDown2.Size = new Size(61, 27);
             numericUpDown2.TabIndex = 9;
             // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            button2.Image = Properties.Resources.gestiones1;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(11, 327);
+            button2.Name = "button2";
+            button2.Size = new Size(234, 52);
+            button2.TabIndex = 15;
+            button2.Text = "GESTIONES";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
             // FrmInventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -305,15 +296,11 @@
             Controls.Add(panel1);
             Name = "FrmInventario";
             Text = "FrmInventario";
-
-
-            ResumeLayout(false);
+            panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-
-
             ResumeLayout(false);
         }
 
@@ -323,8 +310,6 @@
         private Button button6;
         private Button button5;
         private Button button4;
-        private Button button3;
-        private Button button2;
         private Button button1;
         private Label label16;
         private Label label14;
@@ -340,5 +325,6 @@
         private Button btnTopSelling;
         private NumericUpDown numericUpDown1;
         private NumericUpDown numericUpDown2;
+        private Button button2;
     }
 }

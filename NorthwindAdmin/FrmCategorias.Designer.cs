@@ -60,6 +60,20 @@ namespace NorthwindAdmin
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategorias));
             panelContenido = new Panel();
+            panel2 = new Panel();
+            label1 = new Label();
+            label2 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             lblMainTitle = new Label();
             lblSubtitle = new Label();
             lblId = new Label();
@@ -90,25 +104,11 @@ namespace NorthwindAdmin
             btnReportes = new Button();
             btnDashBoard = new Button();
             btnCerrarSesion = new Button();
-            panel2 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
             panelContenido.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panelContenido
@@ -136,6 +136,189 @@ namespace NorthwindAdmin
             panelContenido.Name = "panelContenido";
             panelContenido.Size = new Size(1450, 850);
             panelContenido.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Navy;
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(label12);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button5);
+            panel2.Controls.Add(button6);
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(288, 858);
+            panel2.TabIndex = 16;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(45, 678);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(251, 29);
+            label1.TabIndex = 11;
+            label1.Text = "_________________";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(45, 277);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(251, 29);
+            label2.TabIndex = 12;
+            label2.Text = "_________________";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.ButtonFace;
+            label8.Location = new Point(45, 172);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(251, 29);
+            label8.TabIndex = 11;
+            label8.Text = "_________________";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.InactiveCaption;
+            label9.Location = new Point(96, 136);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(120, 23);
+            label9.TabIndex = 10;
+            label9.Text = "NORTHWIND";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
+            label10.ForeColor = SystemColors.InactiveCaption;
+            label10.Location = new Point(84, 59);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(148, 28);
+            label10.TabIndex = 9;
+            label10.Text = " DE SISTEMAS";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
+            label11.ForeColor = SystemColors.InactiveCaption;
+            label11.Location = new Point(84, 91);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(155, 28);
+            label11.TabIndex = 8;
+            label11.Text = "DE SOFTWARE";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
+            label12.ForeColor = SystemColors.InactiveCaption;
+            label12.Location = new Point(58, 27);
+            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(206, 28);
+            label12.TabIndex = 7;
+            label12.Text = "IMPLEMENTACIÓN ";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(14, 507);
+            button1.Name = "button1";
+            button1.Size = new Size(262, 60);
+            button1.TabIndex = 5;
+            button1.Text = "REPORTES";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(14, 735);
+            button2.Name = "button2";
+            button2.Size = new Size(259, 55);
+            button2.TabIndex = 4;
+            button2.Text = "CERRAR SESÍON";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(14, 604);
+            button3.Name = "button3";
+            button3.Size = new Size(262, 60);
+            button3.TabIndex = 3;
+            button3.Text = "DASHBOARD";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(14, 403);
+            button4.Name = "button4";
+            button4.Size = new Size(262, 60);
+            button4.TabIndex = 2;
+            button4.Text = "CONTROLES";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(11, 312);
+            button5.Name = "button5";
+            button5.Size = new Size(262, 62);
+            button5.TabIndex = 1;
+            button5.Text = "GESTIONES";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button6.Image = (Image)resources.GetObject("button6.Image");
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(11, 222);
+            button6.Name = "button6";
+            button6.Size = new Size(262, 52);
+            button6.TabIndex = 0;
+            button6.Text = "INICIO";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // lblMainTitle
             // 
@@ -449,183 +632,6 @@ namespace NorthwindAdmin
             btnCerrarSesion.TabIndex = 12;
             btnCerrarSesion.Text = "CERRAR SESIÓN";
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Navy;
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(label10);
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(label12);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button6);
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(288, 858);
-            panel2.TabIndex = 16;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(45, 678);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(251, 29);
-            label1.TabIndex = 11;
-            label1.Text = "_________________";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(45, 277);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(251, 29);
-            label2.TabIndex = 12;
-            label2.Text = "_________________";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonFace;
-            label8.Location = new Point(45, 172);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(251, 29);
-            label8.TabIndex = 11;
-            label8.Text = "_________________";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.InactiveCaption;
-            label9.Location = new Point(96, 136);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(120, 23);
-            label9.TabIndex = 10;
-            label9.Text = "NORTHWIND";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
-            label10.ForeColor = SystemColors.InactiveCaption;
-            label10.Location = new Point(84, 59);
-            label10.Margin = new Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(148, 28);
-            label10.TabIndex = 9;
-            label10.Text = " DE SISTEMAS";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
-            label11.ForeColor = SystemColors.InactiveCaption;
-            label11.Location = new Point(84, 91);
-            label11.Margin = new Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(155, 28);
-            label11.TabIndex = 8;
-            label11.Text = "DE SOFTWARE";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
-            label12.ForeColor = SystemColors.InactiveCaption;
-            label12.Location = new Point(58, 27);
-            label12.Margin = new Padding(4, 0, 4, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(206, 28);
-            label12.TabIndex = 7;
-            label12.Text = "IMPLEMENTACIÓN ";
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(14, 507);
-            button1.Name = "button1";
-            button1.Size = new Size(262, 60);
-            button1.TabIndex = 5;
-            button1.Text = "REPORTES";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(14, 735);
-            button2.Name = "button2";
-            button2.Size = new Size(259, 55);
-            button2.TabIndex = 4;
-            button2.Text = "CERRAR SESÍON";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(14, 604);
-            button3.Name = "button3";
-            button3.Size = new Size(262, 60);
-            button3.TabIndex = 3;
-            button3.Text = "DASHBOARD";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(14, 403);
-            button4.Name = "button4";
-            button4.Size = new Size(262, 60);
-            button4.TabIndex = 2;
-            button4.Text = "CONTROLES";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(11, 312);
-            button5.Name = "button5";
-            button5.Size = new Size(262, 62);
-            button5.TabIndex = 1;
-            button5.Text = "GESTIONES";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(11, 222);
-            button6.Name = "button6";
-            button6.Size = new Size(262, 52);
-            button6.TabIndex = 0;
-            button6.Text = "INICIO";
-            button6.UseVisualStyleBackColor = true;
-            // 
             // FrmCategorias
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -637,12 +643,12 @@ namespace NorthwindAdmin
             Load += FrmCategorias_Load;
             panelContenido.ResumeLayout(false);
             panelContenido.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
         #endregion

@@ -265,6 +265,7 @@ namespace NorthwindAdmin
             button1.TabIndex = 5;
             button1.Text = "REPORTES";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -277,6 +278,7 @@ namespace NorthwindAdmin
             button2.TabIndex = 4;
             button2.Text = "CERRAR SESÍON";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -289,6 +291,7 @@ namespace NorthwindAdmin
             button3.TabIndex = 3;
             button3.Text = "DASHBOARD";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -301,6 +304,7 @@ namespace NorthwindAdmin
             button4.TabIndex = 2;
             button4.Text = "CONTROLES";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -313,6 +317,7 @@ namespace NorthwindAdmin
             button5.TabIndex = 1;
             button5.Text = "GESTIONES";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 

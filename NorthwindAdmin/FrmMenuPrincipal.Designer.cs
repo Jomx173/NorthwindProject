@@ -139,6 +139,7 @@
             button5.TabIndex = 7;
             button5.Text = "CERRAR SESIÓN";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // pictureBox1
             // 

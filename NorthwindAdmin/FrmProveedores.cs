@@ -1,5 +1,7 @@
 using Domain.Models.DTO;
 using Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
+using NortwindAdmin;
 using System;
 using System.Windows.Forms;
 
@@ -9,6 +11,8 @@ namespace NorthwindAdmin
     {
         private readonly SupplierService _service;
         private readonly ProductService _productService;
+        private readonly ReportService _reportService;
+        private readonly VentasEmpleadosServices _ventasEmpleadosServices;
 
         public FrmProveedores(SupplierService service, ProductService productService)
         {
@@ -140,7 +144,63 @@ namespace NorthwindAdmin
 
         private void button6_Click(object sender, EventArgs e)
         {
+            FrmMenuPrincipal frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuPrincipal>();
 
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FrmMenuGestiones frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmInventario frm =
+            Program.ServiceProvider.GetRequiredService<FrmInventario>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenuReportes frm = new FrmMenuReportes(
+            _reportService, _ventasEmpleadosServices);
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm =
+            Program.ServiceProvider.GetRequiredService<FrmDashboard>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+            "¿Desea salir del sistema?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

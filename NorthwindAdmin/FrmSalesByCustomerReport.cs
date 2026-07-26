@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.Extensions.DependencyInjection;
+using NortwindAdmin;
 
 namespace NorthwindAdmin
 {
@@ -203,6 +204,37 @@ namespace NorthwindAdmin
         {
             FrmMenuPrincipal frm =
             Program.ServiceProvider.GetRequiredService<FrmMenuPrincipal>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+            "¿Desea salir del sistema?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            FrmInventario frm =
+            Program.ServiceProvider.GetRequiredService<FrmInventario>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm =
+            Program.ServiceProvider.GetRequiredService<FrmDashboard>();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();

@@ -45,6 +45,7 @@ namespace NorthwindAdmin
             this.Hide();
         }
 
+
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             FrmDashboard frm = new FrmDashboard();
@@ -63,6 +64,18 @@ namespace NorthwindAdmin
             frm.Show();
 
             this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+            "¿Desea salir del sistema?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+
         }
     }
 }

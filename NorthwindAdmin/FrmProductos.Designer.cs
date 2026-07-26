@@ -177,7 +177,7 @@
             label1.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(308, 32);
             label1.Name = "label1";
-            label1.Size = new Size(89, 19);
+            label1.Size = new Size(106, 23);
             label1.TabIndex = 1;
             label1.Text = "ID Producto";
             // 
@@ -186,7 +186,7 @@
             txtIdProducto.Font = new Font("Nirmala UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtIdProducto.Location = new Point(463, 26);
             txtIdProducto.Name = "txtIdProducto";
-            txtIdProducto.Size = new Size(251, 25);
+            txtIdProducto.Size = new Size(251, 30);
             txtIdProducto.TabIndex = 2;
             txtIdProducto.TextChanged += txtIdProducto_TextChanged;
             txtIdProducto.KeyPress += txtIdProducto_KeyPress;
@@ -253,7 +253,7 @@
             cmbCategorias.FormattingEnabled = true;
             cmbCategorias.Location = new Point(463, 62);
             cmbCategorias.Name = "cmbCategorias";
-            cmbCategorias.Size = new Size(251, 25);
+            cmbCategorias.Size = new Size(251, 31);
             cmbCategorias.TabIndex = 8;
             cmbCategorias.SelectedIndexChanged += cmbCategorias_SelectedIndexChanged;
             // 
@@ -263,7 +263,7 @@
             label2.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(308, 62);
             label2.Name = "label2";
-            label2.Size = new Size(79, 19);
+            label2.Size = new Size(93, 23);
             label2.TabIndex = 9;
             label2.Text = "Categoría:";
             // 
@@ -297,7 +297,7 @@
             label15.Location = new Point(45, 678);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new Size(197, 24);
+            label15.Size = new Size(251, 29);
             label15.TabIndex = 11;
             label15.Text = "_________________";
             label15.Click += label15_Click;
@@ -310,7 +310,7 @@
             label13.Location = new Point(45, 277);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(197, 24);
+            label13.Size = new Size(251, 29);
             label13.TabIndex = 12;
             label13.Text = "_________________";
             label13.Click += label13_Click;
@@ -323,7 +323,7 @@
             label7.Location = new Point(45, 172);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(197, 24);
+            label7.Size = new Size(251, 29);
             label7.TabIndex = 11;
             label7.Text = "_________________";
             // 
@@ -335,7 +335,7 @@
             label3.Location = new Point(96, 136);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(99, 19);
+            label3.Size = new Size(120, 23);
             label3.TabIndex = 10;
             label3.Text = "NORTHWIND";
             // 
@@ -347,7 +347,7 @@
             label4.Location = new Point(84, 59);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(119, 21);
+            label4.Size = new Size(148, 28);
             label4.TabIndex = 9;
             label4.Text = " DE SISTEMAS";
             // 
@@ -359,7 +359,7 @@
             label5.Location = new Point(84, 91);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(124, 21);
+            label5.Size = new Size(155, 28);
             label5.TabIndex = 8;
             label5.Text = "DE SOFTWARE";
             // 
@@ -371,7 +371,7 @@
             label6.Location = new Point(58, 27);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(166, 21);
+            label6.Size = new Size(206, 28);
             label6.TabIndex = 7;
             label6.Text = "IMPLEMENTACIÓN ";
             // 
@@ -386,6 +386,7 @@
             btnReportes.TabIndex = 5;
             btnReportes.Text = "REPORTES";
             btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.Click += btnReportes_Click;
             // 
             // btnCerrarSesion
             // 
@@ -398,6 +399,7 @@
             btnCerrarSesion.TabIndex = 4;
             btnCerrarSesion.Text = "CERRAR SESÍON";
             btnCerrarSesion.UseVisualStyleBackColor = true;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // btnDashBoard
             // 
@@ -410,6 +412,7 @@
             btnDashBoard.TabIndex = 3;
             btnDashBoard.Text = "DASHBOARD";
             btnDashBoard.UseVisualStyleBackColor = true;
+            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // btnControles
             // 
@@ -422,6 +425,7 @@
             btnControles.TabIndex = 2;
             btnControles.Text = "CONTROLES";
             btnControles.UseVisualStyleBackColor = true;
+            btnControles.Click += btnControles_Click;
             // 
             // btnGestiones
             // 
@@ -434,6 +438,7 @@
             btnGestiones.TabIndex = 1;
             btnGestiones.Text = "GESTIONES";
             btnGestiones.UseVisualStyleBackColor = true;
+            btnGestiones.Click += btnGestiones_Click;
             // 
             // btnInicio
             // 
@@ -446,6 +451,7 @@
             btnInicio.TabIndex = 0;
             btnInicio.Text = "INICIO";
             btnInicio.UseVisualStyleBackColor = true;
+            btnInicio.Click += btnInicio_Click;
             // 
             // FrmProductos
             // 

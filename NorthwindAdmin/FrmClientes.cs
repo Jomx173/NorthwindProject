@@ -322,8 +322,8 @@ namespace NorthwindAdmin
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Form1 frm =
-                   Program.ServiceProvider.GetRequiredService<Form1>();
+            FrmInventario frm =
+            Program.ServiceProvider.GetRequiredService<FrmInventario>();
 
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();

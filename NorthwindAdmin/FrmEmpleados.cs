@@ -1,10 +1,11 @@
 ﻿using Domain.Models.DTO;
 using Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
+using NortwindAdmin;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace NorthwindAdmin
 {
@@ -300,12 +301,33 @@ namespace NorthwindAdmin
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FrmInventario frm =
+            Program.ServiceProvider.GetRequiredService<FrmInventario>();
 
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            DialogResult respuesta = MessageBox.Show(
+            "¿Desea salir del sistema?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm =
+            Program.ServiceProvider.GetRequiredService<FrmDashboard>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
         }
     }
 }
