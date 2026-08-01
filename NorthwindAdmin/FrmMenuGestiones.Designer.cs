@@ -55,6 +55,7 @@
             pictureBox6 = new PictureBox();
             label13 = new Label();
             label14 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -364,12 +365,27 @@
             label14.TextAlign = ContentAlignment.MiddleCenter;
             label14.Click += label14_Click;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            button1.BackColor = Color.SteelBlue;
+            button1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(895, 33);
+            button1.Name = "button1";
+            button1.Size = new Size(139, 43);
+            button1.TabIndex = 30;
+            button1.Text = "SALIR";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // FrmMenuGestiones
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(1064, 596);
+            Controls.Add(button1);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(pictureBox6);
@@ -436,5 +452,6 @@
         private PictureBox pictureBox6;
         private Label label13;
         private Label label14;
+        private Button button1;
     }
 }

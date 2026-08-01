@@ -49,6 +49,17 @@ namespace NorthwindAdmin
                 if (dgvEmpleados.Columns["Phone"] != null) dgvEmpleados.Columns["Phone"].HeaderText = "Teléfono";
                 if (dgvEmpleados.Columns["Address"] != null) dgvEmpleados.Columns["Address"].HeaderText = "Dirección";
 
+                // Ocultar columnas que no quieres mostrar
+                if (dgvEmpleados.Columns["Country"] != null)
+                    dgvEmpleados.Columns["Country"].Visible = false;
+
+                if (dgvEmpleados.Columns["Title"] != null)
+                    dgvEmpleados.Columns["Title"].Visible = false;
+
+                if (dgvEmpleados.Columns["City"] != null)
+                    dgvEmpleados.Columns["City"].Visible = false;
+
+               
 
                 dgvEmpleados.Refresh();
             }
@@ -86,6 +97,15 @@ namespace NorthwindAdmin
                         if (dgvPedidos.Columns["OrderDate"] != null) dgvPedidos.Columns["OrderDate"].HeaderText = "Fecha Pedido";
                         if (dgvPedidos.Columns["ShipName"] != null) dgvPedidos.Columns["ShipName"].HeaderText = "Destinatario / Empresa";
                         if (dgvPedidos.Columns["ShipCity"] != null) dgvPedidos.Columns["ShipCity"].HeaderText = "Ciudad de Destino";
+
+                        if (dgvPedidos.Columns["CustomerName"] != null)
+                            dgvPedidos.Columns["CustomerName"].Visible = false;
+
+                        if (dgvPedidos.Columns["EmployeeName"] != null)
+                            dgvPedidos.Columns["EmployeeName"].Visible = false;
+
+                        if (dgvPedidos.Columns["Total"] != null)
+                            dgvPedidos.Columns["Total"].Visible = false;
                         dgvPedidos.Refresh();
                     }
                 }
@@ -155,10 +175,27 @@ namespace NorthwindAdmin
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                    string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                    string.IsNullOrWhiteSpace(txtHomePhone.Text) ||
+                    string.IsNullOrWhiteSpace(txtAddress.Text))
+                {
+                    MessageBox.Show("Todos los campos son obligatorios.");
+                    return;
+                }
+
+                bool existe = await _employeesServices.ExistsByName(
+                    txtFirstName.Text.Trim(),
+                    txtLastName.Text.Trim());
+
+                if (existe)
+                {
+                    MessageBox.Show("Este empleado ya existe.");
+                    return;
+                }
 
                 var nuevoEmp = new EmpleadosDto
                 {
-
                     FirstName = txtFirstName.Text.Trim(),
                     LastName = txtLastName.Text.Trim(),
                     Phone = txtHomePhone.Text.Trim(),
@@ -169,14 +206,14 @@ namespace NorthwindAdmin
 
                 if (exito)
                 {
-                    MessageBox.Show("¡Empleado registrado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("¡Empleado registrado con éxito!");
                     LimpiarCampos();
                     await CargarListaEmpleados();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al agregar: {ex.Message}", "Validación / Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message);
             }
         }
 

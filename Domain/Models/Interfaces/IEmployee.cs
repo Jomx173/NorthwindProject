@@ -26,5 +26,7 @@ namespace Domain.Models.Interfaces
         Task<bool> AddEmployee(EmpleadosDto employee);
 
         Task<bool> UpdateEmployee(EmpleadosDto employee);
+
+        Task<bool> ExistsByName(string firstName, string lastName);
     }
 }

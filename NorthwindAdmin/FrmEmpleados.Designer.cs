@@ -214,17 +214,17 @@
             dgvEmpleados.Location = new Point(283, 317);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(914, 224);
+            dgvEmpleados.Size = new Size(914, 211);
             dgvEmpleados.TabIndex = 9;
             // 
             // dgvPedidos
             // 
             dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPedidos.Location = new Point(283, 579);
+            dgvPedidos.Location = new Point(283, 562);
             dgvPedidos.Name = "dgvPedidos";
             dgvPedidos.RowHeadersWidth = 51;
-            dgvPedidos.Size = new Size(914, 224);
+            dgvPedidos.Size = new Size(914, 211);
             dgvPedidos.TabIndex = 10;
             // 
             // label5
@@ -243,7 +243,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(283, 549);
+            label6.Location = new Point(283, 532);
             label6.Name = "label6";
             label6.Size = new Size(207, 28);
             label6.TabIndex = 11;
@@ -278,12 +278,12 @@
             panel3.Controls.Add(label9);
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(262, 824);
+            panel3.Size = new Size(262, 790);
             panel3.TabIndex = 13;
             // 
             // button6
             // 
-            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            button6.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             button6.ImageAlign = ContentAlignment.MiddleLeft;
             button6.Location = new Point(11, 549);
             button6.Name = "button6";
@@ -295,7 +295,7 @@
             // 
             // button5
             // 
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            button5.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             button5.ImageAlign = ContentAlignment.MiddleLeft;
             button5.Location = new Point(11, 657);
             button5.Name = "button5";
@@ -307,7 +307,7 @@
             // 
             // button4
             // 
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            button4.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             button4.ImageAlign = ContentAlignment.MiddleLeft;
             button4.Location = new Point(11, 476);
             button4.Name = "button4";
@@ -319,7 +319,7 @@
             // 
             // button3
             // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            button3.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             button3.ImageAlign = ContentAlignment.MiddleLeft;
             button3.Location = new Point(11, 403);
             button3.Name = "button3";
@@ -331,7 +331,7 @@
             // 
             // button2
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            button2.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             button2.ImageAlign = ContentAlignment.MiddleLeft;
             button2.Location = new Point(11, 333);
             button2.Name = "button2";
@@ -343,7 +343,7 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(11, 215);
             button1.Name = "button1";
@@ -356,57 +356,60 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             label16.ForeColor = SystemColors.ButtonFace;
             label16.Location = new Point(11, 605);
             label16.Name = "label16";
-            label16.Size = new Size(234, 29);
+            label16.Size = new Size(236, 25);
             label16.TabIndex = 8;
-            label16.Text = "_________________";
+            label16.Text = "________________________________";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold);
             label14.ForeColor = SystemColors.ButtonFace;
             label14.Location = new Point(11, 271);
             label14.Name = "label14";
-            label14.Size = new Size(234, 29);
+            label14.Size = new Size(236, 25);
             label14.TabIndex = 6;
-            label14.Text = "_________________";
+            label14.Text = "________________________________";
             // 
             // label12
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label12.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             label12.ForeColor = SystemColors.InactiveCaption;
-            label12.Location = new Point(69, 131);
+            label12.Location = new Point(0, 131);
             label12.Name = "label12";
-            label12.Size = new Size(120, 23);
+            label12.Size = new Size(262, 40);
             label12.TabIndex = 4;
             label12.Text = "NORTHWIND";
+            label12.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label11
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label11.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             label11.ForeColor = SystemColors.InactiveCaption;
-            label11.Location = new Point(51, 49);
+            label11.Location = new Point(0, 49);
             label11.Name = "label11";
-            label11.Size = new Size(148, 28);
+            label11.Size = new Size(262, 45);
             label11.TabIndex = 3;
             label11.Text = " DE SISTEMAS";
+            label11.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label10.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             label10.ForeColor = SystemColors.InactiveCaption;
-            label10.Location = new Point(51, 77);
+            label10.Location = new Point(0, 77);
             label10.Name = "label10";
-            label10.Size = new Size(155, 28);
+            label10.Size = new Size(262, 45);
             label10.TabIndex = 2;
             label10.Text = "DE SOFTWARE";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -421,20 +424,21 @@
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold | FontStyle.Italic);
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label9.Font = new Font("Nirmala UI", 12F, FontStyle.Bold);
             label9.ForeColor = SystemColors.InactiveCaption;
-            label9.Location = new Point(26, 21);
+            label9.Location = new Point(0, 21);
             label9.Name = "label9";
-            label9.Size = new Size(206, 28);
+            label9.Size = new Size(262, 39);
             label9.TabIndex = 1;
             label9.Text = "IMPLEMENTACIÓN ";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FrmEmpleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1229, 749);
+            ClientSize = new Size(1229, 788);
             Controls.Add(panel3);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -444,7 +448,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FrmEmpleados";
-            Text = "FrmEmpleados";
+            Text = "Gestión Empleados";
             Load += FrmEmpleados_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
