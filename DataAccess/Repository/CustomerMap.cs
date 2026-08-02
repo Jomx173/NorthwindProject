@@ -14,7 +14,7 @@ namespace DataAccess.Repository
         {
             return new CustomerDto
             {
-                Id = customer.CustomerId,
+                CustomerId = customer.CustomerId,
                 ContactName = customer.ContactName,
                 ContactTitle = customer.ContactTitle,
                 Phone = customer.Phone,

@@ -14,7 +14,7 @@ namespace DataAccess.Repository
         {
             return new EmployeesDto
             {
-                Id = employee.EmployeeId.ToString(),
+                EmployeeId = employee.EmployeeId.ToString(),
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 Country = employee.Country,

@@ -14,7 +14,7 @@ namespace DataAccess.Repository
         {
             return new OrderDto
             {
-                OrderID = order.OrderId,
+                OrderId = order.OrderId,
                 CustomerName = order.Customer?.CompanyName ?? "",
                 EmployeeName = order.Employee != null
                     ? order.Employee.FirstName + " " + order.Employee.LastName

@@ -14,7 +14,7 @@ namespace DataAccess.Repository
         {
             return new OrderDetailDto
             {
-                OrderID = orderDetail.OrderId,
+                OrderId = orderDetail.OrderId,
                 ProductName = orderDetail.Product?.ProductName ?? "",
                 UnitPrice = orderDetail.UnitPrice,
                 Quantity = orderDetail.Quantity,

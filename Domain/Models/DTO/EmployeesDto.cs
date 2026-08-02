@@ -9,7 +9,7 @@ namespace Domain.Models.DTO
     public class EmployeesDto
     {
 
-        public String Id { get; set; }
+        public String EmployeeId { get; set; }
         public String FirstName { get; set; }
 
         public String LastName { get; set; }
