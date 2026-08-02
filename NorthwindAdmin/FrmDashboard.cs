@@ -50,7 +50,7 @@ namespace NortwindAdmin
             lblVentas.Text =
                 resumen.TotalVentas.ToString("C2");
 
-           
+
             var ordenes =
                 await _orderService.GetOrders();
 
@@ -58,7 +58,7 @@ namespace NortwindAdmin
 
             ConfigurarDataGridViewOrdenes();
 
-           
+
             var ventasEmpleado =
                 await _dashboardService.GetVentasPorEmpleado();
 
@@ -101,28 +101,45 @@ namespace NortwindAdmin
 
             chartVentasEmpleado.Series.Add(serie);
 
-            
-            var productos =
-                await _dashboardService.GetProductosMasVendidos();
+
+           
+            var productos = await _dashboardService.GetProductosMasVendidos();
 
             chartProductosVendidos.Series.Clear();
             chartProductosVendidos.ChartAreas.Clear();
             chartProductosVendidos.Legends.Clear();
 
             var areaProductos =
-                new System.Windows.Forms.DataVisualization
-                    .Charting.ChartArea("AreaProductos");
+                new System.Windows.Forms.DataVisualization.Charting.ChartArea(
+                    "AreaProductos"
+                );
 
             chartProductosVendidos.ChartAreas.Add(areaProductos);
 
+            
+            var leyendaProductos =
+                new System.Windows.Forms.DataVisualization.Charting.Legend(
+                    "LeyendaProductos"
+                );
+
+            chartProductosVendidos.Legends.Add(leyendaProductos);
+
+      
             var serieProductos =
-                chartProductosVendidos.Series.Add("Productos");
+                new System.Windows.Forms.DataVisualization.Charting.Series(
+                    "Productos"
+                );
 
             serieProductos.ChartType =
-                System.Windows.Forms.DataVisualization
-                    .Charting.SeriesChartType.Pie;
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
+            serieProductos.ChartArea = "AreaProductos";
+            serieProductos.Legend = "LeyendaProductos";
+
+      
             serieProductos.Label = "#PERCENT{P0}";
+
+            
             serieProductos.LegendText = "#VALX";
 
             foreach (var item in productos)
@@ -132,6 +149,9 @@ namespace NortwindAdmin
                     item.Cantidad
                 );
             }
+
+
+            chartProductosVendidos.Series.Add(serieProductos);
         }
 
         private void ConfigurarDataGridViewOrdenes()
@@ -159,7 +179,6 @@ namespace NortwindAdmin
                     DataGridViewContentAlignment.MiddleCenter;
             }
 
-            // Cliente
             if (dgvOrdenes.Columns["CustomerName"] != null)
             {
                 dgvOrdenes.Columns["CustomerName"].Visible = true;
