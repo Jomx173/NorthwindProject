@@ -5,6 +5,9 @@ using Domain.Models.Interfaces;
 using Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NortwindAdmin;
+using DataAccess.Repository;
+using Domain.Interfaces;
 
 namespace NorthwindAdmin
 {
@@ -26,23 +29,37 @@ namespace NorthwindAdmin
                     // Repositorios e interfaces
                     services.AddTransient<IEmployee, EmployeeRepository>();
                     services.AddTransient<IVentasEmpleados, VentasEmpleadosRepository>();
+                    services.AddScoped<IOrder, OrderRepository>();
+                    services.AddScoped<Domain.Interfaces.ICategory, CategoryRepository>();
+                    services.AddScoped<IProduct, ProductRepository>();
+                    services.AddScoped<ISupplier, SupplierRepository>();
+
 
                     // Servicios
                     services.AddScoped<CustomerService>();
+                    services.AddScoped<OrderService>();
+                    services.AddScoped<CategoryService>();
+                    services.AddScoped<ProductService>();
+                    services.AddScoped<SupplierService>();
                     services.AddTransient<ReportService>();
                     services.AddTransient<EmpleadosService>();
                     services.AddTransient<VentasEmpleadosServices>();
 
-                    // Formularios
+              
                     // Formularios
                     services.AddTransient<FrmEmpleados>();
                     services.AddTransient<Form1>();
                     services.AddTransient<FrmProductos>();
+                    services.AddTransient<FrmCategorias>();
+                    services.AddTransient<FrmProveedores>();
+                    services.AddTransient<FrmInventario>();
+                    services.AddTransient<FrmClientes>();
                     services.AddTransient<FrmMenuGestiones>();
                     services.AddTransient<FrmMenuReportes>();
                     services.AddTransient<FrmVentasEmpleados>();
                     services.AddTransient<FrmSalesByCustomerReport>();
                     services.AddTransient<FrmMenuPrincipal>();
+                    services.AddTransient<FrmDashboard>();
                 })
                 .Build();
 

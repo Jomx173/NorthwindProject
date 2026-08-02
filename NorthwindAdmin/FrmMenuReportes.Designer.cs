@@ -91,6 +91,7 @@
             button6.TabIndex = 14;
             button6.Text = "DASHBOARD";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -103,6 +104,7 @@
             button5.TabIndex = 13;
             button5.Text = "CERRAR SESIÓN";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -128,6 +130,7 @@
             button3.TabIndex = 11;
             button3.Text = "CONTROLES";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 

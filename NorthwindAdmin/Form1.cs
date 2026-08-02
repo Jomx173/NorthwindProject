@@ -1,5 +1,7 @@
 ﻿using DataAccess.Context;
 using DataAccess.Models;
+using Microsoft.Extensions.DependencyInjection;
+using NortwindAdmin;
 
 namespace NorthwindAdmin
 {
@@ -43,7 +45,7 @@ namespace NorthwindAdmin
             StartPosition = FormStartPosition.CenterScreen;
             ClientSize = new Size(1375, 790);
             MinimumSize = new Size(1375, 830);
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
 
             // Panel lateral según la referencia enviada.
             ConfigurarPanelIzquierdo(azulPanel);
@@ -206,7 +208,16 @@ namespace NorthwindAdmin
             Button btnReportesMenu = CrearBotonMenu("REPORTES", "reportes.png", 20, 445);
             Button btnDashboardMenu = CrearBotonMenu("DASHBOARD", "dashboard.png", 20, 515);
             Button btnCerrarMenu = CrearBotonMenu("CERRAR SESIÓN", "salir.png", 20, ClientSize.Height - 90);
+
             btnCerrarMenu.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+
+            // Eventos
+            btnInicioMenu.Click += BtnInicioMenu_Click;
+            btnGestionesMenu.Click += BtnGestionesMenu_Click;
+            btnControlesMenu.Click += BtnControlesMenu_Click;
+            btnReportesMenu.Click += BtnReportesMenu_Click;
+            btnDashboardMenu.Click += BtnDashboardMenu_Click;
+            btnCerrarMenu.Click += BtnCerrarMenu_Click;
 
             // El módulo actual pertenece a Gestiones.
             btnGestionesMenu.BackColor = Color.White;
@@ -745,5 +756,67 @@ namespace NorthwindAdmin
             public int Quantity { get; set; }
             public decimal Discount { get; set; }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnInicioMenu_Click(object? sender, EventArgs e)
+        {
+            FrmMenuPrincipal frm =
+                Program.ServiceProvider.GetRequiredService<FrmMenuPrincipal>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void BtnGestionesMenu_Click(object? sender, EventArgs e)
+        {
+            FrmMenuGestiones frm =
+                Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void BtnControlesMenu_Click(object? sender, EventArgs e)
+        {
+            Form1 frm =
+                Program.ServiceProvider.GetRequiredService<Form1>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void BtnReportesMenu_Click(object? sender, EventArgs e)
+        {
+            FrmMenuReportes frm =
+                Program.ServiceProvider.GetRequiredService<FrmMenuReportes>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void BtnDashboardMenu_Click(object? sender, EventArgs e)
+        {
+            FrmDashboard frm =
+                Program.ServiceProvider.GetRequiredService<FrmDashboard>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void BtnCerrarMenu_Click(object? sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
+
+
 }

@@ -58,5 +58,10 @@ namespace Domain.Services
         {
             return await _empleados.UpdateEmployee(employee);
         }
+
+        public async Task<bool> ExistsByName(string firstName, string lastName)
+        {
+            return await _empleados.ExistsByName(firstName, lastName);
+        }
     }
 }

@@ -1,10 +1,16 @@
 using Domain.Models.DTO;
 using Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
+using NortwindAdmin;
 
 namespace NorthwindAdmin
 {
+
     public partial class FrmProductos : Form
     {
+        private readonly ReportService _reportService;
+        private readonly VentasEmpleadosServices _ventasEmpleadosServices;
+
         // Servicio encargado de los productos
         private readonly ProductService _productService;
 
@@ -283,6 +289,10 @@ namespace NorthwindAdmin
                 dataGridView1.Columns["ProductName"].HeaderText = "Nombre";
                 dataGridView1.Columns["UnitPrice"].HeaderText = "Precio";
                 dataGridView1.Columns["UnitsInStock"].HeaderText = "Stock";
+
+                dataGridView1.Columns["UnitsOnOrder"].Visible = false;
+                dataGridView1.Columns["ReorderLevel"].Visible = false;
+                dataGridView1.Columns["SupplierId"].Visible = false;
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -313,6 +323,67 @@ namespace NorthwindAdmin
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+            "¿Desea salir del sistema?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            FrmMenuPrincipal frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuPrincipal>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnGestiones_Click(object sender, EventArgs e)
+        {
+            FrmMenuGestiones frm =
+            Program.ServiceProvider.GetRequiredService<FrmMenuGestiones>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            FrmMenuReportes frm = new FrmMenuReportes(
+            _reportService, _ventasEmpleadosServices);
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frm =
+            Program.ServiceProvider.GetRequiredService<FrmDashboard>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnControles_Click(object sender, EventArgs e)
+        {
+            FrmInventario frm =
+            Program.ServiceProvider.GetRequiredService<FrmInventario>();
+
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+            this.Hide();
         }
     }
 }

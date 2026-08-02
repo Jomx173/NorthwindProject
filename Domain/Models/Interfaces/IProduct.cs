@@ -21,5 +21,12 @@ namespace Domain.Interfaces
 
         // Obtiene los productos de una categoría
         Task<List<ProductDto>> GetProductsByCategory(int categoryId);
+        Task<List<ProductDto>> GetProductsBySupplier(int supplierId);
+
+        Task<List<ProductDto>> GetLowStockProducts(int limite);
+
+        Task<List<ProductDto>> GetOutOfStockProducts();
+
+        Task<List<ProductDto>> GetTopSellingProducts(int cantidad);
     }
 }
