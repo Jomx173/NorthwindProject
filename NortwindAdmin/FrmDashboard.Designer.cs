@@ -62,13 +62,11 @@
             panel1 = new Panel();
             pictureBox5 = new PictureBox();
             pictureBox7 = new PictureBox();
-            pictureBox6 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             label4 = new Label();
             button6 = new Button();
-            btndasboard = new Button();
             btncontroles = new Button();
             btnreportes = new Button();
             button2 = new Button();
@@ -86,7 +84,6 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -333,13 +330,11 @@
             panel1.BackColor = Color.DarkBlue;
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(pictureBox7);
-            panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(button6);
-            panel1.Controls.Add(btndasboard);
             panel1.Controls.Add(btncontroles);
             panel1.Controls.Add(btnreportes);
             panel1.Controls.Add(button2);
@@ -372,21 +367,11 @@
             pictureBox7.TabStop = false;
             pictureBox7.Click += pictureBox7_Click;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.BackColor = Color.White;
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(18, 428);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(45, 42);
-            pictureBox6.TabIndex = 17;
-            pictureBox6.TabStop = false;
-            // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.White;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(20, 367);
+            pictureBox4.Location = new Point(20, 391);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(53, 38);
             pictureBox4.TabIndex = 16;
@@ -396,7 +381,7 @@
             // 
             pictureBox3.BackColor = Color.White;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(22, 311);
+            pictureBox3.Location = new Point(22, 335);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(38, 38);
             pictureBox3.TabIndex = 15;
@@ -406,7 +391,7 @@
             // 
             pictureBox2.BackColor = Color.White;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(20, 238);
+            pictureBox2.Location = new Point(20, 262);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(53, 38);
             pictureBox2.TabIndex = 14;
@@ -432,20 +417,10 @@
             button6.Text = "CERRAR SESIÓN";
             button6.UseVisualStyleBackColor = true;
             // 
-            // btndasboard
-            // 
-            btndasboard.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btndasboard.Location = new Point(18, 428);
-            btndasboard.Name = "btndasboard";
-            btndasboard.Size = new Size(184, 43);
-            btndasboard.TabIndex = 5;
-            btndasboard.Text = "DASHBOARD";
-            btndasboard.UseVisualStyleBackColor = true;
-            // 
             // btncontroles
             // 
             btncontroles.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btncontroles.Location = new Point(18, 304);
+            btncontroles.Location = new Point(18, 328);
             btncontroles.Name = "btncontroles";
             btncontroles.Size = new Size(184, 45);
             btncontroles.TabIndex = 4;
@@ -455,7 +430,7 @@
             // btnreportes
             // 
             btnreportes.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnreportes.Location = new Point(18, 367);
+            btnreportes.Location = new Point(18, 391);
             btnreportes.Name = "btnreportes";
             btnreportes.Size = new Size(184, 42);
             btnreportes.TabIndex = 3;
@@ -465,7 +440,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button2.Location = new Point(18, 235);
+            button2.Location = new Point(18, 259);
             button2.Name = "button2";
             button2.Size = new Size(184, 45);
             button2.TabIndex = 2;
@@ -559,7 +534,6 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -600,13 +574,11 @@
         private Label label2;
         private Button btninicio;
         private Button button6;
-        private Button btndasboard;
         private Button btncontroles;
         private Button btnreportes;
         private Button button2;
         private Label label4;
         private PictureBox pictureBox7;
-        private PictureBox pictureBox6;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
