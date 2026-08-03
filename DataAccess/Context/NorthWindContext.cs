@@ -13,103 +13,102 @@ public partial class NorthWindContext : DbContext
 
     public NorthWindContext(DbContextOptions<NorthWindContext> options)
         : base(options)
-    {
-    }
+    {}
 
     public virtual DbSet<AlphabeticalListOfProduct> AlphabeticalListOfProducts { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
-public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; }
+    public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; }
 
-public virtual DbSet<Contact> Contacts { get; set; }
+    public virtual DbSet<Contact> Contacts { get; set; }
 
-public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; }
+    public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; }
 
-public virtual DbSet<Customer> Customers { get; set; }
+    public virtual DbSet<Customer> Customers { get; set; }
 
-public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; }
+    public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; }
 
-public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
+    public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
 
-public virtual DbSet<DwEmpleado> DwEmpleados { get; set; }
+    public virtual DbSet<DwEmpleado> DwEmpleados { get; set; }
 
-public virtual DbSet<Employee> Employees { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; }
 
-public virtual DbSet<Invoice> Invoices { get; set; }
+    public virtual DbSet<Invoice> Invoices { get; set; }
 
-public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
 
-public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
-public virtual DbSet<OrderDetailsExtended> OrderDetailsExtendeds { get; set; }
+    public virtual DbSet<OrderDetailsExtended> OrderDetailsExtendeds { get; set; }
 
-public virtual DbSet<OrderSubtotal> OrderSubtotals { get; set; }
+    public virtual DbSet<OrderSubtotal> OrderSubtotals { get; set; }
 
-public virtual DbSet<OrdersQry> OrdersQries { get; set; }
+    public virtual DbSet<OrdersQry> OrdersQries { get; set; }
 
-public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<Product> Products { get; set; }
 
-public virtual DbSet<ProductSalesFor1997> ProductSalesFor1997s { get; set; }
+    public virtual DbSet<ProductSalesFor1997> ProductSalesFor1997s { get; set; }
 
-public virtual DbSet<ProductsAboveAveragePrice> ProductsAboveAveragePrices { get; set; }
+    public virtual DbSet<ProductsAboveAveragePrice> ProductsAboveAveragePrices { get; set; }
 
-public virtual DbSet<ProductsByCategory> ProductsByCategories { get; set; }
+    public virtual DbSet<ProductsByCategory> ProductsByCategories { get; set; }
 
-public virtual DbSet<QuarterlyOrder> QuarterlyOrders { get; set; }
+    public virtual DbSet<QuarterlyOrder> QuarterlyOrders { get; set; }
 
-public virtual DbSet<Region> Regions { get; set; }
+    public virtual DbSet<Region> Regions { get; set; }
 
-public virtual DbSet<SalesByCategory> SalesByCategories { get; set; }
+    public virtual DbSet<SalesByCategory> SalesByCategories { get; set; }
 
-public virtual DbSet<SalesTotalsByAmount> SalesTotalsByAmounts { get; set; }
+    public virtual DbSet<SalesTotalsByAmount> SalesTotalsByAmounts { get; set; }
 
-public virtual DbSet<Shipper> Shippers { get; set; }
+    public virtual DbSet<Shipper> Shippers { get; set; }
 
-public virtual DbSet<SummaryOfSalesByQuarter> SummaryOfSalesByQuarters { get; set; }
+    public virtual DbSet<SummaryOfSalesByQuarter> SummaryOfSalesByQuarters { get; set; }
 
-public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYears { get; set; }
+    public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYears { get; set; }
 
-public virtual DbSet<Supplier> Suppliers { get; set; }
+    public virtual DbSet<Supplier> Suppliers { get; set; }
 
-public virtual DbSet<Territory> Territories { get; set; }
+    public virtual DbSet<Territory> Territories { get; set; }
 
-public virtual DbSet<VwClientesXempleado> VwClientesXempleados { get; set; }
+    public virtual DbSet<VwClientesXempleado> VwClientesXempleados { get; set; }
 
-public virtual DbSet<VwEjercicio1Per3> VwEjercicio1Per3s { get; set; }
+    public virtual DbSet<VwEjercicio1Per3> VwEjercicio1Per3s { get; set; }
 
-public virtual DbSet<VwEjercicio2Per3> VwEjercicio2Per3s { get; set; }
+    public virtual DbSet<VwEjercicio2Per3> VwEjercicio2Per3s { get; set; }
 
-public virtual DbSet<VwEjercicio4Per3> VwEjercicio4Per3s { get; set; }
+    public virtual DbSet<VwEjercicio4Per3> VwEjercicio4Per3s { get; set; }
 
-public virtual DbSet<VwEjercicio5Per3> VwEjercicio5Per3s { get; set; }
+    public virtual DbSet<VwEjercicio5Per3> VwEjercicio5Per3s { get; set; }
 
-public virtual DbSet<VwEjercicio6Per3> VwEjercicio6Per3s { get; set; }
+    public virtual DbSet<VwEjercicio6Per3> VwEjercicio6Per3s { get; set; }
 
-public virtual DbSet<VwEjercicio7Per3> VwEjercicio7Per3s { get; set; }
+    public virtual DbSet<VwEjercicio7Per3> VwEjercicio7Per3s { get; set; }
 
-public virtual DbSet<VwEjercicio8Per3> VwEjercicio8Per3s { get; set; }
+    public virtual DbSet<VwEjercicio8Per3> VwEjercicio8Per3s { get; set; }
 
-public virtual DbSet<VwNombrecategoriaproducto> VwNombrecategoriaproductos { get; set; }
+    public virtual DbSet<VwNombrecategoriaproducto> VwNombrecategoriaproductos { get; set; }
 
-public virtual DbSet<VwOrdenesprodu11> VwOrdenesprodu11s { get; set; }
+    public virtual DbSet<VwOrdenesprodu11> VwOrdenesprodu11s { get; set; }
 
-public virtual DbSet<VwOrdenesproducto11> VwOrdenesproducto11s { get; set; }
+    public virtual DbSet<VwOrdenesproducto11> VwOrdenesproducto11s { get; set; }
 
-public virtual DbSet<VwOrdenesxcliente> VwOrdenesxclientes { get; set; }
+    public virtual DbSet<VwOrdenesxcliente> VwOrdenesxclientes { get; set; }
 
-public virtual DbSet<VwOrdenesxcliente1> VwOrdenesxcliente1s { get; set; }
+    public virtual DbSet<VwOrdenesxcliente1> VwOrdenesxcliente1s { get; set; }
 
-public virtual DbSet<VwPrimeraVistum> VwPrimeraVista { get; set; }
+    public virtual DbSet<VwPrimeraVistum> VwPrimeraVista { get; set; }
 
-public virtual DbSet<VwProducto> VwProductos { get; set; }
+    public virtual DbSet<VwProducto> VwProductos { get; set; }
 
-public virtual DbSet<VwTotalOrdenesSinDescuento> VwTotalOrdenesSinDescuentos { get; set; }
+    public virtual DbSet<VwTotalOrdenesSinDescuento> VwTotalOrdenesSinDescuentos { get; set; }
 
-public virtual DbSet<Vwproductosentre4y20> Vwproductosentre4y20s { get; set; }
+    public virtual DbSet<Vwproductosentre4y20> Vwproductosentre4y20s { get; set; }
 
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-   => optionsBuilder.UseSqlServer("Server=localhost;Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+       => optionsBuilder.UseSqlServer("Server=localhost;Database=Northwind;Trusted_Connection=True;TrustServerCertificate=True;");
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

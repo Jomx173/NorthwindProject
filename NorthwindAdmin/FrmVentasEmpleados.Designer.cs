@@ -114,6 +114,7 @@
             btnLimpiar.TabIndex = 5;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click_1;
             // 
             // btnBuscar
             // 
@@ -125,6 +126,7 @@
             btnBuscar.TabIndex = 4;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click_1;
             // 
             // dtpHasta
             // 

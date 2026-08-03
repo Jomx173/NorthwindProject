@@ -229,7 +229,7 @@ namespace NorthwindAdmin
                 }
 
 
-                var idSeleccionado = dgvEmpleados.CurrentRow.Cells["EmployeesID"].Value?.ToString();
+                var idSeleccionado = dgvEmpleados.CurrentRow.Cells["EmployeeId"].Value?.ToString();
 
                 var empModificado = new EmpleadosDto
                 {

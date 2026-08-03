@@ -32,7 +32,7 @@ namespace NorthwindAdmin
             StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private async Task CargarReporte()
+        private async Task CargarReporte(DateTime fechaInicio, DateTime fechaFin)
         {
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date.AddDays(1).AddTicks(-1);
@@ -139,7 +139,7 @@ namespace NorthwindAdmin
             dtpDesde.Value = new DateTime(1996, 1, 1);
             dtpHasta.Value = new DateTime(1998, 12, 31);
 
-            await CargarReporte();
+            await CargarReporte(dtpDesde.Value, dtpHasta.Value);
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
@@ -149,15 +149,31 @@ namespace NorthwindAdmin
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            CargarReporte();
+            try
+            {
+                DateTime fechaInicio = dtpDesde.Value.Date;
+                DateTime fechaFin = dtpHasta.Value.Date.AddDays(1).AddTicks(-1);
+                if (fechaInicio > fechaFin)
+                {
+                    MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.",
+                                    "Rango inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                await CargarReporte(fechaInicio, fechaFin);
+            }catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al realizar la búsqueda: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private async void button2_Click(object sender, EventArgs e)
         {
             dtpDesde.Value = new DateTime(1996, 1, 1);
             dtpHasta.Value = new DateTime(1998, 12, 31);
 
-            await CargarReporte();
+            await CargarReporte(dtpDesde.Value, dtpHasta.Value);
         }
 
         private void dtpHasta_ValueChanged(object sender, EventArgs e)

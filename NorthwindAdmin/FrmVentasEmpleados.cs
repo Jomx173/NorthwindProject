@@ -31,10 +31,10 @@ namespace NorthwindAdmin
 
             ConfigurarTabla();
 
-            await CargarReporte();
+            await CargarReporte(dtpDesde.Value, dtpHasta.Value);
         }
 
-        private async Task CargarReporte()
+        private async Task CargarReporte(DateTime fechaInicio, DateTime fechaFin)
         {
             try
             {
@@ -209,7 +209,7 @@ namespace NorthwindAdmin
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            await CargarReporte();
+            await CargarReporte(dtpDesde.Value, dtpHasta.Value);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -358,6 +358,36 @@ namespace NorthwindAdmin
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
             this.Hide();
+        }
+
+        private async void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fechaInicio = dtpDesde.Value.Date;
+                DateTime fechaFin = dtpHasta.Value.Date.AddDays(1).AddTicks(-1);
+                if (fechaInicio > fechaFin)
+                {
+                    MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.",
+                                    "Rango inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                await CargarReporte(fechaInicio, fechaFin);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al realizar la búsqueda: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            dtpDesde.Value = new DateTime(1996, 1, 1);
+            dtpHasta.Value = new DateTime(1998, 12, 31);
+
+            await CargarReporte(dtpDesde.Value, dtpHasta.Value);
         }
     }
 
